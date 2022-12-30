@@ -1,0 +1,209 @@
+<html class="scroll-smooth">
+  <head>
+    <title>Ruby on Rails Job Board</title>
+  </head>
+  <body class="bg-white">
+    <header class="bg-white border-b border-neutral-200">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 " aria-label="Top">
+        <div class="max-w-5xl mx-auto py-8 flex items-center justify-between border-b border-neutral-300 lg:border-none">
+          <div class="flex items-center">
+            <a href="/">
+              <span class="sr-only">Ruby on Rails Job Board</span>
+            </a>
+            <div class="ml-10 hidden space-x-8 lg:block">
+            </div>
+          </div>
+          <div class="ml-10 flex-shrink-0">
+            <a class="inline-block py-2 px-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-[color:var(--primary-color)] hover:bg-[color:var(--primary-color-hover)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[color:var(--primary-color)]" href="/drafts/new">Post a job for for free</a>
+          </div>
+        </div>
+        <div class="flex flex-wrap justify-center space-x-6 py-4 lg:hidden">
+        </div>
+      </nav>
+    </header>
+    <div class="bg-neutral-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto py-10">
+          <div class="mb-4">
+            <turbo-frame id="new_subscriber">
+              <div class="bg-white shadow rounded-lg">
+                <div class="px-4 py-5 sm:p-6">
+                  <h2 class="text-xl font-extrabold text-neutral-900 sm:text-2xl">Ruby on Rails Jobs</h2>
+                  <div class="mt-1 text-neutral-500">
+                    <p>Get the best Ruby on Rails jobs delivered to your inbox weekly.</p>
+                  </div>
+                  <form class="mt-3 sm:flex sm:items-center" action="/subscribers" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="PT5tkEYr06yIlSr3PjT4dYz3IFtbrS4JZy9pe3sb6o1qCypgn0bhp1UCnJe2knecxlowSy_tGaYLnUTwgKgIrA" autocomplete="off">
+                    <div class="nwuz-ridsvthkflc_1671739509"><style media="screen">.nwuz-ridsvthkflc_1671739509 {display:none;}</style><label for="nwuz-ridsvthkflc">If you are a human, ignore this field</label><input type="text" name="nwuz-ridsvthkflc" id="nwuz-ridsvthkflc" autocomplete="off" tabindex="-1"><input type="hidden" name="spinner" id="spinner" value="b2f4f8c11a9a0b048ca6c27bd91f368d" autocomplete="off"></div>
+                      <div class="w-full">
+                        <label class="sr-only" for="subscriber_email">Email</label>
+                        <input placeholder="you@example.com" required="required" type="email" name="subscriber[email]" id="subscriber_email">
+                      </div>
+                      <input type="submit" name="commit" value="Subscribe" class="mt-3 sm:ml-3 sm:mt-0" data-disable-with="Subscribe">
+                  </form> </div>
+              </div>
+            </turbo-frame></div>
+            <ul role="list" class="space-y-4">
+              <li>
+                <a class="block bg-yellow-100 hover:bg-yellow-50 rounded-lg shadow border-2 border-yellow-400" href="/jobs/fake_path_1">
+                  <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 px-[.875rem] py-4 sm:px-[1.375rem]">
+                    <img class="flex-shrink-0 h-10 sm:h-14 w-10 sm:w-14 object-cover rounded-full" src="fake image url 1">
+                    <div class="w-full truncate">
+                      <div class="flex items-start justify-between truncate">
+                        <div class="truncate">
+                          <h3 class="text-lg font-medium text-neutral-800 truncate">Fake name 1</h3>
+                          <p class="text-sm text-neutral-700 truncate">Fake company 1</p>
+                        </div>
+                        <div class="ml-2 flex-shrink-0 hidden sm:flex">
+                          <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-50 text-yellow-800">Full-time</p>
+                        </div>
+                      </div>
+                      <div class="mt-2 sm:flex sm:justify-between truncate">
+                        <div class="flex flex-col gap-2 truncate">
+                          <p class="mt-4 flex items-center sm:hidden text-sm text-neutral-700 truncate">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-600" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                              <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
+                            </svg>
+                            <span class="truncate">Full-time</span>
+                          </p>
+                          <p class="flex items-center text-sm text-neutral-700 truncate">
+
+                            <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="truncate">Remote</span>
+                          </p>
+                          <div class="flex flex-shrink-0 items-center text-sm text-neutral-700 truncate">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-600">
+                              <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM6.262 6.072a8.25 8.25 0 1010.562-.766 4.5 4.5 0 01-1.318 1.357L14.25 7.5l.165.33a.809.809 0 01-1.086 1.085l-.604-.302a1.125 1.125 0 00-1.298.21l-.132.131c-.439.44-.439 1.152 0 1.591l.296.296c.256.257.622.374.98.314l1.17-.195c.323-.054.654.036.905.245l1.33 1.108c.32.267.46.694.358 1.1a8.7 8.7 0 01-2.288 4.04l-.723.724a1.125 1.125 0 01-1.298.21l-.153-.076a1.125 1.125 0 01-.622-1.006v-1.089c0-.298-.119-.585-.33-.796l-1.347-1.347a1.125 1.125 0 01-.21-1.298L9.75 12l-1.64-1.64a6 6 0 01-1.676-3.257l-.172-1.03z" clip-rule="evenodd"></path>
+                            </svg>
+                            <p class="truncate">North America, Europe</p>
+                          </div>
+                          <p class="flex items-center text-sm text-neutral-700 truncate">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-600" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="truncate">$90,000 - $120,000 yearly</span>
+                          </p>
+                        </div>
+                        <div class="mt-2 mb-2 flex flex-shrink-0 items-end text-sm text-neutral-700 sm:mt-0 sm:mb-0">
+
+                          <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-600" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                          </svg>
+                          <p>3 days ago</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a> </li>
+
+
+                <li>
+                  <a class="block bg-yellow-100 hover:bg-yellow-50 rounded-lg shadow border-2 border-yellow-400" href="/jobs/fake_path_2">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 px-[.875rem] py-4 sm:px-[1.375rem]">
+                      <img class="flex-shrink-0 h-10 sm:h-14 w-10 sm:w-14 object-cover rounded-full" src="fake image url 2">
+                      <div class="w-full truncate">
+                        <div class="flex items-start justify-between truncate">
+                          <div class="truncate">
+                            <h3 class="text-lg font-medium text-neutral-800 truncate">Fake name 2</h3>
+                            <p class="text-sm text-neutral-700 truncate">Fake company 2</p>
+                          </div>
+                          <div class="ml-2 flex-shrink-0 hidden sm:flex">
+                            <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-50 text-yellow-800">Full-time</p>
+                          </div>
+                        </div>
+                        <div class="mt-2 sm:flex sm:justify-between truncate">
+                          <div class="flex flex-col gap-2 truncate">
+                            <p class="mt-4 flex items-center sm:hidden text-sm text-neutral-700 truncate">
+
+                              <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-600" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                                <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
+                              </svg>
+                              <span class="truncate">Full-time</span>
+                            </p>
+                            <p class="flex items-center text-sm text-neutral-700 truncate">
+
+                              <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                              </svg>
+                              <span class="truncate">Remote</span>
+                            </p>
+                          </div>
+                          <div class="mt-2 mb-2 flex flex-shrink-0 items-end text-sm text-neutral-700 sm:mt-0 sm:mb-0">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-600" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                            </svg>
+                            <p>3 hours ago</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a> </li>
+                  <li>
+                    <a class="block bg-white hover:bg-neutral-50 rounded-lg shadow" href="/jobs/fake_path_3">
+                      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 px-4 py-4 sm:px-6">
+                        <div class="w-full truncate">
+                          <div class="flex items-start justify-between truncate">
+                            <div class="truncate">
+                              <h3 class="text-lg font-medium text-neutral-700 truncate">Fake name 3</h3>
+                              <p class="text-sm text-neutral-600 truncate">Fake company 3</p>
+                            </div>
+                            <div class="ml-2 flex-shrink-0 hidden sm:flex">
+                              <p class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-neutral-100 text-neutral-800">Full-time</p>
+                            </div>
+                          </div>
+                          <div class="mt-2 sm:flex sm:justify-between truncate">
+                            <div class="flex flex-col gap-2 truncate">
+                              <p class="mt-4 flex items-center sm:hidden text-sm text-neutral-500 truncate">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-400" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                                  <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
+                                </svg>
+                                <span class="truncate">Full-time</span>
+                              </p>
+                              <p class="flex items-center text-sm text-neutral-500 truncate">
+
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                  <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="truncate">Remote friendly</span>
+                              </p>
+                              <div class="flex flex-shrink-0 items-center text-sm text-neutral-500 truncate">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-400">
+                                  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM6.262 6.072a8.25 8.25 0 1010.562-.766 4.5 4.5 0 01-1.318 1.357L14.25 7.5l.165.33a.809.809 0 01-1.086 1.085l-.604-.302a1.125 1.125 0 00-1.298.21l-.132.131c-.439.44-.439 1.152 0 1.591l.296.296c.256.257.622.374.98.314l1.17-.195c.323-.054.654.036.905.245l1.33 1.108c.32.267.46.694.358 1.1a8.7 8.7 0 01-2.288 4.04l-.723.724a1.125 1.125 0 01-1.298.21l-.153-.076a1.125 1.125 0 01-.622-1.006v-1.089c0-.298-.119-.585-.33-.796l-1.347-1.347a1.125 1.125 0 01-.21-1.298L9.75 12l-1.64-1.64a6 6 0 01-1.676-3.257l-.172-1.03z" clip-rule="evenodd"></path>
+                                </svg>
+                                <p>North America</p>
+                              </div>
+                              <p class="flex items-center text-sm text-neutral-500 truncate">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-400" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="truncate">$120,000 - $170,000 yearly</span>
+                              </p>
+                            </div>
+                            <div class="mt-2 mb-2 flex flex-shrink-0 items-end text-sm text-neutral-500 sm:mt-0 sm:mb-0">
+
+                              <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 text-neutral-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                              </svg>
+                              <p>3 minutes ago</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a> </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
