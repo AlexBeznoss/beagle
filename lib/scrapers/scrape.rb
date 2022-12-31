@@ -27,10 +27,10 @@ module Scrapers
 
     private
 
-    attr_reader provider, page
+    attr_reader :provider, :page
 
     def scraper
-      return @scraper unless defined?(:@scraper)
+      return @scraper if @scraper
 
       klass = case provider
       when "gorails" then Gorails

@@ -1,0 +1,3 @@
+enqueue_scrapers:
+  cron: "*/30 * * * *"
+  class: "EnqueueScrapersJob"

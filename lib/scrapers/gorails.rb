@@ -7,7 +7,7 @@ module Scrapers
     def parse(body)
       doc = Nokogiri::HTML5.parse(body)
 
-      doc.css('body .bg-neutral-100 ul[role="list"] li').each do |job|
+      doc.css('body header ~ div ul[role="list"] li').each do |job|
         jobs.push(
           pid: pid_from(job),
           name: name_from(job),

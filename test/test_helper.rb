@@ -3,8 +3,17 @@ require_relative "../config/environment"
 require "rails/test_help"
 require "minitest/rails"
 require "webmock/minitest"
+require "sidekiq/testing"
+
+module SidekiqMinitestSupport
+  def after_teardown
+    Sidekiq::Worker.clear_all
+    super
+  end
+end
 
 class ActiveSupport::TestCase
+  include SidekiqMinitestSupport
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
