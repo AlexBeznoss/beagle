@@ -5,7 +5,7 @@ ruby "3.2.0"
 
 gem "rails", "~> 7.0.4"
 gem "propshaft"
-gem "sqlite3", "~> 1.4"
+gem "pg"
 gem "puma", "< 7"
 gem "importmap-rails"
 gem "turbo-rails"
