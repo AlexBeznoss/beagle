@@ -1,0 +1,27 @@
+<div class="border-b border-grey-lighter py-6 flex justify-between lg:py-12">
+  <div class="hidden sm:block">
+    <%= image_tag "logo.svg", alt: "logo", class: "w-96" %>
+  </div>
+  <div class="ml-3">
+    <h1 class="pt-3 font-body text-4xl font-semibold text-primary dark:text-white md:text-5xl lg:text-6xl">
+      <a href="/">BeagleJobs</a>
+    </h1>
+    <p class="pt-3 font-body text-xl font-light text-primary dark:text-white">
+      Accurate list of Remote Ruby jobs from 
+      <%= link_to "RubyJobBoard", provider_url("rubyjobboard"), target: "_blank" %>, 
+      <%= link_to "GoRails Jobs", provider_url("gorails"), target: "_blank" %>, 
+      <%= link_to "RemoteOK", provider_url("remoteok"), target: "_blank" %> 
+      and <%= link_to "RubyOnRemote", provider_url("rubyonremote"), target: "_blank" %>.
+    </p>
+  </div>
+</div>
+
+<div class="py-6 pb-16 lg:pb-20 lg:py-12">
+  <%= turbo_frame_tag "job_posts" do %>
+    <%= render @job_posts %>
+  <% end %>
+
+  <%= turbo_frame_tag "job_posts_pagination" do %>
+    <%= render partial: "/job_posts/pagination", locals: { pagy: @pagy } %>
+  <% end %>
+</div>

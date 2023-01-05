@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply font-body antialiased;
+}
+
+.container {
+  max-width: 600px;
+}
+
+@screen sm {
+  .container {
+    max-width: 700px;
+  }
+}
+
+@screen md {
+  .container {
+    max-width: 850px;
+  }
+}
+
+.turbo-progress-bar {
+  @apply h-1 bg-green-dark dark:bg-green-light;
+}
+
 /*
 
 @layer components {

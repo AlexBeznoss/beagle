@@ -1,0 +1,13 @@
+<div class="flex">
+  <% if pagy.prev %>
+    <%= link_to root_path(page: pagy.prev), class: "cursor-pointer border-2 border-primary px-3 py-1 font-body font-medium text-primary transition-colors hover:border-secondary hover:text-secondary dark:border-green-light dark:text-white dark:hover:border-secondary dark:hover:text-secondary", data: { "turbo-frame" => "_top" } do %>
+      <i class='bx bx-left-arrow-alt'></i>
+    <% end %>
+  <% end %>
+  <span class="<%= 'ml-3' if @pagy.prev %> border-2 border-secondary px-3 py-1 font-body font-medium text-secondary"><%= pagy.page %></span>
+  <% if pagy.next %>
+    <%= link_to root_path(page: pagy.next), class: "ml-3 cursor-pointer border-2 border-primary px-3 py-1 font-body font-medium text-primary transition-colors hover:border-secondary hover:text-secondary dark:border-green-light dark:text-white dark:hover:border-secondary dark:hover:text-secondary", data: { "turbo-frame" => "_top" } do %>
+      <i class='bx bx-right-arrow-alt'></i>
+    <% end %>
+  <% end %>
+</div>

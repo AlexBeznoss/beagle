@@ -1,0 +1,7 @@
+<%= turbo_stream.update "job_posts" do %>
+  <%= render @job_posts %>
+<% end %>
+
+<%= turbo_stream.update "job_posts_pagination" do %>
+  <%= render partial: "/job_posts/pagination", locals: { pagy: @pagy } %>
+<% end %>
