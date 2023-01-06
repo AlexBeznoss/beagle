@@ -117,6 +117,17 @@ GEM
       reline (>= 0.3.0)
     json (2.6.3)
     language_server-protocol (3.17.0.2)
+    logtail (0.1.7)
+      msgpack (~> 1.0)
+    logtail-rack (0.2.0)
+      logtail (~> 0.1)
+      rack (>= 1.2, < 3.0)
+    logtail-rails (0.1.7)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      logtail (~> 0.1)
+      logtail-rack (~> 0.1)
+      railties (>= 3.0.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -284,6 +295,7 @@ DEPENDENCIES
   factory_bot_rails
   honeybadger (~> 5.0)
   importmap-rails
+  logtail-rails (~> 0.1.7)
   minitest-rails
   minitest-stub-const
   nokogiri

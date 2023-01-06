@@ -20,6 +20,7 @@ gem "sidekiq"
 gem "sidekiq-cron"
 gem "pagy"
 gem "honeybadger", "~> 5.0"
+gem "logtail-rails", "~> 0.1.7"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
