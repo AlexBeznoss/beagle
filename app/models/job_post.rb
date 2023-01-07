@@ -1,4 +1,6 @@
 class JobPost < ApplicationRecord
+  has_one_attached :img
+
   enum provider: {
     gorails: 0,
     remoteok: 10,

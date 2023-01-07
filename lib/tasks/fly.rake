@@ -1,7 +1,7 @@
 # commands used to deploy a Rails application
 namespace :fly do
   task :console do
-    sh 'fly ssh console -C "app/bin/rails console"'
+    sh 'fly ssh console -r sea -C "app/bin/rails console"'
   end
 
   # BUILD step:

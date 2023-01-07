@@ -25,4 +25,14 @@ module JobPostsHelper
       )
     end
   end
+
+  def img_present?(job_post)
+    job_post.img.attached? || job_post.img_url.present?
+  end
+
+  def img_url(job_post)
+    return url_for(job_post.img) if job_post.img.attached?
+
+    job_post.img_url
+  end
 end
