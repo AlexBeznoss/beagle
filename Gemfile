@@ -23,6 +23,7 @@ gem "honeybadger", "~> 5.0"
 gem "logtail-rails", "~> 0.1.7"
 gem "fly-ruby"
 gem "foreman", require: false
+gem "health-monitor-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

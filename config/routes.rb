@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  with_honeybadger_auth =
+    lambda do |app|
+      Rack::Builder.new do
+        use HoneybadgerTokenAuth
+        run app
+      end
+    end
+
+  mount with_honeybadger_auth.call(HealthMonitor::Engine), at: "health"
   mount Sidekiq::Web => "admin/sidekiq"
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   root "job_posts#index"
 end
