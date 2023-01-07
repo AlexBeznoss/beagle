@@ -1,5 +1,9 @@
 # commands used to deploy a Rails application
 namespace :fly do
+  task :console do
+    sh 'fly ssh console -C "app/bin/rails console"'
+  end
+
   # BUILD step:
   #  - changes to the filesystem made here DO get deployed
   #  - NO access to secrets, volumes, databases
@@ -18,7 +22,8 @@ namespace :fly do
   #  - failures here result in VM being stated, shutdown, and rolled back
   #    to last successful deploy (if any).
   task server: :swapfile do
-    sh "foreman start -f Procfile.fly"
+    region = (ENV["FLY_REGION"] == "sea") ? "primary" : "secondary"
+    sh "foreman start -f Procfile.#{region}.fly"
   end
 
   # optional SWAPFILE task:
