@@ -17,7 +17,7 @@ module JobPostsHelper
       "rubyonremote" => "RubyOnRemote"
     }[provider]
 
-    link_to url, target: "_blank", class: "m-1.5", rel: "noopener" do
+    link_to url, target: "_blank", class: "m-1.5 hover:opacity-75", rel: "noopener" do
       content_tag(
         :span,
         name,

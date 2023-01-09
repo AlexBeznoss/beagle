@@ -1,12 +1,25 @@
-<div class="relative mb-12 block flex flex-col md:flex-row items-center justify-between border border-grey dark:border-grey-lighter rounded-md px-4 py-4 sm:px-6 hover:opacity-75">
+<div class="relative mb-12 block flex flex-col md:flex-row items-center justify-between border border-grey dark:border-grey-lighter rounded-md px-4 py-4 sm:px-6">
+  <div class="absolute right-2 -top-6" data-controller="dropdown">
+    <span class="cursor-pointer float-right text-lg text-primary dark:text-white hover:opacity-75" data-action="click->dropdown#toggle">
+      <i class="text-2xl bx bx-dots-horizontal-rounded"></i>
+    </span>
+
+    <div data-dropdown-target="container" class="hidden z-10 mt-8 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+      <div class="py-1" role="none">
+        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+        <%= link_to "Open", job_post.url, target: "_blank", class: "text-primary text-md block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900" %>
+        <%= link_to "Preview", job_post.url, data: { action: "preview-modal#open" }, class: "text-primary text-md block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-900" %>
+      </div>
+    </div>
+  </div>
   <div class="flex flex-row w-full sm:w-max">
     <% if img_present?(job_post)  %>
-      <%= link_to job_post.url, target: "_blank" do %>
+      <%= link_to job_post.url, target: "_blank", class: "hover:opacity-75" do %>
         <%= image_tag(img_url(job_post), alt: job_post.company, loading: "lazy", class: "h-12 w-12 mr-3 sm:h-16 sm:w-16 sm:mr-6 rounded-lg border border-grey border-2 dark:border-grey-lighter") %>
       <% end %>
     <% end %>
     <div class="flex flex-col justify-center align-center h-full max-w-[80%]">
-      <%= link_to job_post.url, target: "_blank" do %>
+      <%= link_to job_post.url, target: "_blank", class: "hover:opacity-75" do %>
         <h3 class="font-body text-lg font-semibold text-primary dark:text-white">
           <%= job_post.name %>
         </h3>
