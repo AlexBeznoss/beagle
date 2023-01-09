@@ -11,7 +11,7 @@ class JobPost < ApplicationRecord
   }
 
   meilisearch enqueue: :trigger_job do
-    attribute :name, :company, :location, :posted_at, :created_at
+    attribute :name, :company, :location, :created_at
     searchable_attributes %i[name company location]
     ranking_rules [
       "proximity",
@@ -20,7 +20,6 @@ class JobPost < ApplicationRecord
       "attribute",
       "sort",
       "exactness",
-      "posted_at:desc",
       "created_at:desc"
     ]
   end
