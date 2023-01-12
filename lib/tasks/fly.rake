@@ -1,6 +1,6 @@
 # commands used to deploy a Rails application
 namespace :fly do
-  task :console do
+  task :console do # rubocop:disable Rails/RakeEnvironment
     sh 'fly ssh console -r sea -C "app/bin/rails console"'
   end
 
@@ -32,7 +32,7 @@ namespace :fly do
   #    point where swap is rarely used.  'fly scale help' for details.
   #  - disable by removing dependency on the :server task, thus:
   #        task :server do
-  task :swapfile do
+  task :swapfile do # rubocop:disable Rails/RakeEnvironment
     sh "fallocate -l 512M /swapfile"
     sh "chmod 0600 /swapfile"
     sh "mkswap /swapfile"
