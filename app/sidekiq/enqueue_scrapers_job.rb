@@ -8,5 +8,16 @@ class EnqueueScrapersJob
     (1..3).to_a.each do |page|
       ScrapeJob.perform_async("rubyonremote", page)
     end
+
+    check_in
+  end
+
+  private
+
+  def check_in
+    Rails.application
+      .credentials
+      .dig(:honeybadger, :checkins, :start_scraping)
+      .then { |key| Honeybadger.check_in(key) }
   end
 end
