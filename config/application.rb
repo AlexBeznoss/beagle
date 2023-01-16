@@ -17,6 +17,7 @@ module Beagle
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
+    config.active_job.queue_adapter = :sidekiq
     config.eager_load_paths << Rails.root.join("lib")
   end
 end
