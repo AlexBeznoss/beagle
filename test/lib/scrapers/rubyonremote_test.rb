@@ -25,8 +25,7 @@ class Scrapers::RubyonremoteTest < ActiveSupport::TestCase
           url: "https://rubyonremote.com/jobs/fake_path_1",
           company: "Fake company 1",
           img_url: "fake image url 1",
-          location: "Europe",
-          posted_at: Date.parse("#{Time.zone.now.year}-12-18")
+          location: "Europe"
         },
         {
           pid: "fake_path_2",
@@ -34,8 +33,7 @@ class Scrapers::RubyonremoteTest < ActiveSupport::TestCase
           url: "https://rubyonremote.com/jobs/fake_path_2",
           company: "Fake company 2",
           img_url: "fake image url 2",
-          location: nil,
-          posted_at: Date.parse("#{Time.zone.now.year}-12-19")
+          location: nil
         },
         {
           pid: "fake_path_3",
@@ -43,8 +41,7 @@ class Scrapers::RubyonremoteTest < ActiveSupport::TestCase
           url: "https://rubyonremote.com/jobs/fake_path_3",
           company: "Fake company 3",
           img_url: "fake image url 3",
-          location: "North America",
-          posted_at: Date.parse("#{Time.zone.now.year}-12-20")
+          location: "North America"
         }
       ]
 

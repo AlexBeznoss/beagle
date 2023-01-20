@@ -28,7 +28,7 @@
   <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 w-max">
     <span class="m-1.5 w-fit inline-flex items-center rounded-lg bg-teal-100 px-2.5 py-0.5 text-sm font-medium text-teal-800">
       <i class="bx bx-calendar ml-0.5 mr-1.5 text-lg text-teal-600" ></i>
-      Posted <%= time_ago_in_words(job_post.posted_at || job_post.created_at) %> ago
+      Posted <%= time_ago_in_words(job_post.created_at) %> ago
     </span>
   </div>
 </div>

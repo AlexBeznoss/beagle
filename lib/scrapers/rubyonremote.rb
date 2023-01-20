@@ -14,8 +14,7 @@ module Scrapers
           url: url_from(job),
           company: company_from(job),
           img_url: image_url_from(job),
-          location: location_from(job),
-          posted_at: posted_at_from(job)
+          location: location_from(job)
         )
       end
     end
@@ -49,11 +48,6 @@ module Scrapers
       return unless icon
 
       icon.parent.next_element.text.strip
-    end
-
-    def posted_at_from(job)
-      job.at_css("h2").parent.next_element.at_css("p").text.strip
-        .then { |date| Date.parse(date) }
     end
   end
 end

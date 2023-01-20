@@ -14,8 +14,7 @@ module Scrapers
           name: name_from(job),
           url: url_from(job),
           company: company_from(job),
-          img_url: image_url_from(job),
-          posted_at: posted_at_from(job)
+          img_url: image_url_from(job)
         )
       end
     end
@@ -46,17 +45,6 @@ module Scrapers
 
     def remote?(job)
       job.at_css(".main").text.include?("Remote")
-    end
-
-    def posted_at_from(job)
-      data = job.at_css(".published-at").text.strip
-      number = data.match(/\d+/).to_s.to_i
-
-      if data.end_with?("h")
-        number.hours.ago.to_date
-      elsif data.end_with?("d")
-        number.days.ago.to_date
-      end
     end
   end
 end

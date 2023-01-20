@@ -24,7 +24,7 @@ class JobPost < ApplicationRecord
     ]
   end
 
-  scope :for_index, -> { includes(img_attachment: :blob).order(posted_at: :desc, created_at: :desc) }
+  scope :for_index, -> { includes(img_attachment: :blob).order(created_at: :desc) }
 
   validates :pid, :provider, :name, :url, presence: true
 

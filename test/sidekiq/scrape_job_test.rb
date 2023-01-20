@@ -5,7 +5,6 @@ class ScrapeJobTest < ActiveSupport::TestCase
     test "creates job posts from scraped jobs" do
       provider = "gorails"
       page = 123
-      today = Time.zone.now.to_date
       job1 = Scrapers::Scrape::JobData.new(
         provider:,
         pid: "pid1",
@@ -13,8 +12,7 @@ class ScrapeJobTest < ActiveSupport::TestCase
         url: "url1",
         company: "company1",
         img_url: "url1",
-        location: "location1",
-        posted_at: today
+        location: "location1"
       )
       job2 = Scrapers::Scrape::JobData.new(
         provider:,
@@ -23,8 +21,7 @@ class ScrapeJobTest < ActiveSupport::TestCase
         url: "url2",
         company: "company2",
         img_url: "url2",
-        location: "location2",
-        posted_at: today
+        location: "location2"
       )
       jobs = [job1, job2]
       scrape_mock = Minitest::Mock.new
@@ -42,7 +39,6 @@ class ScrapeJobTest < ActiveSupport::TestCase
     test "creates jobs with all attributes from job_data" do
       provider = "gorails"
       page = 13
-      yesterday = Time.zone.yesterday.to_date
       job = Scrapers::Scrape::JobData.new(
         provider:,
         pid: "pid",
@@ -50,8 +46,7 @@ class ScrapeJobTest < ActiveSupport::TestCase
         url: "url",
         company: "company",
         img_url: "img_url",
-        location: "location",
-        posted_at: yesterday
+        location: "location"
       )
       scrape_mock = Minitest::Mock.new
       scrape_mock.expect :call, [job], [provider, page]
@@ -67,7 +62,6 @@ class ScrapeJobTest < ActiveSupport::TestCase
         assert_equal "company", job_post.company
         assert_equal "img_url", job_post.img_url
         assert_equal "location", job_post.location
-        assert_equal Date.yesterday, job_post.posted_at
       end
     end
 
@@ -75,7 +69,6 @@ class ScrapeJobTest < ActiveSupport::TestCase
       test "not creates new ones" do
         provider = "gorails"
         page = 123
-        today = Time.zone.now.to_date
         job1 = Scrapers::Scrape::JobData.new(
           provider:,
           pid: "pid1",
@@ -83,8 +76,7 @@ class ScrapeJobTest < ActiveSupport::TestCase
           url: "url1",
           company: "company1",
           img_url: "url1",
-          location: "location1",
-          posted_at: today
+          location: "location1"
         )
         job2 = Scrapers::Scrape::JobData.new(
           provider:,
@@ -93,8 +85,7 @@ class ScrapeJobTest < ActiveSupport::TestCase
           url: "url2",
           company: "company2",
           img_url: "url2",
-          location: "location2",
-          posted_at: today
+          location: "location2"
         )
         jobs = [job1, job2]
         scrape_mock = Minitest::Mock.new

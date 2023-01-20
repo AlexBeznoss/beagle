@@ -14,8 +14,7 @@ module Scrapers
           url: url_from(job),
           company: company_from(job),
           img_url: image_url_from(job),
-          location: location_from(job),
-          posted_at: posted_at_from(job)
+          location: location_from(job)
         )
       end
     end
@@ -52,24 +51,6 @@ module Scrapers
       return unless icon
 
       icon.next_element.text.strip
-    end
-
-    def posted_at_from(job)
-      data = job.at('p:contains("day")')
-      data ||= job.at('p:contains("hour")')
-      data ||= job.at('p:contains("minute")')
-      return unless data
-
-      data = data.text.strip
-      number = data.match(/\d+/).to_s.to_i
-
-      if data.include?("minute")
-        number.minutes.ago.to_date
-      elsif data.include?("hour")
-        number.hours.ago.to_date
-      elsif data.include?("day")
-        number.days.ago.to_date
-      end
     end
   end
 end

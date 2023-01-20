@@ -1,8 +1,8 @@
 module Scrapers
   class Scrape
     JobData = Struct.new(
-      :provider, :pid, :name, :url, :company, :img_url,
-      :location, :posted_at, keyword_init: true
+      :provider, :pid, :name, :url, :company,
+      :img_url, :location, keyword_init: true
     )
 
     def self.call(...)

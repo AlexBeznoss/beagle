@@ -25,8 +25,7 @@ class Scrapers::GorailsTest < ActiveSupport::TestCase
           url: "https://jobs.gorails.com/jobs/fake_path_1",
           company: "Fake company 1",
           img_url: "fake image url 1",
-          location: "North America, Europe",
-          posted_at: 3.days.ago.to_date
+          location: "North America, Europe"
         },
         {
           pid: "fake_path_2",
@@ -34,8 +33,7 @@ class Scrapers::GorailsTest < ActiveSupport::TestCase
           url: "https://jobs.gorails.com/jobs/fake_path_2",
           company: "Fake company 2",
           img_url: "fake image url 2",
-          location: nil,
-          posted_at: 3.hours.ago.to_date
+          location: nil
         },
         {
           pid: "fake_path_3",
@@ -43,8 +41,7 @@ class Scrapers::GorailsTest < ActiveSupport::TestCase
           url: "https://jobs.gorails.com/jobs/fake_path_3",
           company: "Fake company 3",
           img_url: nil,
-          location: "North America",
-          posted_at: 3.minutes.ago.to_date
+          location: "North America"
         }
       ]
 

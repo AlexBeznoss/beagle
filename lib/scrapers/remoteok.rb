@@ -13,8 +13,7 @@ module Scrapers
           url: job["url"],
           company: job["company"],
           img_url: job["company_logo"],
-          location: job["location"].presence,
-          posted_at: Date.parse(job["date"])
+          location: job["location"].presence
         )
       end
     end
