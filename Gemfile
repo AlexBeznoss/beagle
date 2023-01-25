@@ -35,6 +35,8 @@ group :development, :test do
   gem "standard"
   gem "rubocop-rails", require: false
   gem "rubocop-performance", require: false
+  gem "bundler-audit"
+  gem "ruby_audit"
 end
 
 group :development do
