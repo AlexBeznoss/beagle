@@ -40,7 +40,8 @@ module Scrapers
     end
 
     def image_url_from(job)
-      job.at_css("img")[:src]
+      img = job.at_css("img")
+      img[:src] if img
     end
 
     def location_from(job)
