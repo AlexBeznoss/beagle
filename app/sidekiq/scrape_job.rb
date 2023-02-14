@@ -1,5 +1,6 @@
 class ScrapeJob
   include Sidekiq::Job
+  sidekiq_options retry: 3
 
   def perform(provider, page = nil)
     jobs = Scrapers::Scrape.call(provider, page)
