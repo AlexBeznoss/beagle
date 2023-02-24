@@ -11,8 +11,8 @@ class JobPost < ApplicationRecord
   }
 
   meilisearch enqueue: :trigger_job do
-    attribute :name, :company, :location, :created_at
-    searchable_attributes %i[name company location]
+    attribute :name, :company, :location, :provider_label, :created_at
+    searchable_attributes %i[name company location provider_label]
     ranking_rules [
       "proximity",
       "typo",
@@ -30,5 +30,14 @@ class JobPost < ApplicationRecord
 
   def self.trigger_job(record, remove)
     JobPosts::SearchIndexJob.perform_async(record.id, remove)
+  end
+
+  def provider_label
+    {
+      "remoteok" => "RemoteOK",
+      "gorails" => "GoRails",
+      "rubyjobboard" => "RubyJobBoard",
+      "rubyonremote" => "RubyOnRemote"
+    }[provider]
   end
 end

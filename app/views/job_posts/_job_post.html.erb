@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="flex flex-row flex-wrap mt-1 items-end md:mt-0 md:flex-col">
-    <%= provider_badge(job_post.provider) %>
+    <%= provider_badge(job_post.provider_label, job_post.provider) %>
     <% if job_post.location.present? %>
       <span class="m-1.5 w-fit inline-flex items-center rounded-lg bg-purple-100 px-2.5 py-0.5 text-sm font-medium text-purple-800">
         <i class="bx bx-globe ml-0.5 mr-1.5 text-lg text-purple-600" ></i>

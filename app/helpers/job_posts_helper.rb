@@ -8,19 +8,11 @@ module JobPostsHelper
     }[provider]
   end
 
-  def provider_badge(provider)
-    url = provider_url(provider)
-    name = {
-      "remoteok" => "RemoteOK",
-      "gorails" => "GoRails",
-      "rubyjobboard" => "RubyJobBoard",
-      "rubyonremote" => "RubyOnRemote"
-    }[provider]
-
-    link_to url, target: "_blank", class: "m-1.5", rel: "noopener" do
+  def provider_badge(provider_label, provider)
+    link_to provider_url(provider), target: "_blank", class: "m-1.5", rel: "noopener" do
       content_tag(
         :span,
-        name,
+        provider_label,
         class: "inline-flex items-center rounded-lg bg-pink-100 px-3 py-0.5 text-sm font-medium text-pink-800"
       )
     end
