@@ -15,13 +15,13 @@ module Scrapers
       self.class::HEADERS
     end
 
-    def raise_no_jobs!
-      raise NoJobsFound.new("No jobs found on #{url}")
-    end
-
     private
 
     attr_reader :page
+
+    def request_body
+      RequestBody.call(url, headers)
+    end
 
     def url_query
       return unless page

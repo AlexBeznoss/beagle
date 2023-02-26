@@ -12,9 +12,7 @@ module Scrapers
     end
 
     def call
-      body = RequestBody.call(scraper.url, scraper.headers)
-
-      scraper.call(body).tap do |jobs|
+      scraper.call.tap do |jobs|
         raise_no_jobs!(scraper.url) if jobs.empty?
       end
     end

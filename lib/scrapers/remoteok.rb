@@ -3,8 +3,8 @@ module Scrapers
     BASE_URL = "https://remoteok.com/remote-ruby-jobs.json"
     HEADERS = {Accept: "application/json"}
 
-    def call(body)
-      JSON.parse(body).map do |job|
+    def call
+      JSON.parse(request_body).map do |job|
         next if job["legal"]
 
         {

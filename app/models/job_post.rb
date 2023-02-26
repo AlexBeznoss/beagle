@@ -7,7 +7,8 @@ class JobPost < ApplicationRecord
     gorails: 0,
     remoteok: 10,
     rubyjobboard: 20,
-    rubyonremote: 30
+    rubyonremote: 30,
+    startupjobs: 40
   }
 
   meilisearch enqueue: :trigger_job do
@@ -37,7 +38,8 @@ class JobPost < ApplicationRecord
       "remoteok" => "RemoteOK",
       "gorails" => "GoRails",
       "rubyjobboard" => "RubyJobBoard",
-      "rubyonremote" => "RubyOnRemote"
+      "rubyonremote" => "RubyOnRemote",
+      "startupjobs" => "StartupJobs"
     }[provider]
   end
 end

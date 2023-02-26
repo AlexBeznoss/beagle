@@ -3,8 +3,8 @@ module Scrapers
     BASE_URL = "https://www.rubyjobboard.com/newest-ruby-on-rails-jobs"
     HEADERS = {}
 
-    def call(body)
-      doc = Nokogiri::HTML5.parse(body)
+    def call
+      doc = Nokogiri::HTML5.parse(request_body)
 
       doc.css("body #latest-jobs ul li .card").map do |job|
         next unless remote?(job)

@@ -44,10 +44,13 @@ class Scrapers::RemoteokTest < ActiveSupport::TestCase
           location: "North America"
         }
       ]
+      rb_mock = Minitest::Mock.new
+      rb_mock.expect :call, body, [scraper.url, scraper.headers]
 
-      result = scraper.call(body)
-
-      assert_equal result, expected_jobs
+      Scrapers.stub_const(:RequestBody, rb_mock) do
+        assert_equal scraper.call, expected_jobs
+        assert_mock rb_mock
+      end
     end
   end
 end

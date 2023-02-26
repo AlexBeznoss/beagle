@@ -42,9 +42,13 @@ class Scrapers::RubyjobboardTest < ActiveSupport::TestCase
         }
       ]
 
-      result = scraper.call(body)
+      rb_mock = Minitest::Mock.new
+      rb_mock.expect :call, body, [scraper.url, scraper.headers]
 
-      assert_equal result, expected_jobs
+      Scrapers.stub_const(:RequestBody, rb_mock) do
+        assert_equal scraper.call, expected_jobs
+        assert_mock rb_mock
+      end
     end
   end
 end
