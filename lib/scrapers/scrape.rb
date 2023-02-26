@@ -1,9 +1,6 @@
 module Scrapers
   class Scrape
-    JobData = Struct.new(
-      :provider, :pid, :name, :url, :company,
-      :img_url, :location, keyword_init: true
-    )
+    class NoJobsFound < StandardError; end
 
     def self.call(...)
       new(...).call
@@ -17,11 +14,8 @@ module Scrapers
     def call
       body = RequestBody.call(scraper.url, scraper.headers)
 
-      scraper.parse(body)
-      scraper.raise_no_jobs! if scraper.jobs.empty?
-
-      scraper.jobs.map do |job|
-        JobData.new(provider:, **job)
+      scraper.call(body).tap do |jobs|
+        raise_no_jobs!(scraper.url) if jobs.empty?
       end
     end
 
@@ -42,6 +36,10 @@ module Scrapers
       end
 
       @scraper = klass.new(page)
+    end
+
+    def raise_no_jobs!(url)
+      raise NoJobsFound.new("No jobs found on #{url}")
     end
   end
 end

@@ -5,24 +5,22 @@ class ScrapeJobTest < ActiveSupport::TestCase
     test "creates job posts from scraped jobs" do
       provider = "gorails"
       page = 123
-      job1 = Scrapers::Scrape::JobData.new(
-        provider:,
+      job1 = {
         pid: "pid1",
         name: "name1",
         url: "url1",
         company: "company1",
         img_url: "url1",
         location: "location1"
-      )
-      job2 = Scrapers::Scrape::JobData.new(
-        provider:,
+      }
+      job2 = {
         pid: "pid2",
         name: "name2",
         url: "url2",
         company: "company2",
         img_url: "url2",
         location: "location2"
-      )
+      }
       jobs = [job1, job2]
       scrape_mock = Minitest::Mock.new
       scrape_mock.expect :call, jobs, [provider, page]
@@ -39,15 +37,14 @@ class ScrapeJobTest < ActiveSupport::TestCase
     test "creates jobs with all attributes from job_data" do
       provider = "gorails"
       page = 13
-      job = Scrapers::Scrape::JobData.new(
-        provider:,
+      job = {
         pid: "pid",
         name: "name",
         url: "url",
         company: "company",
         img_url: "img_url",
         location: "location"
-      )
+      }
       scrape_mock = Minitest::Mock.new
       scrape_mock.expect :call, [job], [provider, page]
 
@@ -69,24 +66,22 @@ class ScrapeJobTest < ActiveSupport::TestCase
       test "not creates new ones" do
         provider = "gorails"
         page = 123
-        job1 = Scrapers::Scrape::JobData.new(
-          provider:,
+        job1 = {
           pid: "pid1",
           name: "name1",
           url: "url1",
           company: "company1",
           img_url: "url1",
           location: "location1"
-        )
-        job2 = Scrapers::Scrape::JobData.new(
-          provider:,
+        }
+        job2 = {
           pid: "pid2",
           name: "name2",
           url: "url2",
           company: "company2",
           img_url: "url2",
           location: "location2"
-        )
+        }
         jobs = [job1, job2]
         scrape_mock = Minitest::Mock.new
         scrape_mock.expect :call, jobs, [provider, page]

@@ -13,7 +13,7 @@ class Scrapers::RubyonremoteTest < ActiveSupport::TestCase
     end
   end
 
-  describe "#parse" do
+  describe "#call" do
     test "populate jobs from body" do
       scraper = Scrapers::Rubyonremote.new
       filepath = Rails.root.join(file_fixture("rubyonremote_example.turbo.html"))
@@ -45,19 +45,9 @@ class Scrapers::RubyonremoteTest < ActiveSupport::TestCase
         }
       ]
 
-      scraper.parse(body)
+      result = scraper.call(body)
 
-      assert_equal scraper.jobs, expected_jobs
-    end
-  end
-
-  describe "#raise_no_jobs!" do
-    test "raises exception with url" do
-      scraper = Scrapers::Rubyonremote.new
-
-      assert_raises Scrapers::NoJobsFound, "No jobs found on #{scraper.url}" do
-        scraper.raise_no_jobs!
-      end
+      assert_equal result, expected_jobs
     end
   end
 end

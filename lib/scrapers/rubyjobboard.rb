@@ -3,20 +3,20 @@ module Scrapers
     BASE_URL = "https://www.rubyjobboard.com/newest-ruby-on-rails-jobs"
     HEADERS = {}
 
-    def parse(body)
+    def call(body)
       doc = Nokogiri::HTML5.parse(body)
 
-      doc.css("body #latest-jobs ul li .card").each do |job|
+      doc.css("body #latest-jobs ul li .card").map do |job|
         next unless remote?(job)
 
-        jobs.push(
+        {
           pid: pid_from(job),
           name: name_from(job),
           url: url_from(job),
           company: company_from(job),
           img_url: image_url_from(job)
-        )
-      end
+        }
+      end.compact
     end
 
     private

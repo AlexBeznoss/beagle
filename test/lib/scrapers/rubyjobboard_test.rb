@@ -42,19 +42,9 @@ class Scrapers::RubyjobboardTest < ActiveSupport::TestCase
         }
       ]
 
-      scraper.parse(body)
+      result = scraper.call(body)
 
-      assert_equal scraper.jobs, expected_jobs
-    end
-  end
-
-  describe "#raise_no_jobs!" do
-    test "raises exception with url" do
-      scraper = Scrapers::Rubyjobboard.new
-
-      assert_raises Scrapers::NoJobsFound, "No jobs found on #{scraper.url}" do
-        scraper.raise_no_jobs!
-      end
+      assert_equal result, expected_jobs
     end
   end
 end

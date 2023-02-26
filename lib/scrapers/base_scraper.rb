@@ -1,16 +1,11 @@
 module Scrapers
-  class NoJobsFound < StandardError; end
-
   class BaseScraper
-    attr_reader :jobs
-
     def initialize(page = nil)
       @page = page
-      @jobs = []
     end
 
     def url
-      URI
+      @_url ||= URI
         .parse(self.class::BASE_URL)
         .tap { |url| url.query = url_query }
         .to_s
