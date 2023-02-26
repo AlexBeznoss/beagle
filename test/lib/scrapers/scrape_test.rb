@@ -5,7 +5,8 @@ class Scrapers::ScrapeTest < ActiveSupport::TestCase
     "gorails" => Scrapers::Gorails,
     "remoteok" => Scrapers::Remoteok,
     "rubyjobboard" => Scrapers::Rubyjobboard,
-    "rubyonremote" => Scrapers::Rubyonremote
+    "rubyonremote" => Scrapers::Rubyonremote,
+    "startupjobs" => Scrapers::Startupjobs
   }
   describe ".call" do
     describe "when provider is not supported" do

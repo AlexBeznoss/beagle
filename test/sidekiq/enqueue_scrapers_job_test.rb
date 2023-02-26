@@ -6,6 +6,7 @@ class EnqueueScrapersJobTest < ActiveSupport::TestCase
       expected_args = [
         ["gorails"],
         ["remoteok"],
+        ["startupjobs"],
         # NOTE: uncomment when rubyjobboard get up
         # ["rubyjobboard"],
         ["rubyonremote", 1],
@@ -17,7 +18,7 @@ class EnqueueScrapersJobTest < ActiveSupport::TestCase
 
       EnqueueScrapersJob.new.perform
 
-      assert_equal 5, ScrapeJob.jobs.size
+      assert_equal 6, ScrapeJob.jobs.size
       assert_equal expected_args, ScrapeJob.jobs.pluck("args").sort
     end
   end
