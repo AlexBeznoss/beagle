@@ -1,6 +1,9 @@
 name: Verify
 on: [push]
 
+env:
+  RAILS_ENV: test
+
 jobs:
   linters:
     name: Linters
@@ -52,7 +55,6 @@ jobs:
 
       - name: Setup test database
         env:
-          RAILS_ENV: test
           DB_HOST: localhost
           DB_USER: postgres
           DB_PASSWORD: test
@@ -61,7 +63,6 @@ jobs:
 
       - name: Run tests
         env:
-          RAILS_ENV: test
           DB_HOST: localhost
           DB_USER: postgres
           DB_PASSWORD: test
