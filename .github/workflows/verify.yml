@@ -1,0 +1,57 @@
+name: Verify
+on: [push]
+
+jobs:
+  linters:
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Run linters
+        run: |
+          bundle exec rubocop --parallel
+
+      - name: Run security checks
+        run: |
+          bundle exec bundler-audit --update
+          bundle exec ruby-audit check
+          bundle exec brakeman -q -w2
+
+    tests:
+      name: Tests
+      runs-on: ubuntu-latest
+      services:
+        postgres:
+          image: postgres:14
+          env:
+            POSTGRES_USER: beagle
+            POSTGRES_DB: beagle_test
+            POSTGRES_PASSWORD: ""
+            ports: ["5432:5432"]
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Setup Ruby and install gems
+          uses: ruby/setup-ruby@v1
+          with:
+            bundler-cache: true
+
+        - name: Setup test database
+          env:
+            RAILS_ENV: test
+            DB_HOST: localhost
+            DB_USER: beagle
+            run: |
+              bundle exec rails db:setup
+
+        - name: Run tests
+          run: bundle exec rails test:all
