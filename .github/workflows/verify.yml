@@ -7,22 +7,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
 
-      - name: Run linters
-        run: |
-          bundle exec rubocop --parallel
-
       - name: Run security checks
         run: |
           bundle exec bundler-audit --update
           bundle exec ruby-audit check
           bundle exec brakeman -q -w2
+
+      - name: Run linters
+        run: |
+          bundle exec rubocop
+
 
   tests:
     name: Tests
@@ -34,10 +35,15 @@ jobs:
           POSTGRES_DB: beagle_test
           POSTGRES_PASSWORD: ""
         ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
