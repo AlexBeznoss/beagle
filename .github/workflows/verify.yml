@@ -49,8 +49,13 @@ jobs:
           RAILS_ENV: test
           DB_HOST: localhost
           DB_USER: postgres
-        run: |
-          bundle exec rails db:setup
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+        run: bundle exec rails db:setup
 
       - name: Run tests
+        env:
+          RAILS_ENV: test
+          DB_HOST: localhost
+          DB_USER: postgres
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: bundle exec rails test:all
