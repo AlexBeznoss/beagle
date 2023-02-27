@@ -1,24 +1,8 @@
-# README
+# [BeableJobs](https://beaglejobs.com)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Small app to accumulate ruby job posts from GoRails, RemoteOK, RubyJobBoard, RubyOnRemote, StartupJobs into a single job board.
 
-Things you may want to cover:
+## Usefull tasks
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `rails fly:console` - ssh to an app in sea region
+- `rails meilisearch:reindex` - reindex job posts in meilisearch
