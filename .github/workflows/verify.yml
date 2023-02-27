@@ -31,7 +31,6 @@ jobs:
       postgres:
         image: postgres:14
         env:
-          POSTGRES_USER: beagle
           POSTGRES_DB: beagle_test
           POSTGRES_PASSWORD: ""
         ports: ["5432:5432"]
@@ -49,7 +48,7 @@ jobs:
         env:
           RAILS_ENV: test
           DB_HOST: localhost
-          DB_USER: beagle
+          DB_USER: postgres
         run: |
           bundle exec rails db:setup
 
