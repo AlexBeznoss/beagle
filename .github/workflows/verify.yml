@@ -33,7 +33,7 @@ jobs:
         image: postgres:14
         env:
           POSTGRES_DB: beagle_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: "test"
         ports: ["5432:5432"]
         options: >-
           --health-cmd pg_isready
@@ -55,6 +55,7 @@ jobs:
           RAILS_ENV: test
           DB_HOST: localhost
           DB_USER: postgres
+          DB_PASSWORD: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: bundle exec rails db:setup
 
