@@ -34,7 +34,7 @@ jobs:
           POSTGRES_USER: beagle
           POSTGRES_DB: beagle_test
           POSTGRES_PASSWORD: ""
-          ports: ["5432:5432"]
+        ports: ["5432:5432"]
 
     steps:
       - name: Checkout code
