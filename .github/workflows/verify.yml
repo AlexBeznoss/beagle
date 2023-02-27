@@ -14,15 +14,15 @@ jobs:
         with:
           bundler-cache: true
 
+      - name: Run linters
+        run: |
+          bundle exec rubocop
+
       - name: Run security checks
         run: |
           bundle exec bundler-audit --update
           bundle exec ruby-audit check
           bundle exec brakeman -q -w2
-
-      - name: Run linters
-        run: |
-          bundle exec rubocop
 
 
   tests:
@@ -64,5 +64,6 @@ jobs:
           RAILS_ENV: test
           DB_HOST: localhost
           DB_USER: postgres
+          DB_PASSWORD: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: bundle exec rails test:all
