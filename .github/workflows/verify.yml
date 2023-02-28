@@ -15,11 +15,10 @@ jobs:
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: false
+          bundler-cache: true
 
       - name: Run linters
         run: |
-          bundle install
           bundle exec rubocop
 
       - name: Run security checks
