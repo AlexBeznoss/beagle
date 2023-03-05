@@ -7,6 +7,7 @@ class EnqueueScrapersJobTest < ActiveSupport::TestCase
         ["gorails"],
         ["remoteok"],
         ["startupjobs"],
+        ["weworkremotely"],
         # NOTE: uncomment when rubyjobboard get up
         # ["rubyjobboard"],
         ["rubyonremote", 1],
@@ -18,7 +19,7 @@ class EnqueueScrapersJobTest < ActiveSupport::TestCase
 
       EnqueueScrapersJob.new.perform
 
-      assert_equal 6, ScrapeJob.jobs.size
+      assert_equal 7, ScrapeJob.jobs.size
       assert_equal expected_args, ScrapeJob.jobs.pluck("args").sort
     end
   end

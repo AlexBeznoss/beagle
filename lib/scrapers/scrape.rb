@@ -30,6 +30,7 @@ module Scrapers
       when "rubyjobboard" then Rubyjobboard
       when "rubyonremote" then Rubyonremote
       when "startupjobs" then Startupjobs
+      when "weworkremotely" then Weworkremotely
       else
         raise "Provider #{provider} is not supported"
       end

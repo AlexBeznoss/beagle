@@ -6,7 +6,8 @@ class Scrapers::ScrapeTest < ActiveSupport::TestCase
     "remoteok" => Scrapers::Remoteok,
     "rubyjobboard" => Scrapers::Rubyjobboard,
     "rubyonremote" => Scrapers::Rubyonremote,
-    "startupjobs" => Scrapers::Startupjobs
+    "startupjobs" => Scrapers::Startupjobs,
+    "weworkremotely" => Scrapers::Weworkremotely
   }
   describe ".call" do
     describe "when provider is not supported" do

@@ -5,7 +5,8 @@ module JobPostsHelper
       "gorails" => "https://jobs.gorails.com/",
       "rubyjobboard" => "https://www.rubyjobboard.com/newest-ruby-on-rails-jobs",
       "rubyonremote" => "https://rubyonremote.com",
-      "startupjobs" => "https://startup.jobs"
+      "startupjobs" => "https://startup.jobs",
+      "weworkremotely" => "https://weworkremotely.com"
     }[provider]
   end
 
