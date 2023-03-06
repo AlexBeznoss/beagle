@@ -21,9 +21,13 @@ namespace :fly do
   #  - full access to secrets, databases
   #  - failures here result in VM being stated, shutdown, and rolled back
   #    to last successful deploy (if any).
-  task server: :swapfile do
-    region = (ENV["FLY_REGION"] == "sea") ? "primary" : "secondary"
-    sh "foreman start -f Procfile.#{region}.fly"
+  task :run, [:cmd] => :swapfile do |_, args|
+    case args[:cmd]
+    when "server"
+      sh "bin/rails server"
+    else
+      sh "bundle exec #{args[:cmd]}"
+    end
   end
 
   # optional SWAPFILE task:

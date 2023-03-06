@@ -1,6 +1,6 @@
 # fly.toml file generated for beagle on 2023-01-06T19:05:52+02:00
 
-app = "beagle"
+app = "beagle-next"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -8,7 +8,7 @@ processes = []
 [build]
   [build.args]
     BUILD_COMMAND = "bin/rails fly:build"
-    SERVER_COMMAND = "bin/rails fly:server"
+    SERVER_COMMAND = "bin/rails fly:run[server]"
 
 [deploy]
   release_command = "bin/rails fly:release"
@@ -21,10 +21,14 @@ processes = []
   allowed_public_ports = []
   auto_rollback = true
 
+[processes]
+  web = "bin/rails fly:run[server]"
+  workers = "bin/rails fly:run[sidekiq]"
+
 [[services]]
   http_checks = []
   internal_port = 8080
-  processes = ["app"]
+  processes = ["web"]
   protocol = "tcp"
   script_checks = []
   [services.concurrency]

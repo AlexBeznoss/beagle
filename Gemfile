@@ -21,7 +21,6 @@ gem "sidekiq-cron"
 gem "pagy"
 gem "honeybadger", "~> 5.0"
 gem "logtail-rails", "~> 0.1.7"
-gem "foreman", require: false
 gem "health-monitor-rails"
 gem "aws-sdk-s3", require: false
 gem "down"
