@@ -127,8 +127,6 @@ GEM
       concurrent-ruby (~> 1.1)
       webrick (~> 1.7)
       websocket-driver (>= 0.6, < 0.8)
-    fly-ruby (0.5.1)
-      rack (~> 2.0)
     foreman (0.87.2)
     fugit (1.8.1)
       et-orbi (~> 1, >= 1.2.7)
@@ -352,7 +350,6 @@ DEPENDENCIES
   excon
   factory_bot_rails
   ferrum
-  fly-ruby
   foreman
   health-monitor-rails
   honeybadger (~> 5.0)

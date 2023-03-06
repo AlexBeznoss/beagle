@@ -15,12 +15,32 @@ class EnqueueScrapersJobTest < ActiveSupport::TestCase
         ["rubyonremote", 3]
       ].sort
 
-      assert_equal 0, ScrapeJob.jobs.size
+      lbm = lambda do |lock_name, &block|
+        assert_equal "EnqueueScrapersJobLock", lock_name
+        block.call
+      end
 
-      EnqueueScrapersJob.new.perform
+      CallOnceLockService.stub :call, lbm do
+        assert_changes "ScrapeJob.jobs.size", from: 0, to: 7 do
+          EnqueueScrapersJob.new.perform
+        end
 
-      assert_equal 7, ScrapeJob.jobs.size
-      assert_equal expected_args, ScrapeJob.jobs.pluck("args").sort
+        assert_equal expected_args, ScrapeJob.jobs.pluck("args").sort
+      end
+    end
+  end
+
+  describe "when lock not call block" do
+    test "not enqueue jobs" do
+      lbm = lambda do |lock_name, &block|
+        assert_equal "EnqueueScrapersJobLock", lock_name
+      end
+
+      CallOnceLockService.stub :call, lbm do
+        assert_no_changes "ScrapeJob.jobs.size" do
+          EnqueueScrapersJob.new.perform
+        end
+      end
     end
   end
 end

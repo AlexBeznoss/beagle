@@ -4,16 +4,38 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5  } %>
 
 development:
-  <<: *default
-  database: beagle_development
+  primary:
+    <<: *default
+    database: beagle_development
+  replica:
+    <<: *default
+    database: beagle_development
+    replica: true
+    database_task: false
 
 test:
-  <<: *default
-  database: beagle_test
-  host: <%= ENV.fetch("DB_HOST", 'localhost') %>
-  user: <%= ENV.fetch("DB_USER", '') %>
-  password: <%= ENV.fetch("DB_PASSWORD", '') %>
+  primary:
+    <<: *default
+    database: beagle_test
+    host: <%= ENV.fetch("DB_HOST", 'localhost') %>
+    user: <%= ENV.fetch("DB_USER", '') %>
+    password: <%= ENV.fetch("DB_PASSWORD", '') %>
+  replica:
+    <<: *default
+    database: beagle_test
+    host: <%= ENV.fetch("DB_HOST", 'localhost') %>
+    user: <%= ENV.fetch("DB_USER", '') %>
+    password: <%= ENV.fetch("DB_PASSWORD", '') %>
+    replica: true
+    database_task: false
+
 
 production:
-  <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
+  primary:
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
+  replica:
+    <<: *default
+    url: <%= ENV["REPLICA_DATABASE_URL"] %>
+    replica: true
+    database_task: false
