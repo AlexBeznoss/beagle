@@ -7,6 +7,10 @@ AllCops:
   TargetRubyVersion: 3.2.0
   NewCops: enable
 
-
 inherit_gem:
   standard: config/base.yml
+
+Rails/Output:
+  Exclude:
+    - 'app/views/**/*.rb'
+

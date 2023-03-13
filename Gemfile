@@ -27,6 +27,7 @@ gem "down"
 gem "meilisearch-rails"
 gem "skylight"
 gem "ferrum"
+gem "phlex-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -60,4 +61,5 @@ group :test do
   gem "minitest-rails"
   gem "minitest-stub-const"
   gem "factory_bot_rails"
+  gem "phlex-testing-nokogiri"
 end
