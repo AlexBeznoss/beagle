@@ -30,6 +30,16 @@ namespace :fly do
     end
   end
 
+  # Send a release notification to honeybadger
+  task :hbrelease do # rubocop:disable Rails/RakeEnvironment
+    env = "production"
+    revision = `git rev-parse HEAD`.strip
+    username = `whoami`.strip
+    repo = "git@github.com:AlexBeznoss/beagle.git"
+
+    sh "bundle exec honeybadger deploy -r #{repo} -s #{revision} -u #{username} -e #{env}"
+  end
+
   # optional SWAPFILE task:
   #  - adjust fallocate size as needed
   #  - performance critical applications should scale memory to the
