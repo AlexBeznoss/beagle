@@ -185,7 +185,7 @@ GEM
       minitest (~> 5.10)
       railties (~> 7.0.0)
     minitest-stub-const (0.6)
-    msgpack (1.6.1)
+    msgpack (1.7.0)
     multi_xml (0.6.0)
     net-imap (0.3.4)
       date
