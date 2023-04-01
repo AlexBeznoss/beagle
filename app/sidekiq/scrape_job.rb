@@ -10,8 +10,8 @@ class ScrapeJob
       .reject { |j| existing_jobs.include?(j[:pid]) }
       .each { |job| create_job_post!(provider, job) }
   rescue Scrapers::RequestBody::RequestError => e
-    # ignore remoteok timeout error
     return if provider == "remoteok" && e.status == 504
+    return if provider == "weworkremotely" && e.status == 503
 
     raise e
   end
