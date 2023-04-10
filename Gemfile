@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.1"
+ruby "3.2.2"
 
 gem "rails", "~> 7.0.4"
 gem "propshaft"
@@ -20,7 +20,6 @@ gem "sidekiq"
 gem "sidekiq-cron"
 gem "pagy"
 gem "honeybadger", "~> 5.0"
-gem "logtail-rails", "~> 0.1.7"
 gem "health-monitor-rails"
 gem "aws-sdk-s3", require: false
 gem "down"
