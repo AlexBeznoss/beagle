@@ -12,8 +12,19 @@ module SidekiqMinitestSupport
   end
 end
 
+module FaradayStubMethods
+  def faraday_headers_with(headers = {})
+    {
+      "Accept" => "*/*",
+      "Accept-Encoding" => /.*/,
+      "User-Agent" => /Faraday.*/
+    }.merge(headers)
+  end
+end
+
 class ActiveSupport::TestCase
   include SidekiqMinitestSupport
+  include FaradayStubMethods
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
