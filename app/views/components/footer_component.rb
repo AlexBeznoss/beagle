@@ -25,8 +25,7 @@ class FooterComponent < ApplicationComponent
             plain "Design based on"
             whitespace
             a(
-              href:
-              "https://app.gumroad.com/d/fa4d8a08e3c5884bbfd51d6a06377842",
+              href: "https://redpixelthemes.gumroad.com/l/twm-atlas",
               class: "hover:opacity-75",
               target: "_blank"
             ) { "Atlas template" }

@@ -15,7 +15,7 @@ gem "redis", "~> 5.0"
 gem "nokogiri"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
-gem "excon"
+gem "faraday"
 gem "sidekiq"
 gem "sidekiq-cron"
 gem "pagy"

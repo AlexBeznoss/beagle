@@ -13,10 +13,11 @@ module Scrapers
     end
 
     def self.call(url, headers)
-      Excon
-        .get(url, headers: headers)
+      Faraday
+        .get(url, nil, headers)
         .tap { |resp| raise RequestError.new(url, resp) unless resp.status == 200 }
         .body
+        .force_encoding("UTF-8")
     end
   end
 end
