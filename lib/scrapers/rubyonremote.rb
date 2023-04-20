@@ -8,6 +8,8 @@ module Scrapers
       doc = Nokogiri::HTML5.fragment(request_body)
 
       doc.css('turbo-stream[target="job-listings"] li').map do |job|
+        next unless has_job?(job)
+
         {
           pid: pid_from(job),
           name: name_from(job),
@@ -16,7 +18,7 @@ module Scrapers
           img_url: image_url_from(job),
           location: location_from(job)
         }
-      end
+      end.compact
     end
 
     private
@@ -49,6 +51,10 @@ module Scrapers
       return unless icon
 
       icon.parent.next_element.text.strip
+    end
+
+    def has_job?(job)
+      !!job.at_css("h2")
     end
   end
 end
