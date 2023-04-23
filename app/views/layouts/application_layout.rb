@@ -51,11 +51,6 @@ class ApplicationLayout < ApplicationView
           render FooterComponent.new
         end
         link href: "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css", rel: "stylesheet"
-        script(
-          src: "https://static.cloudflareinsights.com/beacon.min.js",
-          data_cf_beacon: '{"token": "bcdcc735ef2b40759d0241406e90bcad"}',
-          defer: true
-        )
       end
     end
   end

@@ -1,5 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   content: [
@@ -42,7 +42,6 @@ module.exports = {
       "grey-lighter": "#eceef1",
       "grey-light": "#ccd7e0",
       grey: "#adb6c4",
-      yellow: colors.yellow,
       pink: colors.pink,
       purple: colors.purple,
       teal: colors.teal,
@@ -166,10 +165,10 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
     require("@tailwindcss/typography")({
       modifiers: [],
     }),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio')
   ]
 };
