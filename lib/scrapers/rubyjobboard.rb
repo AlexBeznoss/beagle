@@ -6,7 +6,7 @@ module Scrapers
     def call
       doc = Nokogiri::HTML5.parse(request_body)
 
-      doc.css("body #latest-jobs ul li .card").map do |job|
+      doc.css("body #latest-jobs ul li .card").filter_map do |job|
         next unless remote?(job)
 
         {
@@ -16,7 +16,7 @@ module Scrapers
           company: company_from(job),
           img_url: image_url_from(job)
         }
-      end.compact
+      end
     end
 
     private
