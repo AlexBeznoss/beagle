@@ -9,9 +9,7 @@ class EnqueueScrapersJob
       ScrapeJob.perform_async("weworkremotely")
       # NOTE: uncomment when rubyjobboard get up
       # ScrapeJob.perform_async("rubyjobboard")
-      (1..3).to_a.each do |page|
-        ScrapeJob.perform_async("rubyonremote", page)
-      end
+      ScrapeJob.perform_async("rubyonremote")
 
       check_in
     end

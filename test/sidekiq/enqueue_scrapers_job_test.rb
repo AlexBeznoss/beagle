@@ -10,9 +10,7 @@ class EnqueueScrapersJobTest < ActiveSupport::TestCase
         ["weworkremotely"],
         # NOTE: uncomment when rubyjobboard get up
         # ["rubyjobboard"],
-        ["rubyonremote", 1],
-        ["rubyonremote", 2],
-        ["rubyonremote", 3]
+        ["rubyonremote"]
       ].sort
 
       lbm = lambda do |lock_name, &block|
@@ -21,7 +19,7 @@ class EnqueueScrapersJobTest < ActiveSupport::TestCase
       end
 
       CallOnceLockService.stub :call, lbm do
-        assert_changes "ScrapeJob.jobs.size", from: 0, to: 7 do
+        assert_changes "ScrapeJob.jobs.size", from: 0, to: 5 do
           EnqueueScrapersJob.new.perform
         end
 
