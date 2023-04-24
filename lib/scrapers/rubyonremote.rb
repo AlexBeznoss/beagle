@@ -1,13 +1,13 @@
 module Scrapers
   class Rubyonremote < BaseScraper
-    BASE_URL = "https://rubyonremote.com"
-    HEADERS = {Accept: "text/vnd.turbo-stream.html"}
+    BASE_URL = "https://rubyonremote.com/remote-ruby-jobs"
+    HEADERS = {}
     LOCATION_SVG_PATH = "M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
 
     def call
-      doc = Nokogiri::HTML5.fragment(request_body)
+      doc = Nokogiri::HTML5.parse(request_body)
 
-      doc.css('turbo-stream[target="job-listings"] li').map do |job|
+      doc.xpath("//a[starts-with(@href,'/jobs/')]").map do |job|
         {
           pid: pid_from(job),
           name: name_from(job),
@@ -31,7 +31,7 @@ module Scrapers
 
     def url_from(job)
       URI.parse(BASE_URL)
-        .tap { |url| url.path = job.at_css("a")[:href] }
+        .tap { |url| url.path = job[:href] }
         .to_s
     end
 
