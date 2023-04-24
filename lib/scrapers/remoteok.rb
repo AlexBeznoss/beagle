@@ -4,7 +4,7 @@ module Scrapers
     HEADERS = {Accept: "application/json"}
 
     def call
-      JSON.parse(request_body).map do |job|
+      JSON.parse(request_body).filter_map do |job|
         next if job["legal"]
 
         {
@@ -15,7 +15,7 @@ module Scrapers
           img_url: job["company_logo"],
           location: job["location"].presence
         }
-      end.compact
+      end
     end
   end
 end

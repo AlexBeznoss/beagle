@@ -68,7 +68,7 @@ class JobPosts::ListItemComponent < ApplicationComponent
   end
 
   def logo_url
-    return url_for(@job_post.img) if @job_post.img.attached?
+    return cfl_blob_url(@job_post.img) if @job_post.img.attached?
 
     @job_post.img_url
   end
