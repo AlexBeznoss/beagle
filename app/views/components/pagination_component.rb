@@ -5,9 +5,9 @@ class PaginationComponent < ApplicationComponent
   include Phlex::Rails::Helpers::LinkTo
   LINK_CLASS = "cursor-pointer border-2 border-primary px-3 py-1 font-body font-medium text-primary transition-colors hover:border-secondary hover:text-secondary dark:border-green-light dark:text-white dark:hover:border-secondary dark:hover:text-secondary"
 
-  def initialize(pagy, other_params = {})
+  def initialize(pagy, extra_params = {})
     @pagy = pagy
-    @other_params = other_params
+    @extra_params = extra_params
   end
 
   def template
@@ -40,6 +40,9 @@ class PaginationComponent < ApplicationComponent
   end
 
   def pagination_path(page:)
-    url_for(page:, **@other_params.select { |_, v| v.present? })
+    other_params = {}
+    other_params[:search] = {q: @extra_params[:search]} if @extra_params[:search]
+
+    url_for(page:, **other_params)
   end
 end

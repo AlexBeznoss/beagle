@@ -3,20 +3,20 @@ require "test_helper"
 class Scrapers::RubyonremoteTest < ActiveSupport::TestCase
   describe "#url" do
     test "returns url" do
-      assert_equal Scrapers::Rubyonremote.new.url, "https://rubyonremote.com"
+      assert_equal Scrapers::Rubyonremote.new.url, "https://rubyonremote.com/remote-ruby-jobs"
     end
   end
 
   describe "#headers" do
     test "returns empty hash" do
-      assert_equal Scrapers::Rubyonremote.new.headers, {Accept: "text/vnd.turbo-stream.html"}
+      assert_equal Scrapers::Rubyonremote.new.headers, {}
     end
   end
 
   describe "#call" do
     test "populate jobs from body" do
       scraper = Scrapers::Rubyonremote.new
-      filepath = Rails.root.join(file_fixture("rubyonremote_example.turbo.html"))
+      filepath = Rails.root.join(file_fixture("rubyonremote_example.html"))
       body = File.read(filepath)
       expected_jobs = [
         {
