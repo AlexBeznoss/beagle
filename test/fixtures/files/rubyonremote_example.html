@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full antialiased">
+  <head>
+    <title>1318+ Ruby Remote Jobs | Ruby On Remote</title>
+  </head>
+  <body class="bg-white dark:bg-gray-900/95 text-slate-800 dark:text-slate-200">
+    <header class="w-full flex justify-center items-center z-40 relative">
+      <nav class="flex justify-center items-center w-full py-2 backdrop-blur" role="navigation" aria-label="main navigation">
+        <div class="flex items-center justify-between container px-4 md:px-0">
+          <div class="flex items-center justify-center flex-shrink-0 text-center w-1/2 md:w-1/6">
+          </div>
+          <div class="flex justify-center items-center gap-2">
+            <div data-controller="dropdown" class="flex relative w-full">
+              <button id="dark-mode-toggle" type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex link-hover-effect p-2 rounded-lg w-full selected-theme" aria-label="navigation menu" aria-haspopup="true">
+                <div class="dark:hidden">
+                  <span class="flex gap-1 w-full">
+                    <i>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                        <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor"></path>
+                        <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" stroke="currentColor"></path>
+                      </svg>
+                    </i>
+                  </span>
+                </div>
+                <div class="hidden dark:inline">
+                  <span class="flex gap-1 w-full">
+                  </span>
+                </div>
+              </button>
+              <ul data-dropdown-target="menu" data-transition-enter-from="opacity-0 scale-95" data-transition-enter-to="opacity-100 scale-100" data-transition-leave-from="opacity-100 scale-100" data-transition-leave-to="opacity-0 scale-95" class="absolute z-50 top-8 right-1 md:right-auto md:top-12 bg-white rounded-lg ring-1 ring-slate-900/10 shadow-lg overflow-hidden w-36 py-1 text-base text-slate-700 font-semibold dark:bg-slate-700 dark:ring-0 dark:highlight-white/5 dark:text-slate-300 hidden">
+                <span id="select-light-mode" class="flex items-center py-1 px-2 gap-1 w-full text-black hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
+                  <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                      <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" stroke="currentColor"></path>
+                      <path d="M12 4v1M17.66 6.344l-.828.828M20.005 12.004h-1M17.66 17.664l-.828-.828M12 20.01V19M6.34 17.664l.835-.836M3.995 12.004h1.01M6 6l.835.836" stroke="currentColor"></path>
+                    </svg>
+                  </i>
+                  <span>Light</span>
+                </span>
+                <span id="select-dark-mode" class="flex items-center py-1 px-2 gap-1 w-full text-black hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
+                  <span>Dark</span>
+                </span>
+                <span id="select-system" class="flex items-center py-1 px-2 gap-1 w-full text-black hover:bg-slate-100 dark:hover:bg-slate-600 cursor-pointer">
+                  <i>
+                    <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6">
+                      <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" stroke-width="2" stroke-linejoin="round" stroke="currentColor"></path>
+                      <path d="M14 15c0 3 2 5 2 5H8s2-2 2-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"></path>
+                    </svg>
+                  </i>
+                  <span>System</span>
+                </span>
+              </ul>
+            </div>
+            <div class="hidden md:flex md:flex-row flex-wrap flex-shrink-0 items-center justify-center space-x-1">
+              <div class="flex w-fit"></div>
+              <a class="topbar-link" href="/remote-companies/">
+                <span class="w-5 h-5">
+                </span>
+                <span class="ml-1">Remote Companies</span>
+              </a>
+              <a class="topbar-link" href="/developer-salaries/">
+                <span class="w-5 h-5">
+                </span>
+                <span class="ml-1">Developer Salaries</span>
+              </a>
+              <a class="topbar-link" href="/remote-jobs/">
+                <span class="w-5 h-5">
+                </span>
+                <span class="ml-1">Remote Jobs</span>
+              </a>
+              <a class="py-3 px-3 font-semibold leading-none text-white bg-primary rounded hover:bg-red-400 flex items-center uppercase" href="/post-a-new-remote-job">
+              <span>Post a Job</span>
+              </a>
+            </div>
+            <div data-controller="dropdown" class="md:hidden block">
+              <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex p-3 md:hidden" aria-label="navigation menu" aria-haspopup="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <ul data-dropdown-target="menu" data-transition-enter-from="opacity-0 scale-95" data-transition-enter-to="opacity-100 scale-100" data-transition-leave-from="opacity-100 scale-100" data-transition-leave-to="opacity-0 scale-95" class="text-lg hidden p-3 shadow-md font-bold flex-col justify-center items-center transition transform absolute right-0 origin-top-right border border-gray-100 dark:border-gray-900/50 rounded-md mt-2 bg-white dark:bg-gray-700 backdrop-blur-md gap-2 w-full">
+                <div class="flex w-fit"></div>
+                <a class="topbar-link" href="/remote-companies/">
+                  <span class="w-5 h-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M10.496 2.132a1 1 0 00-.992 0l-7 4A1 1 0 003 8v7a1 1 0 100 2h14a1 1 0 100-2V8a1 1 0 00.496-1.868l-7-4zM6 9a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1zm3 1a1 1 0 012 0v3a1 1 0 11-2 0v-3zm5-1a1 1 0 00-1 1v3a1 1 0 102 0v-3a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <span class="ml-1">Remote Companies</span>
+                </a>
+                <a class="topbar-link" href="/developer-salaries/">
+                  <span class="w-5 h-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <span class="ml-1">Developer Salaries</span>
+                </a>
+                <a class="topbar-link" href="/remote-jobs/">
+                  <span class="w-5 h-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                      <path fill-rule="evenodd" d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.936 2.752A24.726 24.726 0 0112 15.75c-2.73 0-5.357-.442-7.814-1.259-1.202-.4-1.936-1.541-1.936-2.752V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-3 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clip-rule="evenodd" />
+                      <path d="M3 18.4v-2.796a4.3 4.3 0 00.713.31A26.226 26.226 0 0012 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 01-6.477-.427C4.047 21.128 3 19.852 3 18.4z" />
+                    </svg>
+                  </span>
+                  <span class="ml-1">Remote Jobs</span>
+                </a>
+                <a class="py-3 px-3 font-semibold leading-none text-white bg-primary rounded hover:bg-red-400 flex items-center uppercase" href="/post-a-new-remote-job">
+                <span>Post a Job</span>
+                </a>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main">
+      <section class="flex flex-col w-full justify-center items-center px-4 md:px-0">
+        <h1 class="py-5 text-3xl font-semibold text-gray-900 dark:text-white tracking-wide">Remote Ruby Jobs</h1>
+        <h4 class="text-lg font-medium">434 results total</h4>
+        <div class="flex flex-col justify-center items-center gap-4 w-full md:w-3/5">
+          <div class="flex flex-col w-full">
+            <div id="mc_embed_signup" class="
+              relative
+              flex
+              flex-col
+              md:flex-row
+              justify-center
+              items-center
+              w-full
+              backdrop-blur-sm
+              transition-colors
+              duration-500
+              supports-backdrop-blur:bg-stone-50/50
+              bg-stone-50/50
+              dark:bg-slate-700/50
+              ring-1 ring-inset ring-stone-900/[0.08]
+              px-4 py-10 rounded-2xl
+              gap-2
+              ">
+              <div class="absolute top-0 left-2 -mb-px h-8 overflow-hidden">
+                <div class="flex h-[2px] w-[10rem] md:w-[20rem] opacity-50">
+                  <div class="w-full flex-none blur-sm [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#4F46E5_22.29%,rgba(226,39,67,0.5)_37.19%,rgba(226,39,67,0)_100%)]"></div>
+                  <div class="-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#4F46E5_22.29%,rgba(226,39,67,0.5)_37.19%,rgba(226,39,67,0)_100%)]"></div>
+                </div>
+              </div>
+              <div class="absolute bottom-0 right-2 pt-[3px] h-[5px] overflow-hidden">
+                <div class="flex h-[2px] w-[10rem] md:w-[20rem] lg:w-[25rem] opacity-50">
+                  <div class="w-full flex-none blur-sm [background-image:linear-gradient(270deg,rgba(56,189,248,0)_0%,#4F46E5_22.29%,rgba(226,39,67,0.5)_37.19%,rgba(226,39,67,0)_100%)]"></div>
+                  <div class="-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(270deg,rgba(56,189,248,0)_0%,#4F46E5_22.29%,rgba(226,39,67,0.5)_37.19%,rgba(226,39,67,0)_100%)]"></div>
+                </div>
+              </div>
+              <div class="flex w-full justify-center text-center flex-wrap flex-shrink">
+                <p class="text-base md:text-lg font-medium text-slate-900 dark:text-white">Join 800+ Rubyists, Get curated jobs in your inbox every week!</p>
+              </div>
+              <form action="https://rubyonremote.us12.list-manage.com/subscribe/post?u=7dcd7529845dfed5c60eaea19&amp;id=9060deec07" method="post" target="_blank" novalidate class="flex flex-col md:flex-row justify-center items-center w-full gap-2 flex-wrap">
+                <div id="mc_embed_signup_scroll" class="flex">
+                  <input type="email" value="" name="EMAIL" class="w-full px-4 py-3 text-base text-gray-700 placeholder-gray-500 bg-white border border-transparent rounded-md sm:max-w-md lg:max-w-sm focus:outline-none hover:border-gray-500 focus:border-indigo-500 focus:placeholder-transparent focus:border-opacity-75 ring-1 ring-inset ring-gray-900/[0.08]" id="mce-EMAIL" placeholder="Email address" required>
+                  <div class="absolute" style="left: -5000px;" aria-hidden="true">
+                    <input type="text" name="b_7dcd7529845dfed5c60eaea19_9060deec07" tabindex="-1" value="">
+                  </div>
+                </div>
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="px-4 py-2 text-base font-bold text-white uppercase bg-indigo-600 rounded-md hvr-float cursor-pointer h-12">
+              </form>
+            </div>
+            <div class="w-full flex flex-wrap gap-1 md:gap-2 justify-center items-center bg-white-500 py-4">
+              <p class="font-medium">Filter By</p>
+              <div class="flex flex-shrink flex-wrap gap-2 z-10">
+                <div data-controller="dropdown" class="relative inline-block text-left">
+                  <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-4 py-2 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none dark:focus:ring-0 dark:focus:ring-offset-0 focus:ring-1 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="location-filter" aria-expanded="true" aria-haspopup="true" data-action="dropdown#toggle click@window->dropdown#hide">
+                    Location
+                    <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                  <div data-dropdown-target="menu" class="hidden filter-dropdown" data-transition-enter-from="opacity-0 scale-95" data-transition-enter-to="opacity-100 scale-100" data-transition-leave-from="opacity-100 scale-100" data-transition-leave-to="opacity-0 scale-95" role="menu" aria-orientation="vertical" aria-labelledby="location-filter" tabindex="-1">
+                    <div class="py-1" role="none">
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-anywhere/">Remote - Anywhere</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-us/">Remote - US</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-canada/">Remote - Canada</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-uk/">Remote - UK</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-eu/">Remote - EU</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-europe/">Remote - Europe</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-africa/">Remote - Africa</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-asia/">Remote - Asia</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-north-america/">Remote - North America</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-south-america/">Remote - South America</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-australia-and-new-zealand/">Remote - Australia and New Zealand</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-india/">Remote - India</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-france/">Remote - France</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-netherlands/">Remote - Netherlands</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-germany/">Remote - Germany</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-greece/">Remote - Greece</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-portugal/">Remote - Portugal</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-spain/">Remote - Spain</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-mexico/">Remote - Mexico</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-hong-kong/">Remote - Hong Kong</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-singapore/">Remote - Singapore</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-nigeria/">Remote - Nigeria</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-kenya/">Remote - Kenya</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-south-africa/">Remote - South Africa</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-poland/">Remote - Poland</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-ireland/">Remote - Ireland</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-brazil/">Remote - Brazil</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-jobs-in-uae/">Remote - UAE</a>
+                    </div>
+                  </div>
+                </div>
+                <div data-controller="dropdown" class="relative inline-block text-left">
+                  <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-4 py-2 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none dark:focus:ring-0 dark:focus:ring-offset-0 focus:ring-1 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="skill-filter" aria-expanded="true" aria-haspopup="true" data-action="dropdown#toggle click@window->dropdown#hide">
+                    Ruby
+                    <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                  <div data-dropdown-target="menu" class="hidden filter-dropdown" data-transition-enter-from="opacity-0 scale-95" data-transition-enter-to="opacity-100 scale-100" data-transition-leave-from="opacity-100 scale-100" data-transition-leave-to="opacity-0 scale-95" role="menu" aria-orientation="vertical" aria-labelledby="skill-filter" tabindex="-1">
+                    <ul class="py-1" role="none">
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ruby-on-rails-jobs/">Remote Ruby on Rails Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-react-jobs/">Remote React Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-javascript-jobs/">Remote JavaScript Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-postgresql-jobs/">Remote PostgreSQL Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-database-jobs/">Remote Databases Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-aws-jobs/">Remote AWS Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-front-end-jobs/">Remote Front end Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-java-jobs/">Remote Java Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-css-jobs/">Remote CSS Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-sql-jobs/">Remote SQL Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-docker-jobs/">Remote Docker Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-html-jobs/">Remote HTML Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-mysql-jobs/">Remote MySQL Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-node-js-jobs/">Remote Node.js Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-python-jobs/">Remote Python Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-devops-jobs/">Remote DevOps Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-kubernetes-jobs/">Remote Kubernetes Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-heroku-jobs/">Remote Heroku Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-redis-jobs/">Remote Redis Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-vue-jobs/">Remote Vue JS Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-angular-jobs/">Remote Angular Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-mongodb-jobs/">Remote MongoDB Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-nosql-jobs/">Remote NoSQL Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-azure-jobs/">Remote Azure Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-go-jobs/">Remote Golang Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-stimulus-js-jobs/">Remote Stimulus Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-bootstrap-jobs/">Remote Bootstrap Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-hotwire-jobs/">Remote Hotwire Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-tailwindcss-jobs/">Remote Tailwind Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-ember-jobs/">Remote Ember JS Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-gcp-jobs/">Remote GCP Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-turbo-jobs/">Remote Turbo Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-datadog-jobs/">Remote Datadog Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-next-js-jobs/">Remote Next.js Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-sinatra-jobs/">Remote Sinatra Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-c-jobs/">Remote C# Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-resque-jobs/">Remote Resque Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-nginx-jobs/">Remote Nginx Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-devise-jobs/">Remote Devise Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-cloudflare-jobs/">Remote Cloudflare Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-flutter-jobs/">Remote Flutter Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-bash-jobs/">Remote Bash Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-grape-jobs/">Remote Grape Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-sequel-jobs/">Remote Sequel Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-es6-jobs/">Remote ES6 Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-hanami-jobs/">Remote Hanami Jobs</a></li>
+                      <li><a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/remote-roda-jobs/">Remote Roda Jobs</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div data-controller="dropdown" class="relative inline-block text-left">
+                  <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-4 py-2 bg-white dark:bg-gray-700 text-sm font-medium text-gray-700 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none dark:focus:ring-offset-0 dark:focus:ring-0 focus:ring-1 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="experience-filter" aria-expanded="true" aria-haspopup="true" data-action="dropdown#toggle click@window->dropdown#hide">
+                    Level
+                    <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                  <div data-dropdown-target="menu" class="hidden filter-dropdown" data-transition-enter-from="opacity-0 scale-95" data-transition-enter-to="opacity-100 scale-100" data-transition-leave-from="opacity-100 scale-100" data-transition-leave-to="opacity-0 scale-95" role="menu" aria-orientation="vertical" aria-labelledby="experience-filter" tabindex="-1">
+                    <div class="py-1" role="none">
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/junior-remote-ruby-jobs/">Junior</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/mid-level-remote-ruby-jobs/">Mid Level</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/senior-remote-ruby-jobs/">Senior</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/staff-remote-ruby-jobs/">Staff</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/principal-remote-ruby-jobs/">Principal</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/lead-remote-ruby-jobs/">Lead</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/architect-remote-ruby-jobs/">Architect</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/manager-remote-ruby-jobs/">Manager</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/director-remote-ruby-jobs/">Director</a>
+                      <a class="text-gray-700 dark:text-white block px-4 py-2 text-sm menuitem hover:bg-blue-500 hover:text-white" role="menuitem" tabindex="-1" data-action="dropdown#toggle" href="/vice-president-remote-ruby-jobs/">Vice President</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="flex flex-col w-full">
+            <li class="flex flex-col md:flex-row justify-center items-center gap-4 w-full rounded-lg hover:bg-stone-100 dark:hover:bg-gray-900 hover:border-transparent px-0 sm:px-3">
+              <a class="flex w-full" href="/jobs/fake_path_1">
+                <div class="flex w-full justify-between py-3">
+                  <div class="flex items-center w-full gap-1">
+                    <div class="items-center justify-center flex-shrink-0 rounded-md overflow-hidden border dark:border-gray-800 border-xs">
+                      <figure class="object-cover w-full h-full job-item-icon">
+                        <picture>
+                          <source srcset="fake image url 1" type="image/webp" />
+                          <img loading="lazy" width="64" height="64" src="fake image url 1" />
+                        </picture>
+                      </figure>
+                    </div>
+                    <div class="flex w-full flex-col md:flex-row md:justify-between md:items-center justify-center ml-5 text-left gap-2 ">
+                      <div class="flex flex-col w-full md:w-2/3">
+                        <h2 class="text-lg md:text-xl font-semibold text-normal break-normal">
+                          Fake name 1
+                        </h2>
+                        <p class="text-base dark:text-slate-100">
+                          Fake company 1
+                        </p>
+                      </div>
+                      <div class="flex flex-col md:flex-row md:flex-wrap justify-between w-full md:w-1/3 gap-1">
+                        <div class="flex flex-wrap justify-start gap-2">
+                          <div class="text-sm inline-flex gap-1 justify-center items-center text-center rounded-md">
+                            <span class="w-5 h-5">
+                              <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
+                              </svg>
+                            </span>
+                            <span>Europe</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="flex flex-col md:flex-row justify-center items-center gap-4 w-full rounded-lg hover:bg-stone-100 dark:hover:bg-gray-900 hover:border-transparent px-0 sm:px-3">
+              <a class="flex w-full" href="/jobs/fake_path_2">
+                <div class="flex w-full justify-between py-3">
+                  <div class="flex items-center w-full gap-1">
+                    <div class="items-center justify-center flex-shrink-0 rounded-md overflow-hidden border dark:border-gray-800 border-xs">
+                      <figure class="object-cover w-full h-full job-item-icon">
+                        <picture>
+                          <source srcset="fake image url 2" type="image/webp" />
+                          <img loading="lazy" width="64" height="64" src="fake image url 2" />
+                        </picture>
+                      </figure>
+                    </div>
+                    <div class="flex w-full flex-col md:flex-row md:justify-between md:items-center justify-center ml-5 text-left gap-2 ">
+                      <div class="flex flex-col w-full md:w-2/3">
+                        <h2 class="text-lg md:text-xl font-semibold text-normal break-normal">
+                          Fake name 2
+                        </h2>
+                        <p class="text-base dark:text-slate-100">
+                          Fake company 2
+                        </p>
+                      </div>
+                      <div class="flex flex-col md:flex-row md:flex-wrap justify-between w-full md:w-1/3 gap-1">
+                        <div class="flex flex-wrap justify-start gap-2">
+                          <div class="text-sm inline-flex gap-1 justify-center items-center text-center rounded-md">
+                            <span class="w-5 h-5">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                              </svg>
+                            </span>
+                            <span>$102K - $137K</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="flex flex-col md:flex-row justify-center items-center gap-4 w-full rounded-lg hover:bg-stone-100 dark:hover:bg-gray-900 hover:border-transparent px-0 sm:px-3">
+              <a class="flex w-full" href="/jobs/fake_path_3">
+                <div class="flex w-full justify-between py-3">
+                  <div class="flex items-center w-full gap-1">
+                    <div class="items-center justify-center flex-shrink-0 rounded-md overflow-hidden border dark:border-gray-800 border-xs">
+                      <figure class="object-cover w-full h-full job-item-icon">
+                        <picture>
+                          <source srcset="fake image url 3" type="image/webp" />
+                          <img loading="lazy" width="64" height="64" src="fake image url 3" />
+                        </picture>
+                      </figure>
+                    </div>
+                    <div class="flex w-full flex-col md:flex-row md:justify-between md:items-center justify-center ml-5 text-left gap-2 ">
+                      <div class="flex flex-col w-full md:w-2/3">
+                        <h2 class="text-lg md:text-xl font-semibold text-normal break-normal">
+                          Fake name 3
+                        </h2>
+                        <p class="text-base dark:text-slate-100">
+                          Fake company 3
+                        </p>
+                      </div>
+                      <div class="flex flex-col md:flex-row md:flex-wrap justify-between w-full md:w-1/3 gap-1">
+                        <div class="flex flex-wrap justify-start gap-2">
+                          <div class="text-sm inline-flex gap-1 justify-center items-center text-center rounded-md">
+                            <span class="w-5 h-5">
+                              <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
+                              </svg>
+                            </span>
+                            <span>North America</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <div class="flex">
+            <nav class="pagy-nav pagination" aria-label="pager"><span class="page prev disabled">&lsaquo;&nbsp;Prev</span> <span class="page active">1</span> <span class="page"><a href="/remote-ruby-jobs/?page=2" rel="next">2</a></span> <span class="page"><a href="/remote-ruby-jobs/?page=3">3</a></span> <span class="page"><a href="/remote-ruby-jobs/?page=4">4</a></span> <span class="page"><a href="/remote-ruby-jobs/?page=5">5</a></span> <span class="page gap">&hellip;</span> <span class="page"><a href="/remote-ruby-jobs/?page=28">28</a></span> <span class="page next"><a href="/remote-ruby-jobs/?page=2" rel="next" aria-label="next">Next&nbsp;&rsaquo;</a></span></nav>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="flex flex-col items-center justify-center mt-10 text-base text-gray-500 w-full bg-zinc-900">
+      <section class="flex flex-col md:flex-row gap-6 w-full justify-around px-2 py-4">
+        <div class="flex flex-col w-full items-center">
+          <h3 class="text-xl font-medium text-gray-400">Remote Jobs By Experience</h3>
+          <ul class="flex flex-col items-center w-full">
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/junior-remote-ruby-jobs/">Junior Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/mid-level-remote-ruby-jobs/">Mid Level Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/senior-remote-ruby-jobs/">Senior Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/staff-remote-ruby-jobs/">Staff Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/principal-remote-ruby-jobs/">Principal Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/lead-remote-ruby-jobs/">Lead Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/architect-remote-ruby-jobs/">Architect Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/manager-remote-ruby-jobs/">Manager Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/director-remote-ruby-jobs/">Director Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/vice-president-remote-ruby-jobs/">Vice President Remote Ruby Jobs</a></li>
+          </ul>
+        </div>
+        <div class="flex flex-col w-full items-center">
+          <h3 class="text-xl font-medium text-gray-400">Remote Jobs By Skills</h3>
+          <ul class="flex flex-col items-center w-full">
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs/">Remote Ruby Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-on-rails-jobs/">Remote Ruby on Rails Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-react-jobs/">Remote React Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-javascript-jobs/">Remote JavaScript Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-postgresql-jobs/">Remote PostgreSQL Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-database-jobs/">Remote Databases Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-aws-jobs/">Remote AWS Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-front-end-jobs/">Remote Front end Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-java-jobs/">Remote Java Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-css-jobs/">Remote CSS Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-sql-jobs/">Remote SQL Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-docker-jobs/">Remote Docker Jobs</a></li>
+          </ul>
+        </div>
+        <div class="flex flex-col w-full items-center">
+          <h3 class="text-xl font-medium text-gray-400">Remote Jobs By Locations</h3>
+          <ul class="flex flex-col items-center w-full">
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-anywhere/">Remote Ruby Jobs Worldwide</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-us/">Remote Ruby Jobs In US</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-canada/">Remote Ruby Jobs In Canada</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-uk/">Remote Ruby Jobs In UK</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-eu/">Remote Ruby Jobs In EU</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-europe/">Remote Ruby Jobs In Europe</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-africa/">Remote Ruby Jobs In Africa</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-asia/">Remote Ruby Jobs In Asia</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-north-america/">Remote Ruby Jobs In North America</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-south-america/">Remote Ruby Jobs In South America</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-australia-and-new-zealand/">Remote Ruby Jobs In Australia and New Zealand</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-india/">Remote Ruby Jobs In India</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-france/">Remote Ruby Jobs In France</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-netherlands/">Remote Ruby Jobs In Netherlands</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-germany/">Remote Ruby Jobs In Germany</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-greece/">Remote Ruby Jobs In Greece</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-portugal/">Remote Ruby Jobs In Portugal</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-spain/">Remote Ruby Jobs In Spain</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-mexico/">Remote Ruby Jobs In Mexico</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-hong-kong/">Remote Ruby Jobs In Hong Kong</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-singapore/">Remote Ruby Jobs In Singapore</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-nigeria/">Remote Ruby Jobs In Nigeria</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-kenya/">Remote Ruby Jobs In Kenya</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-south-africa/">Remote Ruby Jobs In South Africa</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-poland/">Remote Ruby Jobs In Poland</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-ireland/">Remote Ruby Jobs In Ireland</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-brazil/">Remote Ruby Jobs In Brazil</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-ruby-jobs-in-uae/">Remote Ruby Jobs In UAE</a></li>
+          </ul>
+        </div>
+        <div class="flex flex-col w-full items-center">
+          <h3 class="text-xl font-medium text-gray-400">Remote Jobs By Employment Type</h3>
+          <ul class="flex flex-col items-center w-full">
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/full-time-remote-jobs/">Remote Full Time Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/part-time-remote-jobs/">Remote Part Time Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/contract-remote-jobs/">Remote Contract Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/temporary-remote-jobs/">Remote Temporary Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/seasonal-remote-jobs/">Remote Seasonal Jobs</a></li>
+            <li><a class="text-gray-300 block py-2 text-sm hover:text-blue-500" href="/remote-internships/">Remote Internship Jobs</a></li>
+          </ul>
+        </div>
+      </section>
+      <div class="flex px-2 flex-col-reverse md:flex-row items-center justify-between w-full text-stone-200">
+        <div class="flex gap-4 flex-col-reverse md:flex-row gap-4 justify-center items-center text-md font-medium">
+          <p class="flex"><span>&copy;</span> RubyOnRemote 2018-2023</p>
+          <a class="flex hover:text-blue-500 p-2" href="/about">About</a>
+        </div>
+        <div class="flex flex-row flex-wrap gap-1 justify-center items-center text-md font-medium">
+          <a class="flex hover:text-blue-500 p-2" href="/privacy">Privacy</a>
+          <a target="_blank" class="flex justify-center items-center gap-2 p-2 rounded-full  hover:text-blue-500 hover:bg-stone-100 dark:hover:bg-slate-700 dark:hover:text-blue-400" href="https://www.reddit.com/r/rubyonremote/">
+            <i>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;width: 1.5rem;height: 1.5rem" xml:space="preserve">
+                <defs></defs>
+                <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+                  <circle cx="45" cy="45" r="45" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,69,0); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) " />
+                  <path d="M 75.011 45 c -0.134 -3.624 -3.177 -6.454 -6.812 -6.331 c -1.611 0.056 -3.143 0.716 -4.306 1.823 c -5.123 -3.49 -11.141 -5.403 -17.327 -5.537 l 2.919 -14.038 l 9.631 2.025 c 0.268 2.472 2.483 4.262 4.955 3.993 c 2.472 -0.268 4.262 -2.483 3.993 -4.955 s -2.483 -4.262 -4.955 -3.993 c -1.421 0.145 -2.696 0.973 -3.4 2.204 L 48.68 17.987 c -0.749 -0.168 -1.499 0.302 -1.667 1.063 c 0 0.011 0 0.011 0 0.022 l -3.322 15.615 c -6.264 0.101 -12.36 2.025 -17.55 5.537 c -2.64 -2.483 -6.801 -2.36 -9.284 0.291 c -2.483 2.64 -2.36 6.801 0.291 9.284 c 0.515 0.481 1.107 0.895 1.767 1.186 c -0.045 0.66 -0.045 1.32 0 1.98 c 0 10.078 11.745 18.277 26.23 18.277 c 14.485 0 26.23 -8.188 26.23 -18.277 c 0.045 -0.66 0.045 -1.32 0 -1.98 C 73.635 49.855 75.056 47.528 75.011 45 z M 30.011 49.508 c 0 -2.483 2.025 -4.508 4.508 -4.508 c 2.483 0 4.508 2.025 4.508 4.508 s -2.025 4.508 -4.508 4.508 C 32.025 53.993 30.011 51.991 30.011 49.508 z M 56.152 62.058 v -0.179 c -3.199 2.405 -7.114 3.635 -11.119 3.468 c -4.005 0.168 -7.919 -1.063 -11.119 -3.468 c -0.425 -0.515 -0.347 -1.286 0.168 -1.711 c 0.447 -0.369 1.085 -0.369 1.544 0 c 2.707 1.98 6.007 2.987 9.362 2.83 c 3.356 0.179 6.667 -0.783 9.407 -2.74 c 0.492 -0.481 1.297 -0.47 1.779 0.022 C 56.655 60.772 56.644 61.577 56.152 62.058 z M 55.537 54.34 c -0.078 0 -0.145 0 -0.224 0 l 0.034 -0.168 c -2.483 0 -4.508 -2.025 -4.508 -4.508 s 2.025 -4.508 4.508 -4.508 s 4.508 2.025 4.508 4.508 C 59.955 52.148 58.02 54.239 55.537 54.34 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+                </g>
+              </svg>
+            </i>
+          </a>
+          <a target="_blank" class="flex justify-center items-center gap-2 p-2 rounded-full hover:text-blue-500 hover:bg-stone-100 dark:hover:bg-slate-700 dark:hover:text-blue-400" href="https://twitter.com/rubyonremote">
+            <i>
+              <svg version="1.1" id="Logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 248 204" style="enable-background:new 0 0 248 204;width: 1.25rem;height: 1.25rem" xml:space="preserve">
+                <style type="text/css">
+                  .st0{fill:#1D9BF0;}
+                </style>
+                <g id="Logo_1_">
+                  <path id="white_background" class="st0" d="M221.95,51.29c0.15,2.17,0.15,4.34,0.15,6.53c0,66.73-50.8,143.69-143.69,143.69v-0.04
+                    C50.97,201.51,24.1,193.65,1,178.83c3.99,0.48,8,0.72,12.02,0.73c22.74,0.02,44.83-7.61,62.72-21.66
+                    c-21.61-0.41-40.56-14.5-47.18-35.07c7.57,1.46,15.37,1.16,22.8-0.87C27.8,117.2,10.85,96.5,10.85,72.46c0-0.22,0-0.43,0-0.64
+                    c7.02,3.91,14.88,6.08,22.92,6.32C11.58,63.31,4.74,33.79,18.14,10.71c25.64,31.55,63.47,50.73,104.08,52.76
+                    c-4.07-17.54,1.49-35.92,14.61-48.25c20.34-19.12,52.33-18.14,71.45,2.19c11.31-2.23,22.15-6.38,32.07-12.26
+                    c-3.77,11.69-11.66,21.62-22.2,27.93c10.01-1.18,19.79-3.86,29-7.95C240.37,35.29,231.83,44.14,221.95,51.29z" />
+                </g>
+              </svg>
+            </i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
