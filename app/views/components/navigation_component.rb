@@ -2,12 +2,13 @@
 
 class NavigationComponent < ApplicationComponent
   def template
-    div(data: {controller: "navigation"}) do
+    div(data: {controller: "navigation theme"}) do
       div(class: "container mx-auto") do
         div(class: "flex items-center justify-end py-3 lg:py-6") do
           div(class: "flex items-center lg:hidden") do
+            div(data: {controller: "profile"}, class: "relative mr-3 z-30 block px-2")
             i(
-              class: "bx mr-8 cursor-pointer text-3xl text-primary dark:text-white",
+              class: "bx mr-3 cursor-pointer text-3xl text-primary dark:text-white",
               data_theme_target: "icon",
               data_action: "click->theme#switchTheme"
             )
@@ -15,7 +16,7 @@ class NavigationComponent < ApplicationComponent
               width: "24",
               height: "15",
               xmlns: "http://www.w3.org/2000/svg",
-              class: "fill-current text-primary dark:text-white",
+              class: "menu-button",
               data_action: "click->navigation#toggle"
             ) do |s|
               s.g(fill_rule: "evenodd") do
@@ -29,13 +30,19 @@ class NavigationComponent < ApplicationComponent
 
         div(class: "hidden lg:block") do
           ul(class: "flex items-center justify-end") do
-            li(class: "group relative mr-6 mb-1") do
-              div(class: "absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow")
-              a(href: "/", class: "relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary") { "Intro" }
-            end
-            li(class: "group relative mr-6 mb-1") do
-              div(class: "absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow")
-              a(href: "https://just-pika-78.accounts.dev/sign-in", class: "relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary") { "Sign in" }
+            if Current.verified?
+              li(class: "group relative mr-6 mb-1") do
+                div(class: "absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow")
+                a(href: "/", class: "relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary") { "Bookmarks" }
+              end
+              li(class: "group relative mr-6 mb-1") do
+                div(data: {controller: "profile"}, class: "relative z-30 block px-2")
+              end
+            else
+              li(class: "group relative mr-6 mb-1") do
+                div(class: "absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow")
+                button(data: {controller: "login", action: "click->login#trigger"}, class: "relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary") { "Sign in" }
+              end
             end
             li do
               i(
@@ -55,11 +62,14 @@ class NavigationComponent < ApplicationComponent
             class: "bx bx-x absolute top-0 right-0 mt-4 mr-4 text-4xl text-white"
           )
           ul(class: "mt-8 flex flex-col") do
-            li do
-              a(href: "/", class: "mb-3 block px-2 font-body text-lg font-medium text-white") { "Intro" }
-            end
-            li do
-              a(href: "/blog", class: "mb-3 block px-2 font-body text-lg font-medium text-white") { "Blog" }
+            if Current.verified?
+              li do
+                a(href: "/", class: "mb-3 block px-2 font-body text-lg font-medium text-white") { "Bookmarks" }
+              end
+            else
+              li do
+                button(data: {controller: "login", action: "click->login#trigger"}, class: "mb-3 block px-2 font-body text-lg font-medium text-white") { "Sign in" }
+              end
             end
           end
         end

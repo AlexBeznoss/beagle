@@ -27,6 +27,7 @@ gem "meilisearch-rails"
 gem "skylight"
 gem "ferrum"
 gem "phlex-rails"
+gem "clerk-sdk-ruby", require: "clerk"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -36,6 +37,7 @@ group :development, :test do
   gem "rubocop-performance", require: false
   gem "bundler-audit"
   gem "ruby_audit"
+  gem "dotenv-rails"
 end
 
 group :development do

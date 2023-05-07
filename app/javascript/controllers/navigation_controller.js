@@ -6,7 +6,7 @@ export default class extends Controller {
 
   isOpened = false;
   bodyClasses = ['max-h-screen', 'overflow-hidden', 'relative'];
-  mobileClasses = ['opacity-100', 'opinter-events-auto'];
+  mobileClasses = ['opacity-100', 'pointer-events-auto'];
 
   connect() {
     this.toggle = this.toggle.bind(this);

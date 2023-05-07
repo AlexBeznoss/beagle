@@ -45,6 +45,7 @@ module.exports = {
       pink: colors.pink,
       purple: colors.purple,
       teal: colors.teal,
+      current: "currentColor"
     },
 
     border: {

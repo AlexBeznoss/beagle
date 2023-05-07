@@ -19,7 +19,7 @@ export default class extends Controller {
       this.isDarkMode = false;
     }
 
-    this.updateIcons();
+    this._updateIcons();
   }
 
   switchTheme() {
@@ -33,10 +33,10 @@ export default class extends Controller {
       this.isDarkMode = true;
     }
 
-    this.updateIcons();
+    this._updateIcons();
   }
 
-  updateIcons() {
+  _updateIcons() {
     const toAdd = this.isDarkMode ? 'bxs-sun' : 'bxs-moon';
     const toRemove = this.isDarkMode ? 'bxs-moon' : 'bxs-sun';
 

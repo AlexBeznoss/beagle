@@ -13,6 +13,7 @@ class ApplicationLayout < ApplicationView
         meta name: "viewport", content: "width=device-width,initial-scale=1"
         csp_meta_tag
         csrf_meta_tags
+        meta name: "clerk-token", content: ENV.fetch("CLERK_PUBLISHABLE_KEY")
         stylesheet_link_tag "tailwind", "inter-font", data_turbo_track: "reload"
         stylesheet_link_tag "application", data_turbo_track: "reload"
         javascript_importmap_tags
@@ -44,7 +45,7 @@ class ApplicationLayout < ApplicationView
         meta(name: "theme-color", content: "#ffffff")
       end
 
-      body class: "dark:bg-primary", data_controller: "theme" do
+      body class: "dark:bg-primary" do
         main do
           render NavigationComponent.new
           div(class: "container mx-auto", &block)
