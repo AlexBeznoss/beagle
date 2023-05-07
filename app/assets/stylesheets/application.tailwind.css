@@ -26,10 +26,6 @@ html {
   @apply h-1 bg-green-dark dark:bg-green-light;
 }
 
-.menu-button {
-  @apply fill-current text-primary dark:text-white;
-}
-
 /*
 
 @layer components {

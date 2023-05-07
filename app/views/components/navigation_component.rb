@@ -12,19 +12,10 @@ class NavigationComponent < ApplicationComponent
               data_theme_target: "icon",
               data_action: "click->theme#switchTheme"
             )
-            svg(
-              width: "24",
-              height: "15",
-              xmlns: "http://www.w3.org/2000/svg",
-              class: "menu-button",
+            i(
+              class: "bx bx-menu-alt-right text-3xl fill-current text-primary dark:text-white",
               data_action: "click->navigation#toggle"
-            ) do |s|
-              s.g(fill_rule: "evenodd") do
-                s.rect(width: "24", height: "3", rx: "1.5")
-                s.rect(x: "8", y: "6", width: "16", height: "3", rx: "1.5")
-                s.rect(x: "4", y: "12", width: "20", height: "3", rx: "1.5")
-              end
-            end
+            )
           end
         end
 
