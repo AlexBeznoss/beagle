@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get "search", to: "job_posts#search", as: :search
   get "health/:provider/check", to: "health#show"
+  resources :job_posts, only: [] do
+    resources :bookmarks, only: %i[create destroy]
+  end
 
   direct :cfl_blob do |blob|
     if Rails.env.production?

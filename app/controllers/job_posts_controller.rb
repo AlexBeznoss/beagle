@@ -1,6 +1,6 @@
 class JobPostsController < ApplicationController
   def index
-    pagy, job_posts = pagy_countless(JobPost.for_index)
+    pagy, job_posts = pagy_countless(jobs_query)
 
     render JobPosts::IndexView.new(
       job_posts:,
@@ -10,7 +10,7 @@ class JobPostsController < ApplicationController
   end
 
   def search
-    collection = [JobPost.includes(img_attachment: :blob), params.dig(:search, :q), {}]
+    collection = [jobs_query, params.dig(:search, :q), {}]
 
     pagy, job_posts = pagy_meilisearch(collection)
 
@@ -19,5 +19,13 @@ class JobPostsController < ApplicationController
       pagy:,
       search_query: params.dig(:search, :q)
     )
+  end
+
+  private
+
+  def jobs_query
+    query = JobPost.for_index
+    query = query.with_bookmark(Current.user_id) if Current.verified?
+    query
   end
 end

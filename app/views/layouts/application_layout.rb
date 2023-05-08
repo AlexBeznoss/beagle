@@ -46,6 +46,8 @@ class ApplicationLayout < ApplicationView
       end
 
       body class: "dark:bg-primary" do
+        render FlashListComponent.new(@_view_context.flash)
+
         main do
           render NavigationComponent.new
           div(class: "container mx-auto", &block)

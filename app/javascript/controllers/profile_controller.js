@@ -8,9 +8,7 @@ export default class extends Controller {
     const el = document.createElement("div");
     this.element.appendChild(el);
     clerk.mountUserButton(el, {
-      afterSignOutAll: window.location.origin,
-      afterSignOutOne: window.location.origin,
-      afterSwitchSession: window.location.origin
+      afterSignOutUrl: window.location.origin,
     });
   }
 }

@@ -5,13 +5,20 @@ class JobPosts::ListItemComponent < ApplicationComponent
   include Phlex::Rails::Helpers::LinkTo
   include Phlex::Rails::Helpers::Routes
   include Phlex::Rails::Helpers::TimeAgoInWords
+  include Phlex::Rails::Helpers::TurboFrameTag
 
   def initialize(job_post)
     @job_post = job_post
   end
 
   def template
-    div(class: "relative mb-12 block flex flex-col md:flex-row items-center justify-between border border-grey dark:border-grey-lighter rounded-md px-4 py-4 sm:px-6 hover:opacity-75") do
+    turbo_frame_tag(
+      @job_post,
+      class: "relative mb-12 block flex flex-col md:flex-row items-center justify-between border border-grey dark:border-grey-lighter rounded-md px-4 py-4 sm:px-6 hover:opacity-75"
+    ) do
+      if Current.verified?
+        render JobPosts::JobActionsComponent.new(@job_post)
+      end
       div(class: "flex flex-row w-full sm:w-max") do
         if logo_present?
           link_to @job_post.url, target: "_blank", rel: "noopener", **test_id("logo_link") do

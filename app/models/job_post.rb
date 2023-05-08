@@ -2,6 +2,7 @@ class JobPost < ApplicationRecord
   include MeiliSearch::Rails
 
   has_one_attached :img
+  has_many :bookmarks, dependent: :destroy
 
   enum provider: {
     gorails: 0,
@@ -27,6 +28,15 @@ class JobPost < ApplicationRecord
   end
 
   scope :for_index, -> { includes(img_attachment: :blob).order(created_at: :desc) }
+  scope :with_bookmark, ->(user_id) {
+    join = <<~SQL.squish
+      LEFT JOIN "bookmarks"
+      ON "bookmarks"."job_post_id" = "job_posts"."id"
+      AND "bookmarks"."user_id" = '#{user_id}'
+    SQL
+
+    joins(join).select('"job_posts".*, "bookmarks"."id" AS "bookmark_id"')
+  }
 
   validates :pid, :provider, :name, :url, presence: true
 

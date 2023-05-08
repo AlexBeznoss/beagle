@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include Clerk::Authenticatable
   before_action :assign_current_session
 
-  layout -> { ApplicationLayout }
+  layout -> { ApplicationLayout unless turbo_frame_request? }
 
   private
 
@@ -14,5 +14,11 @@ class ApplicationController < ActionController::Base
     return unless claims
 
     Current.session_claims = claims
+  end
+
+  def require_signin!
+    return if Current.verified?
+
+    redirect_to root_path, alert: t("login_warning")
   end
 end
