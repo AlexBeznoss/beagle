@@ -2,6 +2,4 @@
   <%= render FlashComponent.new(:notice, t("bookmarks.destroy")) %>
 <% end %>
 
-<%= turbo_stream.replace @job_post do %>
-  <%= render JobPosts::ListItemComponent.new(@job_post) %>
-<% end %>
+<%= turbo_stream.remove @job_post %>

@@ -1,5 +1,6 @@
 require "pagy/extras/countless"
 require "pagy/extras/meilisearch"
+require "pagy/extras/overflow"
 
 Pagy::DEFAULT[:page] = 1
 Pagy::DEFAULT[:items] = 10

@@ -1,32 +1,26 @@
 # frozen_string_literal: true
 
-class JobPosts::IndexView < ApplicationView
+class Bookmarks::IndexView < ApplicationView
   include Phlex::Rails::Helpers::TextField
   include Phlex::Rails::Helpers::TurboFrameTag
 
-  def initialize(job_posts:, pagy:, search_query:)
+  def initialize(job_posts:, pagy:)
     @job_posts = job_posts
     @pagy = pagy
-    @search_query = search_query
   end
 
   def template
-    render JobPosts::HeaderComponent.new
-
+    div(class: "border-b border-grey-lighter mt-6")
     div class: "py-6 pb-16 lg:pb-20 lg:py-12 min-h-[60vh]" do
-      render JobPosts::SearchComponent.new(@search_query)
       turbo_frame_tag "job_posts" do
         render JobPosts::EmptyStateComponent.new if @job_posts.empty?
 
         @job_posts.each do |jp|
-          render JobPosts::ListItemComponent.new(jp, namespace: :job_posts)
+          render JobPosts::ListItemComponent.new(jp, namespace: :bookmarks)
         end
       end
       turbo_frame_tag "job_posts_pagination" do
-        render PaginationComponent.new(
-          @pagy,
-          search: @search_query
-        )
+        render PaginationComponent.new(@pagy)
       end
     end
   end

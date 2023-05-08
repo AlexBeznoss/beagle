@@ -4,6 +4,10 @@ class ApplicationLayout < ApplicationView
   include Phlex::Rails::Layout
   include Phlex::Rails::Helpers::AssetPath
 
+  def initialize(logo: true)
+    @logo = logo
+  end
+
   def template(&block)
     doctype
 
@@ -49,12 +53,16 @@ class ApplicationLayout < ApplicationView
         render FlashListComponent.new(@_view_context.flash)
 
         main do
-          render NavigationComponent.new
+          render NavigationComponent.new(@logo)
           div(class: "container mx-auto", &block)
           render FooterComponent.new
         end
         link href: "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css", rel: "stylesheet"
       end
     end
+  end
+
+  def self.with(*args, **kwargs)
+    PhlexLayoutWrapper.new(klass: self, args: args, kwargs: kwargs)
   end
 end

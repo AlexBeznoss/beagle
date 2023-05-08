@@ -1,10 +1,20 @@
 # frozen_string_literal: true
 
 class NavigationComponent < ApplicationComponent
+  include Phlex::Rails::Helpers::Routes
+  include Phlex::Rails::Helpers::LinkTo
+  include Phlex::Rails::Helpers::ImageTag
+
+  def initialize(with_logo)
+    @with_logo = with_logo
+  end
+
   def template
     div(data: {controller: "navigation theme"}) do
       div(class: "container mx-auto") do
-        div(class: "flex items-center justify-end py-3 lg:py-6") do
+        div(class: tokens("flex items-center justify-end py-3 lg:py-6", with_logo?: "justify-between")) do
+          render_logo if with_logo?
+
           div(class: "flex items-center lg:hidden") do
             div(data: {controller: "profile"}, class: "relative mr-3 z-30 block px-2")
             i(
@@ -17,30 +27,34 @@ class NavigationComponent < ApplicationComponent
               data_action: "click->navigation#toggle"
             )
           end
-        end
 
-        div(class: "hidden lg:block") do
-          ul(class: "flex items-center justify-end") do
-            if Current.verified?
-              li(class: "group relative mr-6 mb-1") do
-                div(class: "absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow")
-                a(href: "/", class: "relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary") { "Bookmarks" }
+          div(class: "hidden lg:block") do
+            ul(class: "flex items-center justify-end") do
+              if Current.verified?
+                li(class: "group relative mr-6 mb-1") do
+                  div(class: "absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow")
+                  link_to(
+                    "Bookmarks",
+                    bookmarks_path,
+                    class: "relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary"
+                  )
+                end
+                li(class: "group relative mr-6 mb-1") do
+                  div(data: {controller: "profile"}, class: "relative z-30 block px-2")
+                end
+              else
+                li(class: "group relative mr-6 mb-1") do
+                  div(class: "absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow")
+                  button(data: {controller: "login", action: "click->login#trigger"}, class: "relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary") { "Sign in" }
+                end
               end
-              li(class: "group relative mr-6 mb-1") do
-                div(data: {controller: "profile"}, class: "relative z-30 block px-2")
+              li do
+                i(
+                  class: "bx cursor-pointer text-3xl text-primary dark:text-white",
+                  data_theme_target: "icon",
+                  data_action: "click->theme#switchTheme"
+                )
               end
-            else
-              li(class: "group relative mr-6 mb-1") do
-                div(class: "absolute left-0 bottom-0 z-20 h-0 w-full opacity-75 transition-all group-hover:h-2 group-hover:bg-yellow")
-                button(data: {controller: "login", action: "click->login#trigger"}, class: "relative z-30 block px-2 font-body text-lg font-medium text-primary transition-colors group-hover:text-green dark:text-white dark:group-hover:text-secondary") { "Sign in" }
-              end
-            end
-            li do
-              i(
-                class: "bx cursor-pointer text-3xl text-primary dark:text-white",
-                data_theme_target: "icon",
-                data_action: "click->theme#switchTheme"
-              )
             end
           end
         end
@@ -55,7 +69,11 @@ class NavigationComponent < ApplicationComponent
           ul(class: "mt-8 flex flex-col") do
             if Current.verified?
               li do
-                a(href: "/", class: "mb-3 block px-2 font-body text-lg font-medium text-white") { "Bookmarks" }
+                link_to(
+                  "Bookmarks",
+                  bookmarks_path,
+                  class: "mb-3 block px-2 font-body text-lg font-medium text-white"
+                )
               end
             else
               li do
@@ -66,5 +84,22 @@ class NavigationComponent < ApplicationComponent
         end
       end
     end
+  end
+
+  private
+
+  def render_logo
+    link_to(root_path, class: "flex items-center") do
+      span(class: "mr-2") do
+        image_tag "logo.svg", class: "hidden lg:block h-10", alt: "BeagleJobs Logo"
+      end
+      p(class: "font-body text-2xl font-bold text-primary dark:text-white") do
+        "BeagleJobs"
+      end
+    end
+  end
+
+  def with_logo?
+    @with_logo
   end
 end

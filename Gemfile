@@ -28,6 +28,7 @@ gem "skylight"
 gem "ferrum"
 gem "phlex-rails"
 gem "clerk-sdk-ruby", require: "clerk"
+gem "baby_squeel"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

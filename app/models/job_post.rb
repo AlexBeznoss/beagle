@@ -29,13 +29,25 @@ class JobPost < ApplicationRecord
 
   scope :for_index, -> { includes(img_attachment: :blob).order(created_at: :desc) }
   scope :with_bookmark, ->(user_id) {
-    join = <<~SQL.squish
-      LEFT JOIN "bookmarks"
-      ON "bookmarks"."job_post_id" = "job_posts"."id"
-      AND "bookmarks"."user_id" = '#{user_id}'
-    SQL
+    bookmarks = BabySqueel[:bookmarks]
 
-    joins(join).select('"job_posts".*, "bookmarks"."id" AS "bookmark_id"')
+    joining do |jp|
+      bookmarks.outer.on(
+        (bookmarks.job_post_id == jp.id) &
+        (bookmarks.user_id == user_id)
+      )
+    end.select('"job_posts".*, "bookmarks"."id" AS "bookmark_id"')
+  }
+  scope :for_bookmarks_index, ->(user_id) {
+    bookmarks = BabySqueel[:bookmarks]
+
+    joining do |jp|
+      bookmarks.on(
+        (bookmarks.job_post_id == jp.id) &
+        (bookmarks.user_id == user_id)
+      )
+    end.select('"job_posts".*, "bookmarks"."id" AS "bookmark_id"')
+      .reorder('"bookmarks"."created_at" DESC, "job_posts"."created_at" DESC')
   }
 
   validates :pid, :provider, :name, :url, presence: true

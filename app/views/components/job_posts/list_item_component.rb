@@ -7,8 +7,9 @@ class JobPosts::ListItemComponent < ApplicationComponent
   include Phlex::Rails::Helpers::TimeAgoInWords
   include Phlex::Rails::Helpers::TurboFrameTag
 
-  def initialize(job_post)
+  def initialize(job_post, namespace:)
     @job_post = job_post
+    @namespace = namespace
   end
 
   def template
@@ -17,7 +18,7 @@ class JobPosts::ListItemComponent < ApplicationComponent
       class: "relative mb-12 block flex flex-col md:flex-row items-center justify-between border border-grey dark:border-grey-lighter rounded-md px-4 py-4 sm:px-6 hover:opacity-75"
     ) do
       if Current.verified?
-        render JobPosts::JobActionsComponent.new(@job_post)
+        render JobPosts::JobActionsComponent.new(@job_post, namespace: @namespace)
       end
       div(class: "flex flex-row w-full sm:w-max") do
         if logo_present?

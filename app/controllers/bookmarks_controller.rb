@@ -1,36 +1,26 @@
 class BookmarksController < ApplicationController
   before_action :require_signin!
-  before_action :find_job_post
 
-  def create
-    @job_post.bookmarks.find_or_create_by!(user_id: Current.user_id)
-    preload_job_post
+  def index
+    pagy, job_posts = pagy_countless(jobs_query)
 
-    respond_to do |f|
-      f.turbo_stream
-      f.html { redirect_to current_path, notice: t("bookmarks.created") }
-    end
+    render Bookmarks::IndexView.new(job_posts:, pagy:)
   end
 
   def destroy
-    @job_post.bookmarks.find(params[:id]).destroy!
-    preload_job_post
+    bookmark = Bookmark.find_by!(user_id: Current.user_id, id: params[:id])
+    @job_post = bookmark.job_post
+    bookmark.destroy!
 
     respond_to do |f|
       f.turbo_stream
-      f.html { redirect_to current_path, notice: t("bookmarks.destroy") }
+      f.html { redirect_to bookmarks_path, notice: t("bookmarks.destroy") }
     end
   end
 
   private
 
-  def find_job_post
-    @job_post = JobPost.find(params[:job_post_id])
-  end
-
-  def preload_job_post
-    @job_post = JobPost.for_index
-      .with_bookmark(Current.user_id)
-      .find(params[:job_post_id])
+  def jobs_query
+    JobPost.for_bookmarks_index(Current.user_id)
   end
 end

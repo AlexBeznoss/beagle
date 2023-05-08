@@ -3,5 +3,5 @@
 <% end %>
 
 <%= turbo_stream.replace @job_post do %>
-  <%= render JobPosts::ListItemComponent.new(@job_post) %>
+  <%= render JobPosts::ListItemComponent.new(@job_post, namespace: :job_posts) %>
 <% end %>

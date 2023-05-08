@@ -85,6 +85,9 @@ GEM
       aws-sigv4 (~> 1.4)
     aws-sigv4 (1.5.2)
       aws-eventstream (~> 1, >= 1.0.2)
+    baby_squeel (2.0.0)
+      activerecord (>= 6.0, < 7.1)
+      ransack (~> 2.3)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -274,6 +277,10 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    ransack (2.6.0)
+      activerecord (>= 6.0.4)
+      activesupport (>= 6.0.4)
+      i18n
     redis (5.0.6)
       redis-client (>= 0.9.0)
     redis-client (0.14.1)
@@ -375,6 +382,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-s3
+  baby_squeel
   bootsnap
   brakeman
   bundler-audit

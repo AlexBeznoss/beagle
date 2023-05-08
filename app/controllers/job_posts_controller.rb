@@ -1,4 +1,6 @@
 class JobPostsController < ApplicationController
+  layout -> { ApplicationLayout.with(logo: false) unless turbo_frame_request? }
+
   def index
     pagy, job_posts = pagy_countless(jobs_query)
 
