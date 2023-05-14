@@ -58,7 +58,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "cuprite"
-  gem "webdrivers"
   gem "webmock"
   gem "minitest-rails"
   gem "minitest-stub-const"
