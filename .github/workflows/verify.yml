@@ -55,6 +55,11 @@ jobs:
         with:
           bundler-cache: true
 
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: stable
+
       - name: Setup test database
         env:
           DB_HOST: localhost
@@ -64,7 +69,6 @@ jobs:
         run: bundle exec rails db:setup
 
       - name: Run tests
-        uses: browser-actions/setup-chrome@v1
         env:
           DB_HOST: localhost
           DB_USER: postgres
