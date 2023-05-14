@@ -3,6 +3,10 @@ import { initClerk } from "utils/clerk";
 
 // Connects to data-controller="profile"
 export default class extends Controller {
+  static values = {
+    ready: Boolean
+  }
+
   async connect() {
     const clerk = await initClerk();
     const el = document.createElement("div");
@@ -10,5 +14,6 @@ export default class extends Controller {
     clerk.mountUserButton(el, {
       afterSignOutUrl: window.location.origin,
     });
+    this.readyValue = true;
   }
 }

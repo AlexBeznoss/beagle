@@ -13,7 +13,7 @@ class JobPost < ApplicationRecord
     weworkremotely: 50
   }
 
-  meilisearch enqueue: :trigger_job do
+  meilisearch enqueue: :trigger_mailsearch_job do
     attribute :name, :company, :location, :provider_label, :created_at
     searchable_attributes %i[name company location provider_label]
     ranking_rules [
@@ -28,7 +28,7 @@ class JobPost < ApplicationRecord
   end
 
   scope :for_index, -> { includes(img_attachment: :blob).order(created_at: :desc) }
-  scope :with_bookmark, ->(user_id) {
+  scope :with_bookmark_id, ->(user_id) {
     bookmarks = BabySqueel[:bookmarks]
 
     joining do |jp|
@@ -47,12 +47,13 @@ class JobPost < ApplicationRecord
         (bookmarks.user_id == user_id)
       )
     end.select('"job_posts".*, "bookmarks"."id" AS "bookmark_id"')
+      .for_index
       .reorder('"bookmarks"."created_at" DESC, "job_posts"."created_at" DESC')
   }
 
   validates :pid, :provider, :name, :url, presence: true
 
-  def self.trigger_job(record, remove)
+  def self.trigger_mailsearch_job(record, remove)
     JobPosts::SearchIndexJob.perform_async(record.id, remove)
   end
 

@@ -27,7 +27,7 @@ class JobPostsController < ApplicationController
 
   def jobs_query
     query = JobPost.for_index
-    query = query.with_bookmark(Current.user_id) if Current.verified?
+    query = query.with_bookmark_id(Current.user_id) if Current.verified?
     query
   end
 end

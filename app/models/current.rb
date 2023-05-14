@@ -17,7 +17,7 @@ class Current < ActiveSupport::CurrentAttributes
   end
 
   def session
-    attributes[:session] ||= sdk.session.find(session_id)
+    attributes[:session] ||= sdk.sessions.find(session_id)
   end
 
   def verified?

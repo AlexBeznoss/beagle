@@ -5,6 +5,14 @@ require "minitest/rails"
 require "webmock/minitest"
 require "sidekiq/testing"
 
+WebMock.disable_net_connect!(
+  allow_localhost: true,
+  allow: [
+    "api.clerk.dev",
+    "chromedriver.storage.googleapis.com"
+  ]
+)
+
 module SidekiqMinitestSupport
   def after_teardown
     Sidekiq::Worker.clear_all
@@ -22,9 +30,23 @@ module FaradayStubMethods
   end
 end
 
+module UserData
+  USERS = {
+    default: {
+      email: "user+clerk_test@beaglejobs.com",
+      password: ">?AHEx@MzJ$J#(CE681W)"
+    }
+  }
+
+  def users(name, field)
+    USERS.dig(name, field)
+  end
+end
+
 class ActiveSupport::TestCase
   include SidekiqMinitestSupport
   include FaradayStubMethods
+  include UserData
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 

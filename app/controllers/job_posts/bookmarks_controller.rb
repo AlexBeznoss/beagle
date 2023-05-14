@@ -30,7 +30,7 @@ class JobPosts::BookmarksController < ApplicationController
 
   def preload_job_post
     @job_post = JobPost.for_index
-      .with_bookmark(Current.user_id)
+      .with_bookmark_id(Current.user_id)
       .find(params[:job_post_id])
   end
 end
