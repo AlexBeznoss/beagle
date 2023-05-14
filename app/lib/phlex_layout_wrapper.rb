@@ -6,7 +6,7 @@ class PhlexLayoutWrapper
 
   def render(view, _locals, &block)
     @instance.call(view_context: view) do |yielded|
-      case yielded
+      case yielded # rubocop:disable Style/ConditionalAssignment
       when Symbol
         output = view.view_flow.get(yielded)
       else
@@ -30,4 +30,3 @@ class PhlexLayoutWrapper
     @klass.virtual_path
   end
 end
-
