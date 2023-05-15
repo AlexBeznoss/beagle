@@ -18,7 +18,7 @@ class JobPosts::JobActionsComponent < ApplicationComponent
   private
 
   def bookmark_button
-    button_to bookmark_action_path, method: bookmark_action_method do
+    button_to bookmark_action_path, bookmark_action_params do
       i(class: "bx text-3xl text-primary bg-white dark:text-white dark:bg-primary #{bookmark_action_icon}")
     end
   end
@@ -34,6 +34,11 @@ class JobPosts::JobActionsComponent < ApplicationComponent
     else
       raise "Namespace #{@namespace} when has_bookmark? is #{has_bookmark?} is not supported."
     end
+  end
+
+  def bookmark_action_params
+    test_id("Bookmarks/#{@job_post.id}/#{bookmark_action_method}")
+      .merge(method: bookmark_action_method)
   end
 
   def bookmark_action_method

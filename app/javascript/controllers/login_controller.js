@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
-import { initClerk } from "utils/clerk";
+import { waitForClerk } from "utils/clerk";
 
 // Connects to data-controller="login"
 export default class extends Controller {
@@ -8,20 +8,12 @@ export default class extends Controller {
   }
 
   async connect() {
-    this.clerk = await initClerk();
+    await waitForClerk();
     this.readyValue = true;
   }
 
   async trigger() {
-    if (!this.clerk.isReady()) {
-      await this.clerk.load();
-    }
-
-    this._openSignIn();
-  }
-
-  _openSignIn() {
-    this.clerk.openSignIn({
+    window.Clerk.openSignIn({
       redirectUrl: window.location.origin
     });
   }

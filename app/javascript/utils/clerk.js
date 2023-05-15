@@ -1,9 +1,12 @@
-import ClerkLib from "@clerk/clerk-js";
+export function waitForClerk() {
+  const isReady = () => window.Clerk && window.Clerk.isReady();
 
-export async function initClerk() {
-  const token = document.querySelector('meta[name="clerk-token"]').content;
-  const clerk = new ClerkLib.default(token);
-  await clerk.load();
-
-  return clerk;
+  return new Promise((resolve) => {
+    const interval = setInterval(() => {
+      if (isReady()) {
+        resolve();
+        clearInterval(interval);
+      }
+    }, 50);
+  })
 }

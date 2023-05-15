@@ -17,7 +17,6 @@ class ApplicationLayout < ApplicationView
         meta name: "viewport", content: "width=device-width,initial-scale=1"
         csp_meta_tag
         csrf_meta_tags
-        meta name: "clerk-token", content: ENV.fetch("CLERK_PUBLISHABLE_KEY")
         stylesheet_link_tag "tailwind", "inter-font", data_turbo_track: "reload"
         stylesheet_link_tag "application", data_turbo_track: "reload"
         javascript_importmap_tags
@@ -58,11 +57,29 @@ class ApplicationLayout < ApplicationView
           render FooterComponent.new
         end
         link href: "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css", rel: "stylesheet"
+        clerk_javascript_tag
       end
     end
   end
 
   def self.with(*args, **kwargs)
     PhlexLayoutWrapper.new(klass: self, args: args, kwargs: kwargs)
+  end
+
+  private
+
+  def clerk_javascript_tag
+    script_url = "https://#{ENV.fetch("CLERK_FRONTEND_API")}/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+
+    javascript_include_tag(
+      script_url,
+      {
+        "data-clerk-frontend-api": ENV.fetch("CLERK_FRONTEND_API"),
+        "data-clerk-publishable-key": ENV.fetch("CLERK_PUBLISHABLE_KEY"),
+        crossorigin: "anonymous",
+        onload: "startClerk()",
+        defer: true
+      }
+    )
   end
 end
