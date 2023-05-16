@@ -8,10 +8,7 @@ require "support/user_helpers"
 
 WebMock.disable_net_connect!(
   allow_localhost: true,
-  allow: [
-    "api.clerk.dev",
-    "chromedriver.storage.googleapis.com"
-  ]
+  allow: ["api.clerk.dev"]
 )
 
 module SidekiqMinitestSupport
