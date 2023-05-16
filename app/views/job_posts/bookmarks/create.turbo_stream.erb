@@ -2,6 +2,10 @@
   <%= render FlashComponent.new(:notice, t("bookmarks.created")) %>
 <% end %>
 
-<%= turbo_stream.replace @job_post do %>
-  <%= render JobPosts::ListItemComponent.new(@job_post, namespace: :job_posts) %>
+<%= turbo_stream.replace "bookmark_toggle_#{@job_post.id}"  do %>
+  <%= render JobPosts::ToggleBookmarkComponent.new(
+    @job_post,
+    create_path: ->(jp) { job_post_bookmarks_path(jp) },
+    destroy_path: ->(jp) { job_post_bookmark_path(jp, jp.bookmark_id) }
+  ) %>
 <% end %>

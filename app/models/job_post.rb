@@ -1,5 +1,6 @@
 class JobPost < ApplicationRecord
   include MeiliSearch::Rails
+  attribute :bookmark_id
 
   has_one_attached :img
   has_many :bookmarks, dependent: :destroy

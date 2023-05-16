@@ -11,7 +11,7 @@ class JobPosts::ListItemComponentTest < ActiveSupport::TestCase
     travel_to 2.days.ago
     job_post = FactoryBot.create(:job_post)
     travel_back
-    output = render JobPosts::ListItemComponent.new(job_post, namespace: :job_posts)
+    output = render JobPosts::ListItemComponent.new(job_post)
     text = output.text
 
     assert_includes text, "Posted 2 days ago"
@@ -23,7 +23,7 @@ class JobPosts::ListItemComponentTest < ActiveSupport::TestCase
   describe "when logo saved to cloudflare" do
     test "shows cloudflare logo" do
       job_post = FactoryBot.create(:job_post, :with_logo)
-      output = render JobPosts::ListItemComponent.new(job_post, namespace: :job_posts)
+      output = render JobPosts::ListItemComponent.new(job_post)
       link = output.at_css('[data-test-id="logo_link"]')
       img = link.at_css("img")
 
@@ -38,7 +38,7 @@ class JobPosts::ListItemComponentTest < ActiveSupport::TestCase
     test "shows logo from img_url" do
       img_url = "https://fake_image.url/logo.jpeg"
       job_post = FactoryBot.create(:job_post, img_url:)
-      output = render JobPosts::ListItemComponent.new(job_post, namespace: :job_posts)
+      output = render JobPosts::ListItemComponent.new(job_post)
       link = output.at_css('[data-test-id="logo_link"]')
       img = link.at_css("img")
 
