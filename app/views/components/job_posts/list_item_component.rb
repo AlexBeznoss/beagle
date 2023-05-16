@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
 class JobPosts::ListItemComponent < ApplicationComponent
+  include Phlex::DeferredRender
   include Phlex::Rails::Helpers::ImageTag
   include Phlex::Rails::Helpers::LinkTo
   include Phlex::Rails::Helpers::Routes
   include Phlex::Rails::Helpers::TimeAgoInWords
   include Phlex::Rails::Helpers::TurboFrameTag
 
-  def initialize(job_post, namespace:)
+  def initialize(job_post)
     @job_post = job_post
-    @namespace = namespace
+    @actions = []
   end
 
   def template
@@ -18,7 +19,7 @@ class JobPosts::ListItemComponent < ApplicationComponent
       class: "relative mb-12 block flex flex-col md:flex-row items-center justify-between border border-grey dark:border-grey-lighter rounded-md px-4 py-4 sm:px-6 hover:opacity-75"
     ) do
       if Current.verified?
-        render JobPosts::JobActionsComponent.new(@job_post, namespace: @namespace)
+        render JobPosts::JobActionsComponent.new(@actions)
       end
       div(class: "flex flex-row w-full sm:w-max") do
         if logo_present?
@@ -67,6 +68,10 @@ class JobPosts::ListItemComponent < ApplicationComponent
         end
       end
     end
+  end
+
+  def actions
+    @actions << yield
   end
 
   private

@@ -16,7 +16,14 @@ class Bookmarks::IndexView < ApplicationView
         render JobPosts::EmptyStateComponent.new if @job_posts.empty?
 
         @job_posts.each do |jp|
-          render JobPosts::ListItemComponent.new(jp, namespace: :bookmarks)
+          render JobPosts::ListItemComponent.new(jp) do |item|
+            item.actions do
+              JobPosts::ToggleBookmarkComponent.new(
+                jp,
+                destroy_path: ->(jp) { bookmark_path(jp.bookmark_id) }
+              )
+            end
+          end
         end
       end
       turbo_frame_tag "job_posts_pagination" do
