@@ -1,6 +1,7 @@
 module UserHelpers
   USERS = {
     default: {
+      id: "user_2PngYM7oaPAcIAhBbKaR3JatBNu",
       email: "user+clerk_test@beaglejobs.com",
       password: ">?AHEx@MzJ$J#(CE681W)"
     }
