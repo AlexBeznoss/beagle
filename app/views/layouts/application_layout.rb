@@ -4,6 +4,10 @@ class ApplicationLayout < ApplicationView
   include Phlex::Rails::Layout
   include Phlex::Rails::Helpers::AssetPath
 
+  def initialize(logo: true)
+    @logo = logo
+  end
+
   def template(&block)
     doctype
 
@@ -44,14 +48,38 @@ class ApplicationLayout < ApplicationView
         meta(name: "theme-color", content: "#ffffff")
       end
 
-      body class: "dark:bg-primary", data_controller: "theme" do
+      body class: "dark:bg-primary" do
+        render FlashListComponent.new(@_view_context.flash)
+
         main do
-          render NavigationComponent.new
+          render NavigationComponent.new(@logo)
           div(class: "container mx-auto", &block)
           render FooterComponent.new
         end
         link href: "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css", rel: "stylesheet"
+        clerk_javascript_tag
       end
     end
+  end
+
+  def self.with(*args, **kwargs)
+    PhlexLayoutWrapper.new(klass: self, args: args, kwargs: kwargs)
+  end
+
+  private
+
+  def clerk_javascript_tag
+    script_url = "https://#{ENV.fetch("CLERK_FRONTEND_API")}/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+
+    javascript_include_tag(
+      script_url,
+      {
+        "data-clerk-frontend-api": ENV.fetch("CLERK_FRONTEND_API"),
+        "data-clerk-publishable-key": ENV.fetch("CLERK_PUBLISHABLE_KEY"),
+        crossorigin: "anonymous",
+        onload: "startClerk()",
+        defer: true
+      }
+    )
   end
 end

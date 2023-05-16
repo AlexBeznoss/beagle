@@ -6,6 +6,11 @@ Rails.application.routes.draw do
   get "search", to: "job_posts#search", as: :search
   get "health/:provider/check", to: "health#show"
 
+  resources :bookmarks, only: %i[index destroy]
+  resources :job_posts, only: [] do
+    resources :bookmarks, only: %i[create destroy], controller: "job_posts/bookmarks"
+  end
+
   direct :cfl_blob do |blob|
     if Rails.env.production?
       File.join(Rails.application.credentials.dig(:cloudflare, :cdn_host), blob.key)

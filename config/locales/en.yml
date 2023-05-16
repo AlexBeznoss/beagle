@@ -30,4 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  login_warning: "Sorry, but you have no access to this path. Please sign in first."
+  bookmarks:
+    created: "Job is bookmarked."
+    destroy: "Bookmark is deleted."
+

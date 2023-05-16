@@ -1,6 +1,6 @@
 require "test_helper"
 
-class JobPostsControllerTest < ActionDispatch::IntegrationTest
+class BookmarkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -40,3 +40,5 @@
 .DS_Store
 
 /config/credentials/test.key
+
+.env*

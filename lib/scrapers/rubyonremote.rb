@@ -7,7 +7,9 @@ module Scrapers
     def call
       doc = Nokogiri::HTML5.parse(request_body)
 
-      doc.xpath("//a[starts-with(@href,'/jobs/')]").map do |job|
+      doc.xpath("//a[starts-with(@href,'/jobs/')]").filter_map do |job|
+        next unless has_job?(job)
+
         {
           pid: pid_from(job),
           name: name_from(job),
@@ -49,6 +51,10 @@ module Scrapers
       return unless icon
 
       icon.parent.next_element.text.strip
+    end
+
+    def has_job?(job)
+      !!job.at_css("h2")
     end
   end
 end
