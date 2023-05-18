@@ -51,6 +51,7 @@ class JobPost < ApplicationRecord
       .for_index
       .reorder('"bookmarks"."created_at" DESC, "job_posts"."created_at" DESC')
   }
+  scope :for_cleanup, -> { where.has { |jp| jp.created_at <= 3.months.ago.beginning_of_day } }
 
   validates :pid, :provider, :name, :url, presence: true
 
