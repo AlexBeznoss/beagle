@@ -18,6 +18,7 @@ gem "bootsnap", require: false
 gem "faraday"
 gem "sidekiq"
 gem "sidekiq-cron"
+gem "sidekiq-iteration"
 gem "pagy"
 gem "honeybadger", "~> 5.0"
 gem "health-monitor-rails"
