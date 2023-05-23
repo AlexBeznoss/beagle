@@ -11,10 +11,20 @@ export default class extends Controller {
     await waitForClerk();
     const clerk = window.Clerk;
     const el = document.createElement("div");
+    this.node = el;
     this.element.appendChild(el);
     clerk.mountUserButton(el, {
       afterSignOutUrl: window.location.origin,
     });
     this.readyValue = true;
+  }
+
+  disconnect() {
+    if (this.element.hasChildNodes()) {
+      const element = this.element.children[0];
+      window.Clerk.unmountUserButton(element);
+      element.remove();
+      this.readyValue = false;
+    }
   }
 }
