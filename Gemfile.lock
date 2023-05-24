@@ -126,7 +126,7 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
-    down (5.4.0)
+    down (5.4.1)
       addressable (~> 2.8)
     erb (4.0.2)
       cgi (>= 0.3.3)
