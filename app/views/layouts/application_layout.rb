@@ -49,7 +49,7 @@ class ApplicationLayout < ApplicationView
         meta(name: "theme-color", content: "#ffffff")
       end
 
-      body class: "dark:bg-primary", data: {controller: "highlight_track"} do
+      body class: "dark:bg-primary", data: highlight_controller do
         render FlashListComponent.new(@_view_context.flash)
 
         main do
@@ -82,5 +82,10 @@ class ApplicationLayout < ApplicationView
         defer: true
       }
     )
+  end
+
+  def highlight_controller
+    return {} unless Rails.env.production?
+    {controller: "highlight_track"}
   end
 end
