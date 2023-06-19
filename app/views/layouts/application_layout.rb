@@ -21,6 +21,7 @@ class ApplicationLayout < ApplicationView
         stylesheet_link_tag "application", data_turbo_track: "reload"
         javascript_importmap_tags
         script src: "https://plausible.io/js/script.js", data_domain: "beaglejobs.com", defer: true
+        script src: "https://unpkg.com/highlight.run"
         link(
           rel: "apple-touch-icon",
           sizes: "180x180",
@@ -48,7 +49,7 @@ class ApplicationLayout < ApplicationView
         meta(name: "theme-color", content: "#ffffff")
       end
 
-      body class: "dark:bg-primary" do
+      body class: "dark:bg-primary", data: highlight_controller do
         render FlashListComponent.new(@_view_context.flash)
 
         main do
@@ -81,5 +82,10 @@ class ApplicationLayout < ApplicationView
         defer: true
       }
     )
+  end
+
+  def highlight_controller
+    return {} unless Rails.env.production?
+    {controller: "highlight_track"}
   end
 end
