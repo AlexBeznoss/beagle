@@ -329,7 +329,7 @@ GEM
       fugit (~> 1.8)
       globalid (>= 1.0.1)
       sidekiq (>= 6)
-    sidekiq-iteration (0.2.0)
+    sidekiq-iteration (0.3.0)
       sidekiq (>= 6.0)
     skylight (5.3.4)
       activesupport (>= 5.2.0)
