@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
   include Clerk::Authenticatable
   before_action :assign_current_session
+  protect_from_forgery with: :exception
 
   layout -> { ApplicationLayout unless turbo_frame_request? }
 
