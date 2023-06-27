@@ -1,0 +1,136 @@
+---
+engine_version: 0.4.19
+file_version: 2023-06-27 22:23:59.261177000 Z
+resources:
+- name: bookmark
+  preferences:
+    visible: false
+  updated_at: 2023-06-27 19:43:59.564680000 +00:00
+configs:
+- key: header.links
+  value:
+  - name: Reports
+    link_type: reports
+  - name: Forms
+    link_type: forms
+  - conditions: []
+    type: header
+    name: Sidekiq
+    path: "/admin/sidekiq"
+    link_type: header
+  updated_at: 2023-06-27 20:36:44.246256000 +00:00
+- key: homepage.layout
+  value:
+  - type: dashboard
+    id: 1
+  updated_at: 2023-06-27 19:44:09.076093000 +00:00
+queries:
+- id: 1
+  name: JobPosts
+  sql_body: SELECT COUNT(1) FROM job_posts;
+  description:
+  preferences:
+    query_type: sql
+    database: primary
+    visualization: value
+    visualization_options:
+      label_format: decimal
+      label_format_options: {}
+    variables: []
+  tags: []
+  updated_at: 2023-06-27 20:42:30.735788000 +00:00
+- id: 2
+  name: Users with bookmarks
+  sql_body: SELECT COUNT(1) FROM (SELECT DISTINCT user_id FROM bookmarks) distinct_users;
+  description: ''
+  preferences:
+    query_type: sql
+    database: primary
+    visualization: value
+    visualization_options:
+      label_format: decimal
+      label_format_options: {}
+    variables: []
+  tags: []
+  updated_at: 2023-06-27 20:42:11.713077000 +00:00
+- id: 3
+  name: JobPosts by month
+  sql_body: "SELECT  d.date as date, COUNT(jp.id) as total FROM (\n    SELECT date_trunc('month',
+    date.date) as date FROM generate_series(now() - '1 year'::interval, now(), '1
+    month'::interval) as date\n) as d \nLEFT JOIN (\n    SELECT id, date_trunc('month',
+    created_at) as date FROM job_posts\n) jp ON d.date = jp.date\nGROUP BY d.date\nORDER
+    BY d.date; "
+  description:
+  preferences:
+    query_type: sql
+    database: primary
+    visualization: line_chart
+    visualization_options:
+      label_format: decimal
+      label_format_options:
+        currency: USD
+      chart_values_axis: false
+      chart_stacked: true
+    variables: []
+  tags: []
+  updated_at: 2023-06-27 20:43:32.004316000 +00:00
+- id: 4
+  name: JobPost by provider
+  sql_body: "SELECT  d.date as date, COUNT(jp.id) as total FROM (\n    SELECT date_trunc('month',
+    date.date) as date FROM generate_series(now() - '1 year'::interval, now(), '1
+    month'::interval) as date\n) as d \nLEFT JOIN (\n    SELECT id, date_trunc('month',
+    created_at) as date FROM job_posts\n    WHERE provider = {{provider}}\n) jp ON
+    d.date = jp.date\nGROUP BY d.date\nORDER BY d.date; "
+  description:
+  preferences:
+    query_type: sql
+    database: primary
+    visualization: line_chart
+    visualization_options:
+      label_format: decimal
+      label_format_options: {}
+    variables:
+    - name: provider
+      display_name: Provider
+      variable_type: select
+      default_value: '0'
+      reference_resource: job_post
+      select_options:
+      - '0'
+      - '10'
+      - '20'
+      - '30'
+      - '40'
+      - '50'
+  tags: []
+  updated_at: 2023-06-27 22:20:34.951774000 +00:00
+dashboards:
+- id: 1
+  title: Main dashboard
+  description:
+  preferences:
+    layout:
+    - title: Users Amount
+      query_id: 2
+      size: 3x2
+    - title: Job Posts Amount
+      query_id: 1
+      size: 3x2
+    - title: JobPosts by date
+      query_id: 3
+      size: 3x2
+    - title: JobPost by provider
+      query_id: 4
+      size: 3x2
+    variables: []
+  tags: []
+  updated_at: 2023-06-27 22:23:59.261177000 +00:00
+forms: []
+alerts: []
+api_configs:
+- id: 1
+  name: origin
+  url: "/"
+  preferences: {}
+  description:
+  updated_at: 2023-06-27 19:37:12.731005000 +00:00

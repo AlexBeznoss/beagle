@@ -2,7 +2,7 @@ require_relative "../app/lib/routes_auth_constraint"
 
 Rails.application.routes.draw do
   RoutesAuthConstraint.call(self, -> { Current.admin? }) do
-    mount Avo::Engine, at: Avo.configuration.root_path
+    mount Motor::Admin => "admin"
     mount Sidekiq::Web => "admin/sidekiq"
   end
 
