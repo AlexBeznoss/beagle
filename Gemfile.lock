@@ -46,6 +46,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_link_to (1.0.5)
+      actionpack
+      addressable
     activejob (7.0.5.1)
       activesupport (= 7.0.5.1)
       globalid (>= 0.3.6)
@@ -69,6 +72,20 @@ GEM
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
+    avo (2.35.0)
+      actionview (>= 6.0)
+      active_link_to
+      activerecord (>= 6.0)
+      addressable
+      docile
+      dry-initializer
+      httparty
+      inline_svg
+      meta-tags
+      pagy
+      turbo-rails
+      view_component (>= 2.54.0)
+      zeitwerk (>= 2.6.2)
     aws-eventstream (1.2.0)
     aws-partitions (1.780.0)
     aws-sdk-core (3.175.0)
@@ -122,12 +139,14 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    docile (1.4.0)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
     down (5.4.1)
       addressable (~> 2.8)
+    dry-initializer (3.1.1)
     erb (4.0.2)
       cgi (>= 0.3.3)
     erubi (1.12.0)
@@ -173,6 +192,9 @@ GEM
     importmap-rails (1.2.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     io-console (0.6.0)
     irb (1.7.0)
       reline (>= 0.3.0)
@@ -195,6 +217,8 @@ GEM
       httparty (>= 0.17.1, < 0.22.0)
     meilisearch-rails (0.9.1)
       meilisearch (~> 0.23.0)
+    meta-tags (2.18.0)
+      actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.18.1)
@@ -359,6 +383,10 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
+    view_component (3.3.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -381,6 +409,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  avo
   aws-sdk-s3
   baby_squeel
   bootsnap
