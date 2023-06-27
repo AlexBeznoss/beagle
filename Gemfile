@@ -39,6 +39,7 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-capybara", require: false
+  gem "rubocop-factory_bot", require: false
   gem "bundler-audit"
   gem "ruby_audit"
   gem "dotenv-rails"
