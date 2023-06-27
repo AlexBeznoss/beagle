@@ -6,14 +6,12 @@ class JobPostResource < Avo::BaseResource
   # end
 
   field :id, as: :id
-  # Fields generated from the model
-  field :pid, as: :text
   field :provider, as: :select, enum: ::JobPost.providers
   field :name, as: :text
-  field :url, as: :text
   field :company, as: :text
-  field :img_url, as: :text
   field :location, as: :text
-  field :img, as: :file
-  # add fields here
+  field :url, as: :text,
+    format_using: ->(value) { link_to("Link", value, target: "_blank", rel: "noopener") }
+  field :img, as: :file, is_image: true
+  field :hidden, as: :boolean
 end

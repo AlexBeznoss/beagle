@@ -14,7 +14,7 @@ class JobPost < ApplicationRecord
     weworkremotely: 50
   }
 
-  meilisearch enqueue: :trigger_mailsearch_job do
+  meilisearch unless: :hidden?, enqueue: :trigger_mailsearch_job do
     attribute :name, :company, :location, :provider_label, :created_at
     searchable_attributes %i[name company location provider_label]
     ranking_rules [
@@ -28,7 +28,7 @@ class JobPost < ApplicationRecord
     ]
   end
 
-  scope :for_index, -> { includes(img_attachment: :blob).order(created_at: :desc) }
+  scope :for_index, -> { where(hidden: false).includes(img_attachment: :blob).order(created_at: :desc) }
   scope :with_bookmark_id, ->(user_id) {
     bookmarks = BabySqueel[:bookmarks]
 
