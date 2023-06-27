@@ -1,7 +1,7 @@
 # commands used to deploy a Rails application
 namespace :fly do
   task :console do # rubocop:disable Rails/RakeEnvironment
-    sh 'fly ssh console -r sea -C "app/bin/rails console"'
+    sh 'fly ssh console -r sea -C "/app/bin/rails console"'
   end
 
   # BUILD step:

@@ -235,19 +235,6 @@ class InstallMotorAdmin < ActiveRecord::Migration[7.0]
     add_index :motor_audits, %i[user_id user_type], name: "motor_auditable_user_index"
     add_index :motor_audits, :request_uuid
     add_index :motor_audits, :created_at
-
-    model = Class.new(ApplicationRecord)
-
-    model.table_name = "motor_configs"
-
-    model.create!(key: "header.links", value: [{
-      name: "⭐ Star on GitHub",
-      path: "https://github.com/motor-admin/motor-admin-rails"
-    }].to_json)
-
-    model.table_name = "motor_api_configs"
-
-    model.create!(name: "origin", url: "/", preferences: {}, credentials: {})
   end
 
   def self.down
