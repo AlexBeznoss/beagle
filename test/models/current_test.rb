@@ -71,4 +71,26 @@ class CurrentTest < ActiveSupport::TestCase
       end
     end
   end
+
+  describe "admin?" do
+    describe "when is admin" do
+      test "returns true" do
+        user = {"private_metadata" => {"role" => "admin"}}
+
+        Current.instance.stub :user, user do
+          assert Current.admin?
+        end
+      end
+    end
+
+    describe "when is NOT admin" do
+      test "returns false" do
+        user = {"private_metadata" => {}}
+
+        Current.instance.stub :user, user do
+          assert_not Current.admin?
+        end
+      end
+    end
+  end
 end

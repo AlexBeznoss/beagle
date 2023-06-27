@@ -24,6 +24,10 @@ class Current < ActiveSupport::CurrentAttributes
     !!session_id
   end
 
+  def admin?
+    user.dig("private_metadata", "role") == "admin"
+  end
+
   private
 
   def sdk

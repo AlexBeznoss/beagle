@@ -30,6 +30,7 @@ gem "ferrum"
 gem "phlex-rails"
 gem "clerk-sdk-ruby", require: "clerk"
 gem "baby_squeel"
+gem "motor-admin"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -38,6 +39,7 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-capybara", require: false
+  gem "rubocop-factory_bot", require: false
   gem "bundler-audit"
   gem "ruby_audit"
   gem "dotenv-rails"
