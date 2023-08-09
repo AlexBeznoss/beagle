@@ -202,7 +202,7 @@ GEM
     meilisearch-rails (0.9.1)
       meilisearch (~> 0.23.0)
     method_source (1.0.0)
-    mini_mime (1.1.2)
+    mini_mime (1.1.5)
     minitest (5.19.0)
     minitest-rails (7.0.0)
       minitest (~> 5.10)
