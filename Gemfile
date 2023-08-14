@@ -24,12 +24,12 @@ gem "honeybadger", "~> 5.0"
 gem "health-monitor-rails"
 gem "aws-sdk-s3", require: false
 gem "down"
-gem "meilisearch-rails"
 gem "skylight"
 gem "ferrum"
 gem "phlex-rails"
 gem "clerk-sdk-ruby", require: "clerk"
 gem "baby_squeel"
+gem "pg_search"
 gem "motor-admin"
 
 group :development, :test do
