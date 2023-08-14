@@ -30,6 +30,7 @@ gem "ferrum"
 gem "phlex-rails"
 gem "clerk-sdk-ruby", require: "clerk"
 gem "baby_squeel"
+gem "pg_search"
 gem "motor-admin"
 
 group :development, :test do
