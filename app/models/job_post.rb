@@ -1,5 +1,6 @@
 class JobPost < ApplicationRecord
   include MeiliSearch::Rails
+  include PgSearch::Model
   attribute :bookmark_id
 
   has_one_attached :img
@@ -13,6 +14,12 @@ class JobPost < ApplicationRecord
     startupjobs: 40,
     weworkremotely: 50
   }
+
+  pg_search_scope :search_local, against: {
+    name: "A",
+    company: "B",
+    location: "C"
+  }, using: {tsearch: {prefix: true}}
 
   meilisearch unless: :hidden?, enqueue: :trigger_mailsearch_job do
     attribute :name, :company, :location, :provider_label, :created_at
