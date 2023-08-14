@@ -12,9 +12,9 @@ class JobPostsController < ApplicationController
   end
 
   def search
-    collection = [jobs_query, params.dig(:search, :q), {}]
+    collection = jobs_query.search(params.dig(:search, :q))
 
-    pagy, job_posts = pagy_meilisearch(collection)
+    pagy, job_posts = pagy_countless(collection)
 
     render JobPosts::IndexView.new(
       job_posts:,

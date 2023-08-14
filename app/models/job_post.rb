@@ -1,5 +1,4 @@
 class JobPost < ApplicationRecord
-  include MeiliSearch::Rails
   include PgSearch::Model
   attribute :bookmark_id
 
@@ -15,25 +14,11 @@ class JobPost < ApplicationRecord
     weworkremotely: 50
   }
 
-  pg_search_scope :search_local, against: {
+  pg_search_scope :search, against: {
     name: "A",
     company: "B",
     location: "C"
   }, using: {tsearch: {prefix: true}}
-
-  meilisearch unless: :hidden?, enqueue: :trigger_mailsearch_job do
-    attribute :name, :company, :location, :provider_label, :created_at
-    searchable_attributes %i[name company location provider_label]
-    ranking_rules [
-      "proximity",
-      "typo",
-      "words",
-      "attribute",
-      "sort",
-      "exactness",
-      "created_at:desc"
-    ]
-  end
 
   scope :for_index, -> { where(hidden: false).includes(img_attachment: :blob).order(created_at: :desc) }
   scope :with_bookmark_id, ->(user_id) {
@@ -61,10 +46,6 @@ class JobPost < ApplicationRecord
   scope :for_cleanup, -> { where.has { |jp| jp.created_at <= 3.months.ago.beginning_of_day } }
 
   validates :pid, :provider, :name, :url, presence: true
-
-  def self.trigger_mailsearch_job(record, remove)
-    JobPosts::SearchIndexJob.perform_async(record.id, remove)
-  end
 
   def provider_label
     {

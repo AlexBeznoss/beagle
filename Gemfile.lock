@@ -171,9 +171,6 @@ GEM
     health-monitor-rails (11.1.0)
       railties (>= 6.1)
     honeybadger (5.2.1)
-    httparty (0.21.0)
-      mini_mime (>= 1.0.0)
-      multi_xml (>= 0.5.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -197,10 +194,6 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
-    meilisearch (0.23.0)
-      httparty (>= 0.17.1, < 0.22.0)
-    meilisearch-rails (0.9.1)
-      meilisearch (~> 0.23.0)
     method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.19.0)
@@ -215,7 +208,6 @@ GEM
       fugit (~> 1.0)
       rails (>= 5.2)
     msgpack (1.7.2)
-    multi_xml (0.6.0)
     multipart-post (2.3.0)
     net-imap (0.3.7)
       date
@@ -419,7 +411,6 @@ DEPENDENCIES
   health-monitor-rails
   honeybadger (~> 5.0)
   importmap-rails
-  meilisearch-rails
   minitest-rails
   minitest-stub-const
   motor-admin
