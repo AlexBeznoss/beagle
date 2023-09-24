@@ -43,7 +43,6 @@ jobs:
           fi
 
       - name: Extract branch name
-        if: steps.linter.outputs.has_issues == '1'
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: extract_branch
 
@@ -68,6 +67,7 @@ jobs:
           commit-message: "Fix rubocop issues by RubocopBrancher workflow"
           branch: ${{ steps.extract_branch.outputs.branch }}-rubocop_brancher
           delete-branch: true
+
       - name: Leave a comment
         uses: mshick/add-pr-comment@v2
         if: steps.linter.outputs.has_issues == '1'
