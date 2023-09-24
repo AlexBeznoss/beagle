@@ -8,7 +8,7 @@ jobs:
   brancher:
     name: Linters
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request != 'null' }}
+    if: ${{ github.event.pull_request }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
