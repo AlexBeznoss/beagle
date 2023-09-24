@@ -31,9 +31,11 @@ jobs:
           echo "files="$(curl -H "Authorization: token $TOKEN" -H "Accept: application/vnd.github.v3+json" -s $API_URL | jq -r '.[].filename' | tr '\n' ' ')"" >> $GITHUB_OUTPUT
 
       - name: Run linters
+        id: linter
         run: |
           # bundle exec rubocop --fail-fast --force-exclusion --format=github ${{steps.changed_files.outputs.files}}
           has_issues=$(bundle exec rubocop --fail-fast --force-exclusion --format=files ${{steps.changed_files.outputs.files}} > /dev/null 2>&1; echo $?)
+          echo "has_issues="$has_issues"" >> $GITHUB_OUTPUT
 
           echo $has_issues
           if [ "$has_issues" == "1"  ]; then
@@ -41,4 +43,9 @@ jobs:
           else
             echo "Has no issues"
           fi
+
+      - name: Run brancher
+        if: ${{ steps.linter.output.has_issues == "1" }}
+        run: |
+          echo "Brancher executed"
 
