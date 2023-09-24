@@ -1,0 +1,21 @@
+name: RubocopBrancher
+on: 
+  pull_request:
+    types: [closed]
+
+jobs:
+  brancher:
+    name: Run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract branch name
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
+      - name: Close PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr list -B ${{ steps.extract_branch.outputs.branch }}-rubocop_brancher --json number --jq '.[].number' |
+          gh pr close -c "Main PR is closed, so this one is irrelevant now :(" -d
+
