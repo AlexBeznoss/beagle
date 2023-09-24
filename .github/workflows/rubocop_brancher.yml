@@ -39,6 +39,7 @@ jobs:
 
           if [ "$has_issues" == "1"  ]; then
             echo "description="$(bundle exec rubocop --format=markdown --force-exclusion ${{steps.changed_files.outputs.files}} | tr '\n' ' \n')"" >> $GITHUB_OUTPUT
+            echo "$(bundle exec rubocop --format=markdown --force-exclusion ${{steps.changed_files.outputs.files}})"
             bundle exec rubocop --autocorrect --force-exclusion ${{steps.changed_files.outputs.files}}
           fi
 
