@@ -1,0 +1,18 @@
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/erb-4.0.3/ext/erb/escape
+/opt/hostedtoolcache/Ruby/3.2.2/x64/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/erb-4.0.3/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20230823-2290-8xym8q sitelibdir\=./.gem.20230823-2290-8xym8q clean
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/erb-4.0.3/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20230823-2290-8xym8q sitelibdir\=./.gem.20230823-2290-8xym8q
+compiling escape.c
+linking shared-object erb/escape.so
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/erb-4.0.3/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20230823-2290-8xym8q sitelibdir\=./.gem.20230823-2290-8xym8q install
+/usr/bin/install -c -m 0755 escape.so ./.gem.20230823-2290-8xym8q/erb
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/erb-4.0.3/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20230823-2290-8xym8q sitelibdir\=./.gem.20230823-2290-8xym8q clean

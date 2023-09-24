@@ -1,0 +1,15 @@
+inherit_from:
+  - "https://www.goodcop.style/rubocop.yml"
+  - "https://www.goodcop.style/tabs.yml"
+
+AllCops:
+  TargetRubyVersion: 2.7
+  Exclude:
+    - "lib/phlex-rails.rb"
+  SuggestExtensions: false
+
+Style/MissingRespondToMissing:
+  Enabled: false
+
+Style/RescueStandardError:
+  Enabled: false

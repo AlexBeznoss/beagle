@@ -1,0 +1,19 @@
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+/opt/hostedtoolcache/Ruby/3.2.2/x64/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-h6bcno sitelibdir\=./.gem.20230520-2154-h6bcno clean
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-h6bcno sitelibdir\=./.gem.20230520-2154-h6bcno
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-h6bcno sitelibdir\=./.gem.20230520-2154-h6bcno install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20230520-2154-h6bcno/debug
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-h6bcno sitelibdir\=./.gem.20230520-2154-h6bcno clean

@@ -1,0 +1,55 @@
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/ext
+/opt/hostedtoolcache/Ruby/3.2.2/x64/bin/ruby extconf.rb
+I, [2023-05-20T15:21:05.497053 #2474]  INFO -- : SKYLIGHT_HDR_PATH=/home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/ext; SKYLIGHT_LIB_PATH=/home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/lib/skylight/native/x86_64-linux
+I, [2023-05-20T15:21:05.497571 #2474]  INFO -- : [SKYLIGHT] fetching native ext; curr-platform=x86_64-linux; requested-arch=x86_64-linux; version=5.1.0-cd7d6af
+I, [2023-05-20T15:21:05.497681 #2474]  INFO -- : [SKYLIGHT] attempting to fetch from remote; uri=https://s3.amazonaws.com/skylight-agent-packages/skylight-native/5.1.0-cd7d6af/skylight_x86_64-linux.tar.gz
+I, [2023-05-20T15:21:05.992497 #2474]  INFO -- : [SKYLIGHT] successfully downloaded native ext; out=/home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/ext/skylight_x86_64-linux.tar.gz
+I, [2023-05-20T15:21:06.316577 #2474]  INFO -- : [SKYLIGHT] tar xzvf /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/ext/skylight_x86_64-linux.tar.gz
+I, [2023-05-20T15:21:06.316629 #2474]  INFO -- : [SKYLIGHT] skylightd
+libskylight.so
+skylight.h
+skylight_dlopen.h
+skylight_dlopen.c
+
+checking for skylight_dlopen.h in /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/ext... yes
+checking for dlfcn.h... yes
+checking for rb_thread_call_without_gvl() in ruby/thread.h... yes
+checking for fast thread local storage... yes
+creating Makefile
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/ext
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-evwh4y sitelibdir\=./.gem.20230520-2154-evwh4y clean
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/ext
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-evwh4y sitelibdir\=./.gem.20230520-2154-evwh4y
+compiling skylight_dlopen.c
+compiling skylight_memprof.c
+skylight_memprof.c: In function ‘get_allocations’:
+skylight_memprof.c:15:34: warning: old-style function definition [-Wold-style-definition]
+   15 | static inline sky_allocations_t* get_allocations() {
+      |                                  ^~~~~~~~~~~~~~~
+skylight_memprof.c: In function ‘sky_consume_allocations’:
+skylight_memprof.c:72:10: warning: old-style function definition [-Wold-style-definition]
+   72 | uint64_t sky_consume_allocations() {
+      |          ^~~~~~~~~~~~~~~~~~~~~~~
+skylight_memprof.c: At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+compiling skylight_native.c
+skylight_native.c: In function ‘Init_skylight_native’:
+skylight_native.c:510:6: warning: old-style function definition [-Wold-style-definition]
+  510 | void Init_skylight_native() {
+      |      ^~~~~~~~~~~~~~~~~~~~
+skylight_native.c: At top level:
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
+linking shared-object skylight_native.so
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/ext
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-evwh4y sitelibdir\=./.gem.20230520-2154-evwh4y install
+/usr/bin/install -c -m 0755 skylight_native.so ./.gem.20230520-2154-evwh4y
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/skylight-5.3.4/ext
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-evwh4y sitelibdir\=./.gem.20230520-2154-evwh4y clean

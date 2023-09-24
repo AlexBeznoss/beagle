@@ -1,0 +1,18 @@
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+/opt/hostedtoolcache/Ruby/3.2.2/x64/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-pgyypc sitelibdir\=./.gem.20230520-2154-pgyypc clean
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-pgyypc sitelibdir\=./.gem.20230520-2154-pgyypc
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-pgyypc sitelibdir\=./.gem.20230520-2154-pgyypc install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20230520-2154-pgyypc/bootsnap
+
+current directory: /home/runner/work/beagle/beagle/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20230520-2154-pgyypc sitelibdir\=./.gem.20230520-2154-pgyypc clean
