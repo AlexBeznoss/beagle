@@ -38,7 +38,9 @@ jobs:
           echo "has_issues="$has_issues"" >> $GITHUB_OUTPUT
 
           if [ "$has_issues" == "1"  ]; then
+            set +e
             bundle exec rubocop --format=markdown --force-exclusion ${{steps.changed_files.outputs.files}} > rubocop-brancher.txt
+            set -e
             bundle exec rubocop --autocorrect --force-exclusion ${{steps.changed_files.outputs.files}}
           fi
 
