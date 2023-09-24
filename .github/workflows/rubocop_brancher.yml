@@ -33,7 +33,7 @@ jobs:
       - name: Run linters
         run: |
           # bundle exec rubocop --fail-fast --force-exclusion --format=github ${{steps.changed_files.outputs.files}}
-          has_issues=$(bundle exec rubocop --fail-fast --force-exclusion --format=files ${{steps.changed_files.outputs.files}})
+          has_issues=$(bundle exec rubocop --fail-fast --force-exclusion --format=files ${{steps.changed_files.outputs.files}} > /dev/null 2>&1; echo $?)
 
           if [[ $has_issues ]]; then
             echo "Has issues"
