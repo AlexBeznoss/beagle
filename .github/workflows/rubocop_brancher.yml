@@ -60,4 +60,16 @@ jobs:
           commit-message: "Fix rubocop issues by RubocopBrancher workflow"
           branch: ${{ steps.extract_branch.outputs.branch }}-rubocop_brancher
           delete-branch: true
+      - uses: mshick/add-pr-comment@v2
+        if: steps.linter.outputs.has_issues == '1'
+        with:
+          refresh-message-position: true
+          allow-repeats: false
+          update-only: true
+          message: |
+            **Howdy✌︎**
+
+            I have noticed, your PR has a few issues I can fix with Rubocop autofix. [So I prepared a PR for you.](${{ steps.create_pull.outputs.pull-request-url }})
+
+            Feel free to merge it in or ignore it and it will be closed automagically🪄
 
