@@ -16,6 +16,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh pr list -B ${{ steps.extract_branch.outputs.branch }}-rubocop_brancher --json number --jq '.[].number' |
-          gh pr close -c "Main PR is closed, so this one is irrelevant now :(" -d
+          pr_number=$(gh pr list -H ${{ steps.extract_branch.outputs.branch }}-rubocop_brancher --json number --jq '.[].number')
+          if [ -n "$pr_number"  ]; then
+            gh pr close -c "Main PR is closed, so this one is irrelevant now :(" -d $pr_number
+          fi
 
