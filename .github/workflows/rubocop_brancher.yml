@@ -47,6 +47,16 @@ jobs:
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
         id: extract_branch
 
+      - name: Close PR if redundant anymore
+        if: steps.linter.outputs.has_issues == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pr_number=$(gh pr list -H ${{ steps.extract_branch.outputs.branch }}-rubocop_brancher --json number --jq '.[].number')
+          if [ -n "$pr_number"  ]; then
+            gh pr close -c "All issues in the main PR are fixed, so this one is redundant now :(" -d $pr_number
+          fi
+
       - name: Create Pull Request
         id: create_pull
         if: steps.linter.outputs.has_issues == '1'
