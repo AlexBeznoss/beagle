@@ -20,14 +20,18 @@ jobs:
       - name: Install gems
         run: bundle install
 
-      - name: Get Changed Files
-        id: changed_files
-        run: |
-          PR_NUMBER=${{ github.event.pull_request.number }}
-          TOKEN=${{ github.token }}
-          API_URL="https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/files"
+      # - name: Get Changed Files
+        # id: changed_files
+        # run: |
+          # PR_NUMBER=${{ github.event.pull_request.number }}
+          # TOKEN=${{ github.token }}
+          # API_URL="https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/files"
 
-          echo "files="$(curl -H "Authorization: token $TOKEN" -H "Accept: application/vnd.github.v3+json" -s $API_URL | jq -r '.[].filename' | tr '\n' ' ')"" >> $GITHUB_OUTPUT
+          # echo "files="$(curl -H "Authorization: token $TOKEN" -H "Accept: application/vnd.github.v3+json" -s $API_URL | jq -r '.[].filename' | tr '\n' ' ')"" >> $GITHUB_OUTPUT
+      - name: Extract branch name
+        if: steps.linter.outputs.has_issues == '1'
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
 
       - name: Close PR
         env:
