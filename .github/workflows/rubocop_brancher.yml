@@ -19,7 +19,7 @@ jobs:
           bundler-cache: false
 
       - name: Install gems
-        run: echo "${{ github.event.pull_request }}"
+        run: echo ${{ github.event.pull_request }}
 
       # - name: Install gems
         # run: bundle install
