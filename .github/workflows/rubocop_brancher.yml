@@ -35,7 +35,7 @@ jobs:
           # bundle exec rubocop --fail-fast --force-exclusion --format=github ${{steps.changed_files.outputs.files}}
           has_issues=$(bundle exec rubocop --fail-fast --force-exclusion --format=files ${{steps.changed_files.outputs.files}} > /dev/null 2>&1; echo $?)
 
-          if [[ $has_issues ]]; then
+          if [ "$has_issues" == "0"  ]; then
             echo "Has issues"
           else
             echo "Has no issues"
