@@ -6,7 +6,7 @@ env:
 
 jobs:
   brancher:
-    name: Linters
+    name: RubocopBrancher
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request }}
     steps:
@@ -21,10 +21,19 @@ jobs:
       - name: Install gems
         run: bundle install
 
+      - name: Get Changed Files
+        id: changed_files
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number  }}
+          TOKEN=${{ secrets.GITHUB_TOKEN  }}
+          API_URL="https://api.github.com/repos/${{ github.repository  }}/pulls/${PR_NUMBER}/files"
+
+          curl -H "Authorization: token $TOKEN" -H "Accept: application/vnd.github.v3+json" -s $API_URL | jq -r '.[].filename'
+
       - name: Run linters
         run: |
-          changed_filed=$(git diff --name-only master)
-          has_issues=$(bundle exec rubocop --fail-fast --force-exclusion $changed_filed --format=github)
+          echo ${{steps.changed_files.outputs}}
+          has_issues=$(bundle exec rubocop --fail-fast --force-exclusion ${{steps.changed_files.outputs}} --format=github)
 
           if [[ $has_issues ]]; then
             echo "Has issues"
