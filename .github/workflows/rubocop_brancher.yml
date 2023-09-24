@@ -19,10 +19,16 @@ jobs:
           bundler-cache: false
 
       - name: Install gems
-        run: echo ${{ github.event.pull_request }}
+        run: bundle install
 
-      # - name: Install gems
-        # run: bundle install
+      - name: Run linters
+        run: |
+          changed_filed=$(git diff --name_only master)
+          has_issues=$(bundle exec rubocop --fail-fast --force-exclusion $changed_filed --format=github)
 
-      # - name: Run linters
-        # run: bundle exec rubocop
+          if [[ $has_issues ]]; then
+            echo "Has issues"
+          else
+            echo "Has no issues"
+          fi
+
