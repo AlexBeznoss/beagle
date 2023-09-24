@@ -45,7 +45,7 @@ jobs:
           fi
 
       - name: Run brancher
-        if: ${{ steps.linter.output.has_issues == "1" }}
+        if: steps.linter.output.has_issues == '1'
         run: |
           echo "Brancher executed"
 
