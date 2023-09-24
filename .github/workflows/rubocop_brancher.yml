@@ -65,7 +65,6 @@ jobs:
         with:
           refresh-message-position: true
           allow-repeats: false
-          update-only: true
           message: |
             **Howdy✌︎**
 
