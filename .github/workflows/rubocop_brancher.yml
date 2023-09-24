@@ -37,7 +37,7 @@ jobs:
           CHANGED_FILES="${{steps.changed_files.outputs.files}}"
           echo "Changed files in the pull request:"
           echo "$CHANGED_FILES"
-          bundle exec rubocop --force-exclusion ${{steps.changed_files.outputs}}
+          bundle exec rubocop --force-exclusion ${{steps.changed_files.outputs.files}}
 
           # if [[ $has_issues ]]; then
             # echo "Has issues"
