@@ -42,3 +42,5 @@
 /config/credentials/test.key
 
 .env*
+/vendor
+rubocop-brancher.txt
