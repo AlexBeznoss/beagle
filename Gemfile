@@ -40,6 +40,7 @@ group :development, :test do
   gem "bundler-audit"
   gem "ruby_audit"
   gem "dotenv-rails"
+  gem "puma"
 end
 
 group :development do
