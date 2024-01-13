@@ -3,8 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.3.0"
 
-gem "rails", "~> 7.0.4"
+gem "rails", "~> 7.1.2"
 gem "sqlite3"
+gem "litestack", "~> 0.4.2"
 gem "propshaft"
 gem "falcon"
 gem "importmap-rails"
@@ -46,6 +47,7 @@ group :development do
   gem "web-console"
   gem "rails_real_favicon"
   gem "brakeman"
+  gem "dockerfile-rails"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -65,6 +67,3 @@ group :test do
   gem "phlex-testing-nokogiri"
 end
 
-gem "litestack", "~> 0.4.2"
-
-gem "dockerfile-rails", ">= 1.6", :group => :development

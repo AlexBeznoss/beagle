@@ -1,5 +1,4 @@
 require "active_support/core_ext/integer/time"
-require_relative "../../lib/middlewares/primary_region_reply"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -91,7 +90,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # Middleware to reply destructional methods to primary region
-  config.middleware.insert_after ActionDispatch::Executor, Middlewares::PrimaryRegionReply
 end
