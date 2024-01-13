@@ -169,7 +169,7 @@ GEM
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashdiff (1.0.1)
-    health-monitor-rails (11.1.0)
+    health-monitor-rails (11.2.0)
       railties (>= 6.1)
     honeybadger (5.2.1)
     i18n (1.14.1)
