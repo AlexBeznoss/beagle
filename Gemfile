@@ -4,9 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.3.0"
 
 gem "rails", "~> 7.0.4"
+gem "sqlite3"
 gem "propshaft"
-gem "pg"
-gem "puma", "< 7"
+gem "falcon"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
@@ -16,9 +16,6 @@ gem "nokogiri"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 gem "faraday"
-gem "sidekiq"
-gem "sidekiq-cron"
-gem "sidekiq-iteration"
 gem "pagy"
 gem "honeybadger", "~> 5.0"
 gem "health-monitor-rails"
@@ -29,7 +26,6 @@ gem "ferrum"
 gem "phlex-rails"
 gem "clerk-sdk-ruby", require: "clerk"
 gem "baby_squeel"
-gem "pg_search"
 gem "motor-admin"
 
 group :development, :test do
@@ -68,3 +64,7 @@ group :test do
   gem "factory_bot_rails"
   gem "phlex-testing-nokogiri"
 end
+
+gem "litestack", "~> 0.4.2"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development

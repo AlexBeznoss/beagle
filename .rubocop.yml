@@ -6,7 +6,7 @@ require:
   - rubocop-factory_bot
 
 AllCops:
-  TargetRubyVersion: 3.2.2
+  TargetRubyVersion: 3.3.0
   NewCops: enable
 
 inherit_gem:

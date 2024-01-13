@@ -44,3 +44,7 @@
 .env*
 /vendor
 rubocop-brancher.txt
+
+# Ignore default Litestack SQLite databases.
+/db/**/*.sqlite3
+/db/**/*.sqlite3-*

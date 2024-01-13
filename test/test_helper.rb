@@ -3,20 +3,12 @@ require_relative "../config/environment"
 require "rails/test_help"
 require "minitest/rails"
 require "webmock/minitest"
-require "sidekiq/testing"
 require "support/user_helpers"
 
 WebMock.disable_net_connect!(
   allow_localhost: true,
   allow: ["api.clerk.dev"]
 )
-
-module SidekiqMinitestSupport
-  def after_teardown
-    Sidekiq::Worker.clear_all
-    super
-  end
-end
 
 module FaradayStubMethods
   def faraday_headers_with(headers = {})
@@ -29,7 +21,6 @@ module FaradayStubMethods
 end
 
 class ActiveSupport::TestCase
-  include SidekiqMinitestSupport
   include FaradayStubMethods
   include UserHelpers
   # Run tests in parallel with specified workers

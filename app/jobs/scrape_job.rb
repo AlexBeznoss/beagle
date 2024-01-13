@@ -1,6 +1,5 @@
-class ScrapeJob
-  include Sidekiq::Job
-  sidekiq_options retry: false
+class ScrapeJob < ApplicationJob
+  queue_as :default
 
   def perform(provider, page = nil)
     jobs = Scrapers::Scrape.call(provider, page)
@@ -19,9 +18,7 @@ class ScrapeJob
   private
 
   def create_job_post!(provider, job)
-    ActiveRecord::Base.connected_to(role: :writing) do
-      job_post = JobPost.create!(job.merge(provider:))
-      JobPosts::UploadImgJob.perform_async(job_post.id) if job_post.img_url.present?
-    end
+    job_post = JobPost.create!(job.merge(provider:))
+    JobPosts::UploadImgJob.perform_later(job_post.id) if job_post.img_url.present?
   end
 end

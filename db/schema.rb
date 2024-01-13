@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -43,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
   end
 
   create_table "bookmarks", force: :cascade do |t|
-    t.bigint "job_post_id", null: false
+    t.integer "job_post_id", null: false
     t.string "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -62,12 +59,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "hidden", default: false, null: false
-    t.index ["hidden"], name: "index_job_posts_on_hidden", where: "(hidden IS FALSE)"
+    t.index ["hidden"], name: "index_job_posts_on_hidden", where: "hidden is false"
     t.index ["provider", "pid"], name: "index_job_posts_on_provider_and_pid", unique: true
   end
 
   create_table "motor_alert_locks", force: :cascade do |t|
-    t.bigint "alert_id", null: false
+    t.integer "alert_id", null: false
     t.string "lock_timestamp", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
   end
 
   create_table "motor_alerts", force: :cascade do |t|
-    t.bigint "query_id", null: false
+    t.integer "query_id", null: false
     t.string "name", null: false
     t.text "description"
     t.text "to_emails", null: false
@@ -87,7 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "motor_alerts_name_unique_index", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["name"], name: "motor_alerts_name_unique_index", unique: true, where: "deleted_at IS NULL"
     t.index ["query_id"], name: "index_motor_alerts_on_query_id"
     t.index ["updated_at"], name: "index_motor_alerts_on_updated_at"
   end
@@ -101,7 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "motor_api_configs_name_unique_index", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["name"], name: "motor_api_configs_name_unique_index", unique: true, where: "deleted_at IS NULL"
   end
 
   create_table "motor_audits", force: :cascade do |t|
@@ -144,7 +141,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["title"], name: "motor_dashboards_title_unique_index", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["title"], name: "motor_dashboards_title_unique_index", unique: true, where: "deleted_at IS NULL"
     t.index ["updated_at"], name: "index_motor_dashboards_on_updated_at"
   end
 
@@ -160,13 +157,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
     t.string "api_config_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "motor_forms_name_unique_index", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["name"], name: "motor_forms_name_unique_index", unique: true, where: "deleted_at IS NULL"
     t.index ["updated_at"], name: "index_motor_forms_on_updated_at"
   end
 
   create_table "motor_note_tag_tags", force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.bigint "note_id", null: false
+    t.integer "tag_id", null: false
+    t.integer "note_id", null: false
     t.index ["note_id", "tag_id"], name: "motor_note_tags_note_id_tag_id_index", unique: true
     t.index ["tag_id"], name: "index_motor_note_tag_tags_on_tag_id"
   end
@@ -215,7 +212,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "motor_queries_name_unique_index", unique: true, where: "(deleted_at IS NULL)"
+    t.index ["name"], name: "motor_queries_name_unique_index", unique: true, where: "deleted_at IS NULL"
     t.index ["updated_at"], name: "index_motor_queries_on_updated_at"
   end
 
@@ -245,7 +242,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
   end
 
   create_table "motor_taggable_tags", force: :cascade do |t|
-    t.bigint "tag_id", null: false
+    t.integer "tag_id", null: false
     t.bigint "taggable_id", null: false
     t.string "taggable_type", null: false
     t.index ["tag_id"], name: "index_motor_taggable_tags_on_tag_id"
@@ -257,26 +254,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "motor_tags_name_unique_index", unique: true
-  end
-
-  create_table "passwordless_sessions", force: :cascade do |t|
-    t.string "authenticatable_type"
-    t.bigint "authenticatable_id"
-    t.datetime "timeout_at", precision: nil, null: false
-    t.datetime "expires_at", precision: nil, null: false
-    t.datetime "claimed_at", precision: nil
-    t.text "user_agent", null: false
-    t.string "remote_addr", null: false
-    t.string "token", null: false
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.index ["authenticatable_type", "authenticatable_id"], name: "authenticatable"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
