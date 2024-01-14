@@ -1,6 +1,5 @@
 require_relative "boot"
 require "rails/all"
-require_relative "../lib/middlewares/database_selector"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -20,8 +19,8 @@ module Beagle
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    config.active_job.queue_adapter = :sidekiq
+    config.active_job.queue_adapter = :litejob
     config.eager_load_paths << Rails.root.join("lib")
-    config.middleware.swap ActiveRecord::Middleware::DatabaseSelector, Middlewares::DatabaseSelector
+    config.active_support.isolation_level = :fiber
   end
 end

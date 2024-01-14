@@ -1,5 +1,4 @@
 require "active_support/core_ext/integer/time"
-require_relative "../../lib/middlewares/primary_region_reply"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -57,7 +56,7 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :litecache, {path: ENV.fetch("LITESTACK_CACHE_PATH", Rails.root.join("db/cache.db"))}
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter = :sidekiq
@@ -91,7 +90,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # Middleware to reply destructional methods to primary region
-  config.middleware.insert_after ActionDispatch::Executor, Middlewares::PrimaryRegionReply
+  config.active_record.sqlite3_production_warning = false
 end

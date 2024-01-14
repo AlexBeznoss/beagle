@@ -1,5 +1,4 @@
 class JobPost < ApplicationRecord
-  include PgSearch::Model
   attribute :bookmark_id
 
   has_one_attached :img
@@ -14,11 +13,13 @@ class JobPost < ApplicationRecord
     weworkremotely: 50
   }
 
-  pg_search_scope :search, against: {
-    name: "A",
-    company: "B",
-    location: "C"
-  }, using: {tsearch: {prefix: true}}
+  include Litesearch::Model
+
+  litesearch do |schema|
+    schema.field :name
+    schema.field :company
+    schema.field :location
+  end
 
   scope :for_index, -> { where(hidden: false).includes(img_attachment: :blob).order(created_at: :desc) }
   scope :with_bookmark_id, ->(user_id) {

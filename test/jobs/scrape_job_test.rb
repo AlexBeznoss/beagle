@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ScrapeJobTest < ActiveSupport::TestCase
+class ScrapeJobTest < ActiveJob::TestCase
   describe "#perform" do
     test "creates job posts from scraped jobs" do
       provider = "gorails"
