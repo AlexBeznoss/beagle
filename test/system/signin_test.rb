@@ -8,11 +8,11 @@ class SigninTest < ApplicationSystemTestCase
     assert_button "Sign in"
     assert_css '[data-login-ready-value="true"]'
 
-    click_button "Sign in"
+    click_link_or_button "Sign in"
     fill_in "Email address", with: users(:default, :email)
-    click_button "Continue"
+    click_link_or_button "Continue"
     fill_in "Password", with: users(:default, :password)
-    click_button "Continue"
+    click_link_or_button "Continue"
 
     assert_no_button "Sign in"
     assert_link "Bookmarks"
@@ -21,7 +21,7 @@ class SigninTest < ApplicationSystemTestCase
     assert_css '[data-profile-ready-value="true"]'
     find('div[data-controller="profile"] button').click
     assert_button "Sign out"
-    click_button "Sign out"
+    click_link_or_button "Sign out"
     assert_no_css 'div[data-controller="profile"] button'
 
     assert_no_link "Bookmarks"

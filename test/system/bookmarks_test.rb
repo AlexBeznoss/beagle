@@ -39,7 +39,7 @@ class BookmarksTest < ApplicationSystemTestCase
     visit root_path
     login_as(:default)
 
-    click_link "Bookmarks"
+    click_link_or_button "Bookmarks"
 
     assert_text job_posts.second.name
     assert_no_text job_posts.first.name
