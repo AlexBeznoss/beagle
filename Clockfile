@@ -1,6 +1,6 @@
 using RubyClock::DSL
 
-every "30 minutes" do
+cron "*/30 * * * *" do
   EnqueueScrapersJob.perform_now
 end
 

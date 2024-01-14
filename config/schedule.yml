@@ -1,7 +1,0 @@
-enqueue_scrapers:
-  cron: "*/30 * * * *"
-  class: "EnqueueScrapersJob"
-
-job_posts_cleanup:
-  cron: "0 0 * * *"
-  class: "JobPosts::CleanupJob"
