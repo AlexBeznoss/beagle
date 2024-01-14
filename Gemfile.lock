@@ -269,6 +269,7 @@ GEM
     mapping (1.1.1)
     marcel (1.0.2)
     matrix (0.4.2)
+    method_source (1.0.0)
     mini_mime (1.1.5)
     minitest (5.21.1)
     minitest-rails (7.1.0)
@@ -430,11 +431,16 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
       rubocop-ast (>= 1.30.0, < 2.0)
+    ruby-clock (2.0.1)
+      method_source
+      rufus-scheduler (~> 3.8)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     ruby_audit (2.3.0)
       bundler-audit (~> 0.9.0)
     rubyzip (2.3.2)
+    rufus-scheduler (3.9.1)
+      fugit (~> 1.1, >= 1.1.6)
     samovar (2.2.0)
       console (~> 1.0)
       mapping (~> 1.0)
@@ -538,6 +544,7 @@ DEPENDENCIES
   rubocop-factory_bot
   rubocop-performance
   rubocop-rails
+  ruby-clock
   ruby_audit
   skylight
   sqlite3

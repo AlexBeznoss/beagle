@@ -43,7 +43,6 @@ RUN bundle exec bootsnap precompile app/ lib/
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE=DUMMY ./bin/rails assets:precompile
 
-
 # Final stage for app image
 FROM base
 
@@ -51,6 +50,8 @@ FROM base
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libsqlite3-0 && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+RUN gem install foreman
 
 # Copy built artifacts: gems, application
 COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
@@ -65,6 +66,8 @@ USER 1000:1000
 
 # Deployment options
 ENV LITESTACK_DATA_PATH="/data/production.sqlite3" \
+    LITESTACK_JOB_PATH="/data/queue.db" \
+    LITESTACK_CACHE_PATH="/data/cache.db" \
     RAILS_LOG_TO_STDOUT="1" \
     RAILS_SERVE_STATIC_FILES="true"
 
@@ -74,4 +77,4 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
 VOLUME /data
-CMD ["./bin/rails", "server"]
+CMD ["foreman", "start", "-f", "Procfile.fly"]

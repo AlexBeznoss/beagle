@@ -1,0 +1,9 @@
+using RubyClock::DSL
+
+every "30 minutes" do
+  EnqueueScrapersJob.perform_now
+end
+
+cron "5 0 * * *" do
+  JobPosts::CleanupJob.perform_now
+end

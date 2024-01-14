@@ -4,6 +4,11 @@ namespace :fly do
     sh 'fly ssh console -C "/app/bin/rails console"'
   end
 
+  task run_job: :environment do
+    args = ENV.fetch("ARGS", "").split(",")
+    ENV.fetch("JOB_KLASS").constantize.perform_now(*args)
+  end
+
   # Send a release notification to honeybadger
   task :hbrelease do # rubocop:disable Rails/RakeEnvironment
     env = "production"

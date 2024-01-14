@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
+ActiveRecord::Schema[7.1].define(version: 2023_06_27_193653) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
     t.text "to_emails", null: false
     t.boolean "is_enabled", default: true, null: false
     t.text "preferences", null: false
-    t.bigint "author_id"
+    t.integer "author_id"
     t.string "author_type"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
@@ -243,7 +243,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_193653) do
 
   create_table "motor_taggable_tags", force: :cascade do |t|
     t.integer "tag_id", null: false
-    t.bigint "taggable_id", null: false
+    t.integer "taggable_id", null: false
     t.string "taggable_type", null: false
     t.index ["tag_id"], name: "index_motor_taggable_tags_on_tag_id"
     t.index ["taggable_id", "taggable_type", "tag_id"], name: "motor_polymorphic_association_tag_index", unique: true
