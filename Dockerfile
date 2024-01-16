@@ -2,7 +2,7 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.3.0
-FROM ruby:$RUBY_VERSION-slim as base
+FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-jemalloc-slim as base
 
 LABEL fly_launch_runtime="rails"
 
@@ -26,7 +26,7 @@ FROM base as build
 
 # Install packages needed to build gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential pkg-config
+    apt-get install --no-install-recommends -y build-essential libyaml-dev pkg-config
 
 # Install application gems
 COPY --link Gemfile Gemfile.lock ./
@@ -41,17 +41,15 @@ COPY --link . .
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
-RUN SECRET_KEY_BASE=DUMMY ./bin/rails assets:precompile
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 # Final stage for app image
 FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libsqlite3-0 && \
+    apt-get install --no-install-recommends -y curl libsqlite3-0 ruby-foreman && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-RUN gem install foreman
 
 # Copy built artifacts: gems, application
 COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
@@ -69,7 +67,8 @@ ENV LITESTACK_DATA_PATH="/data/production.sqlite3" \
     LITESTACK_JOB_PATH="/data/queue.db" \
     LITESTACK_CACHE_PATH="/data/cache.db" \
     RAILS_LOG_TO_STDOUT="1" \
-    RAILS_SERVE_STATIC_FILES="true"
+    RAILS_SERVE_STATIC_FILES="true" \
+    RUBY_YJIT_ENABLE="1"
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
@@ -77,4 +76,4 @@ ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
 VOLUME /data
-CMD ["foreman", "start", "-f", "Procfile.fly"]
+CMD ["foreman", "start", "--procfile=Procfile.fly"]

@@ -12,7 +12,9 @@ class JobPostsController < ApplicationController
   end
 
   def search
-    collection = jobs_query.search(params.dig(:search, :q))
+    search_query = params.dig(:search, :q)
+    collection = jobs_query.search(search_query) if search_query.present?
+    collection ||= jobs_query.where("1 = 0") # empty relation in case if search query is empty
 
     pagy, job_posts = pagy_countless(collection)
 
