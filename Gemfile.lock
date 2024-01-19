@@ -435,7 +435,7 @@ GEM
     samovar (2.2.0)
       console (~> 1.0)
       mapping (~> 1.0)
-    skylight (6.0.2)
+    skylight (6.0.3)
       activesupport (>= 5.2.0)
     sqlite3 (1.7.0-aarch64-linux)
     sqlite3 (1.7.0-arm64-darwin)
