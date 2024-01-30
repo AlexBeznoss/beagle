@@ -156,7 +156,8 @@ GEM
     console (1.23.3)
       fiber-annotation
       fiber-local
-    crack (0.4.5)
+    crack (0.4.6)
+      bigdecimal
       rexml
     crass (1.0.6)
     cuprite (0.15)
