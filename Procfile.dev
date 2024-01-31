@@ -1,2 +1,2 @@
-web: bundle exec falcon serve -b http://127.0.0.1 -p 3000
+web: bundle exec puma -p 3000
 css: bin/rails tailwindcss:watch
