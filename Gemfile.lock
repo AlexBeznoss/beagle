@@ -235,7 +235,7 @@ GEM
       railties (>= 6.0.0)
     io-console (0.7.2)
     io-event (1.4.3)
-    irb (1.11.1)
+    irb (1.11.2)
       rdoc
       reline (>= 0.4.2)
     jmespath (1.6.2)
