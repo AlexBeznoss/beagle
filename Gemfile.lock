@@ -323,8 +323,7 @@ GEM
       rack
       railties (>= 7.0.0)
     protocol-hpack (1.4.2)
-    protocol-http (0.26.0)
-      base64
+    protocol-http (0.26.1)
     protocol-http1 (0.18.0)
       protocol-http (~> 0.22)
     protocol-http2 (0.16.0)
