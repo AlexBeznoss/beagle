@@ -304,7 +304,7 @@ GEM
     parser (3.3.0.5)
       ast (~> 2.4.1)
       racc
-    phlex (1.9.0)
+    phlex (1.9.1)
       concurrent-ruby (~> 1.2)
       erb (>= 4)
       zeitwerk (~> 2.6)
