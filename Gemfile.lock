@@ -80,7 +80,7 @@ GEM
     ar_lazy_preload (1.1.2)
       rails (>= 5.2)
     ast (2.4.2)
-    async (2.10.1)
+    async (2.10.2)
       console (~> 1.10)
       fiber-annotation
       io-event (~> 1.5, >= 1.5.1)
