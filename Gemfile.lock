@@ -262,7 +262,7 @@ GEM
       net-pop
       net-smtp
     mapping (1.1.1)
-    marcel (1.0.2)
+    marcel (1.0.4)
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.5)
