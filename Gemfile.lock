@@ -98,7 +98,7 @@ GEM
       traces (>= 0.10.0)
     async-http-cache (0.4.3)
       async-http (~> 0.56)
-    async-io (1.42.0)
+    async-io (1.42.1)
       async
     async-pool (0.4.0)
       async (>= 1.25)
