@@ -154,7 +154,7 @@ GEM
       jwt (~> 2.5)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
-    console (1.23.6)
+    console (1.23.7)
       fiber-annotation
       fiber-local
       json
