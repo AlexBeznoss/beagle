@@ -320,7 +320,7 @@ GEM
       railties (>= 7.0.0)
     protocol-hpack (1.4.3)
     protocol-http (0.26.4)
-    protocol-http1 (0.19.0)
+    protocol-http1 (0.19.1)
       protocol-http (~> 0.22)
     protocol-http2 (0.16.0)
       protocol-hpack (~> 1.4)
