@@ -88,7 +88,7 @@ GEM
     async-container (0.18.0)
       async
       async-io
-    async-http (0.64.1)
+    async-http (0.64.2)
       async (>= 1.25)
       async-io (>= 1.28)
       async-pool (>= 0.2)
@@ -100,7 +100,7 @@ GEM
       async-http (~> 0.56)
     async-io (1.42.1)
       async
-    async-pool (0.4.0)
+    async-pool (0.6.1)
       async (>= 1.25)
     async-service (0.12.0)
       async
@@ -154,7 +154,7 @@ GEM
       jwt (~> 2.5)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
-    console (1.23.7)
+    console (1.24.0)
       fiber-annotation
       fiber-local
       json
