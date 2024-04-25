@@ -85,9 +85,8 @@ GEM
       fiber-annotation
       io-event (~> 1.5, >= 1.5.1)
       timers (~> 4.1)
-    async-container (0.18.0)
-      async
-      async-io
+    async-container (0.18.2)
+      async (~> 2.10)
     async-http (0.64.2)
       async (>= 1.25)
       async-io (>= 1.28)
