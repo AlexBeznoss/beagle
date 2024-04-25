@@ -325,7 +325,7 @@ GEM
     protocol-http2 (0.16.0)
       protocol-hpack (~> 1.4)
       protocol-http (~> 0.18)
-    protocol-rack (0.5.0)
+    protocol-rack (0.5.1)
       protocol-http (~> 0.23)
       rack (>= 1.0)
     psych (5.1.2)
