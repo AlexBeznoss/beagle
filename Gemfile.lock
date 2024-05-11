@@ -80,21 +80,22 @@ GEM
     ar_lazy_preload (1.1.2)
       rails (>= 5.2)
     ast (2.4.2)
-    async (2.10.2)
-      console (~> 1.10)
+    async (2.11.0)
+      console (~> 1.25, >= 1.25.2)
       fiber-annotation
       io-event (~> 1.5, >= 1.5.1)
       timers (~> 4.1)
     async-container (0.18.0)
       async
       async-io
-    async-http (0.64.2)
-      async (>= 1.25)
-      async-io (>= 1.28)
-      async-pool (>= 0.2)
+    async-http (0.66.3)
+      async (>= 2.10.2)
+      async-pool (>= 0.6.1)
+      io-endpoint (~> 0.10, >= 0.10.3)
+      io-stream (~> 0.4)
       protocol-http (~> 0.26.0)
       protocol-http1 (~> 0.19.0)
-      protocol-http2 (~> 0.16.0)
+      protocol-http2 (~> 0.17.0)
       traces (>= 0.10.0)
     async-http-cache (0.4.3)
       async-http (~> 0.56)
@@ -154,9 +155,9 @@ GEM
       jwt (~> 2.5)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
-    console (1.24.0)
+    console (1.25.2)
       fiber-annotation
-      fiber-local
+      fiber-local (~> 1.1)
       json
     crack (1.0.0)
       bigdecimal
@@ -209,7 +210,9 @@ GEM
       webrick (~> 1.7)
       websocket-driver (>= 0.6, < 0.8)
     fiber-annotation (0.2.0)
-    fiber-local (1.0.0)
+    fiber-local (1.1.0)
+      fiber-storage
+    fiber-storage (0.1.0)
     fugit (1.10.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -233,7 +236,9 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.7.2)
+    io-endpoint (0.10.3)
     io-event (1.5.1)
+    io-stream (0.4.0)
     irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
@@ -319,10 +324,10 @@ GEM
       rack
       railties (>= 7.0.0)
     protocol-hpack (1.4.3)
-    protocol-http (0.26.4)
+    protocol-http (0.26.5)
     protocol-http1 (0.19.1)
       protocol-http (~> 0.22)
-    protocol-http2 (0.16.0)
+    protocol-http2 (0.17.0)
       protocol-hpack (~> 1.4)
       protocol-http (~> 0.18)
     protocol-rack (0.5.0)
