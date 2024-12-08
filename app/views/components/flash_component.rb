@@ -6,7 +6,7 @@ class FlashComponent < ApplicationComponent
     @message = message
   end
 
-  def template
+  def view_template
     div(
       data_controller: "alert",
       data_alert_dismiss_after_value: "5000",

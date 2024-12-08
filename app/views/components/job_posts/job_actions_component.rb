@@ -5,7 +5,7 @@ class JobPosts::JobActionsComponent < ApplicationComponent
     @actions = actions
   end
 
-  def template
+  def view_template
     div(class: "flex flex-row absolute right-0 -top-2") do
       @actions.each do |action|
         render action

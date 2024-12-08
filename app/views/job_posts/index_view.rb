@@ -10,7 +10,7 @@ class JobPosts::IndexView < ApplicationView
     @search_query = search_query
   end
 
-  def template
+  def view_template
     render JobPosts::HeaderComponent.new
 
     div class: "py-6 pb-16 lg:pb-20 lg:py-12 min-h-[60vh]" do

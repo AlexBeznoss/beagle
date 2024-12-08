@@ -9,7 +9,7 @@ class Bookmarks::IndexView < ApplicationView
     @pagy = pagy
   end
 
-  def template
+  def view_template
     div(class: "border-b border-grey-lighter mt-6")
     div class: "py-6 pb-16 lg:pb-20 lg:py-12 min-h-[60vh]" do
       turbo_frame_tag "job_posts" do

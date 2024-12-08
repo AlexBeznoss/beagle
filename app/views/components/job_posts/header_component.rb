@@ -4,7 +4,7 @@ class JobPosts::HeaderComponent < ApplicationComponent
   include Phlex::Rails::Helpers::ImageTag
   include Phlex::Rails::Helpers::LinkTo
 
-  def template
+  def view_template
     div(class: "border-b border-grey-lighter py-6 flex justify-between lg:py-12") do
       div(class: "hidden sm:block") do
         image_tag "logo.svg", alt: "logo", class: "w-96"

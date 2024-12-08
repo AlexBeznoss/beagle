@@ -8,7 +8,7 @@ class ApplicationLayout < ApplicationView
     @logo = logo
   end
 
-  def template(&block)
+  def view_template(&block)
     doctype
 
     html class: "dark" do

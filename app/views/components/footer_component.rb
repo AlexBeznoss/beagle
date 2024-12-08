@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FooterComponent < ApplicationComponent
-  def template
+  def view_template
     div(class: "container mx-auto") do
       div(class: "flex flex-col items-center justify-between border-t border-grey-lighter py-10 sm:flex-row sm:py-12") do
         div(class: "mr-auto flex flex-col") do

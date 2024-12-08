@@ -9,7 +9,7 @@ class NavigationComponent < ApplicationComponent
     @with_logo = with_logo
   end
 
-  def template
+  def view_template
     div(data: {controller: "navigation theme"}) do
       div(class: "container mx-auto") do
         div(class: tokens("flex items-center justify-end py-3 lg:py-6", with_logo?: "justify-between")) do

@@ -10,7 +10,7 @@ class JobPosts::ToggleBookmarkComponent < ApplicationComponent
     @destroy_path = destroy_path
   end
 
-  def template
+  def view_template
     turbo_frame_tag("bookmark_toggle_#{@job_post.id}") do
       button_to bookmark_action_path, bookmark_action_params do
         i(class: "bx text-3xl text-primary bg-white dark:text-white dark:bg-primary #{bookmark_action_icon}")

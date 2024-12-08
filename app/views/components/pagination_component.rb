@@ -10,7 +10,7 @@ class PaginationComponent < ApplicationComponent
     @extra_params = extra_params
   end
 
-  def template
+  def view_template
     return if !@pagy.prev && !@pagy.next
 
     div(class: "flex") do

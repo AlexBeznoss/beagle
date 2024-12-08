@@ -9,7 +9,7 @@ class JobPosts::SearchComponent < ApplicationComponent
     @search_query = search_query
   end
 
-  def template
+  def view_template
     form_for :search, method: :get, url: search_path, class: "flex flex-row pb-6 lg:pb-12" do |f|
       plain f.text_field :q,
         placeholder: "Search by job title, company, location...",

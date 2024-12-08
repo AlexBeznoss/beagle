@@ -13,7 +13,7 @@ class JobPosts::ListItemComponent < ApplicationComponent
     @actions = []
   end
 
-  def template
+  def view_template
     turbo_frame_tag(
       @job_post,
       class: "relative mb-12 block flex flex-col md:flex-row items-center justify-between border border-grey dark:border-grey-lighter rounded-md px-4 py-4 sm:px-6 hover:opacity-75"
