@@ -133,7 +133,7 @@ GEM
     benchmark (0.4.0)
     bigdecimal (3.1.8)
     bindex (0.8.1)
-    bootsnap (1.18.3)
+    bootsnap (1.18.4)
       msgpack (~> 1.2)
     brakeman (6.1.2)
       racc
@@ -284,7 +284,7 @@ GEM
       cancancan (~> 3.0)
       fugit (~> 1.0)
       rails (>= 5.2)
-    msgpack (1.7.2)
+    msgpack (1.7.5)
     mutex_m (0.3.0)
     net-http (0.4.1)
       uri
