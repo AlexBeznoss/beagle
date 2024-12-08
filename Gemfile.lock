@@ -437,8 +437,6 @@ GEM
       console (~> 1.0)
       mapping (~> 1.0)
     securerandom (0.4.0)
-    skylight (6.0.4)
-      activesupport (>= 5.2.0)
     sqlite3 (1.7.3-aarch64-linux)
     sqlite3 (1.7.3-arm64-darwin)
     sqlite3 (1.7.3-x86_64-linux)
@@ -474,8 +472,6 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.6.0)
     uri (1.0.2)
-    url_mount (0.2.1)
-      rack
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -539,7 +535,6 @@ DEPENDENCIES
   rubocop-rails
   ruby-clock
   ruby_audit
-  skylight
   sqlite3
   standard
   stimulus-rails
