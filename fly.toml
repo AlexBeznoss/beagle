@@ -27,7 +27,7 @@ console_command = "/rails/bin/rails console"
   interval = "30s"
   method = "GET"
   timeout = "5s"
-  path = "/"
+  path = "/health/fly"
 
 [[vm]]
   cpu_kind = "shared"

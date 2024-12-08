@@ -8,6 +8,10 @@ class HealthController < ActionController::API
     end
   end
 
+  def fly
+    render json: {started: true}
+  end
+
   private
 
   def authenticated?

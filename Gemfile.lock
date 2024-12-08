@@ -151,7 +151,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    clerk-sdk-ruby (3.2.0)
+    clerk-sdk-ruby (3.3.0)
       concurrent-ruby (~> 1.1)
       faraday (>= 1.4.1, < 3.0)
       jwt (~> 2.5)
@@ -202,10 +202,12 @@ GEM
       protocol-http (~> 0.31)
       protocol-rack (~> 0.7)
       samovar (~> 2.3)
-    faraday (2.9.0)
-      faraday-net_http (>= 2.0, < 3.2)
-    faraday-net_http (3.1.0)
-      net-http
+    faraday (2.12.1)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
     ferrum (0.14)
       addressable (~> 2.5)
       concurrent-ruby (~> 1.1)
@@ -239,7 +241,7 @@ GEM
       reline (>= 0.4.2)
     jmespath (1.6.2)
     json (2.9.0)
-    jwt (2.8.1)
+    jwt (2.9.3)
       base64
     language_server-protocol (3.17.0.3)
     lint_roller (1.1.0)
@@ -279,7 +281,7 @@ GEM
       rails (>= 5.2)
     msgpack (1.7.5)
     mutex_m (0.3.0)
-    net-http (0.4.1)
+    net-http (0.6.0)
       uri
     net-imap (0.5.1)
       date
@@ -471,7 +473,9 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.6.0)
-    uri (0.13.0)
+    uri (1.0.2)
+    url_mount (0.2.1)
+      rack
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)

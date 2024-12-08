@@ -1,14 +1,11 @@
 require_relative "../app/lib/routes_auth_constraint"
 
 Rails.application.routes.draw do
-  RoutesAuthConstraint.call(self, -> { Current.admin? }) do
-    mount Motor::Admin => "admin"
-  end
-
   root "job_posts#index"
 
   get "search", to: "job_posts#search", as: :search
   get "health/:provider/check", to: "health#show"
+  get "health/fly", to: "health#fly"
 
   resources :bookmarks, only: %i[index destroy]
   resources :job_posts, only: [] do
@@ -21,5 +18,9 @@ Rails.application.routes.draw do
     else
       route_for(:rails_blob, blob)
     end
+  end
+
+  RoutesAuthConstraint.call(self, -> { Current.admin? }) do
+    mount Motor::Admin => "/admin"
   end
 end
