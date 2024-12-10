@@ -203,7 +203,7 @@ GEM
       protocol-http (~> 0.31)
       protocol-rack (~> 0.7)
       samovar (~> 2.3)
-    faraday (2.12.1)
+    faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
