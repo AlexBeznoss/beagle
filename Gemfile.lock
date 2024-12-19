@@ -338,7 +338,7 @@ GEM
     protocol-rack (0.11.1)
       protocol-http (~> 0.43)
       rack (>= 1.0)
-    psych (5.2.1)
+    psych (5.2.2)
       date
       stringio
     public_suffix (6.0.1)
