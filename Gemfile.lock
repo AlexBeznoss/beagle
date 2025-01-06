@@ -190,7 +190,7 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
-    falcon (0.48.3)
+    falcon (0.48.4)
       async
       async-container (~> 0.18)
       async-http (~> 0.75)
