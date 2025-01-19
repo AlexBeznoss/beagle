@@ -310,7 +310,7 @@ GEM
     ostruct (0.6.1)
     pagy (9.3.3)
     parallel (1.26.3)
-    parser (3.3.6.0)
+    parser (3.3.7.0)
       ast (~> 2.4.1)
       racc
     phlex (1.11.0)
@@ -423,10 +423,10 @@ GEM
     rubocop-performance (1.23.1)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    rubocop-rails (2.24.1)
+    rubocop-rails (2.29.0)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
-      rubocop (>= 1.33.0, < 2.0)
+      rubocop (>= 1.52.0, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
     ruby-clock (2.0.1)
       method_source
