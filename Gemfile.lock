@@ -238,7 +238,7 @@ GEM
       railties (>= 6.0.0)
     io-console (0.8.0)
     io-endpoint (0.14.0)
-    io-event (1.7.5)
+    io-event (1.8.4)
     io-stream (0.6.1)
     irb (1.15.1)
       pp (>= 0.6.0)
