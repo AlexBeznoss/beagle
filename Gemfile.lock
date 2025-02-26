@@ -279,7 +279,7 @@ GEM
       minitest (~> 5.20)
       railties (>= 7.1.0, < 8.0.0)
     minitest-stub-const (0.6)
-    motor-admin (0.4.34)
+    motor-admin (0.4.35)
       ar_lazy_preload (~> 1.0)
       audited (~> 5.0)
       cancancan (~> 3.0)
