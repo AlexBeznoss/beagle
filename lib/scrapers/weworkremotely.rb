@@ -13,7 +13,7 @@ module Scrapers
           pid: pid_from(job),
           name: name_from(job),
           url: url_from(job),
-          img_url: image_url_from(job),
+          img_url: image_url_from(job)
         }
       end
     end
