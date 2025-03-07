@@ -16,9 +16,6 @@ class JobPosts::HeaderComponent < ApplicationComponent
         p(class: "pt-3 font-body text-xl font-light text-primary dark:text-white") do
           plain "Accurate list of Remote Ruby jobs from"
           whitespace
-          link_to "RubyJobBoard", PROVIDER_URLS["rubyjobboard"], target: "_blank", rel: "noopener"
-          plain ","
-          whitespace
           link_to "GoRails Jobs", PROVIDER_URLS["gorails"], target: "_blank", rel: "noopener"
           plain ","
           whitespace

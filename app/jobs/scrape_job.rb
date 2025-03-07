@@ -19,6 +19,6 @@ class ScrapeJob < ApplicationJob
 
   def create_job_post!(provider, job)
     job_post = JobPost.create!(job.merge(provider:))
-    JobPosts::UploadImgJob.perform_later(job_post.id) if job_post.img_url.present?
+    # JobPosts::UploadImgJob.perform_later(job_post.id) if job_post.img_url.present?
   end
 end
