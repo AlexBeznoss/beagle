@@ -4,10 +4,8 @@ class Scrapers::ScrapeTest < ActiveSupport::TestCase
   PROVIDER_MAP = {
     "gorails" => Scrapers::Gorails,
     "remoteok" => Scrapers::Remoteok,
-    "rubyjobboard" => Scrapers::Rubyjobboard,
     "rubyonremote" => Scrapers::Rubyonremote,
-    "startupjobs" => Scrapers::Startupjobs,
-    "weworkremotely" => Scrapers::Weworkremotely
+    "startupjobs" => Scrapers::Startupjobs
   }
   describe ".call" do
     describe "when provider is not supported" do

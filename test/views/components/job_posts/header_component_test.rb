@@ -17,7 +17,7 @@ class JobPosts::HeaderComponentTest < ActiveSupport::TestCase
   test "include description" do
     output = render JobPosts::HeaderComponent.new
     expected_description =
-      "Accurate list of Remote Ruby jobs from RubyJobBoard, GoRails Jobs, RemoteOK, RubyOnRemote, WeWorkRemotely and StartupJobs."
+      "Accurate list of Remote Ruby jobs from GoRails Jobs, RemoteOK, RubyOnRemote, WeWorkRemotely and StartupJobs."
 
     assert_equal expected_description, output.at_css("p").text
   end

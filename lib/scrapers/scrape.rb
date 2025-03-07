@@ -27,7 +27,6 @@ module Scrapers
       klass = case provider
       when "gorails" then Gorails
       when "remoteok" then Remoteok
-      when "rubyjobboard" then Rubyjobboard
       when "rubyonremote" then Rubyonremote
       when "startupjobs" then Startupjobs
       when "weworkremotely" then Weworkremotely

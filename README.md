@@ -1,6 +1,6 @@
 # [BeableJobs](https://beaglejobs.com)
 
-Small app to accumulate ruby job posts from GoRails, RemoteOK, RubyJobBoard, RubyOnRemote, StartupJobs into a single job board.
+Small app to accumulate ruby job posts from GoRails, RemoteOK, RubyOnRemote, StartupJobs into a single job board.
 
 ## Usefull tasks
 

@@ -52,7 +52,6 @@ class JobPost < ApplicationRecord
     {
       "remoteok" => "RemoteOK",
       "gorails" => "GoRails",
-      "rubyjobboard" => "RubyJobBoard",
       "rubyonremote" => "RubyOnRemote",
       "startupjobs" => "StartupJobs",
       "weworkremotely" => "WeWorkRemotely"
