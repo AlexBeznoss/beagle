@@ -171,7 +171,7 @@ GEM
     cuprite (0.15.1)
       capybara (~> 3.0)
       ferrum (~> 0.15.0)
-    date (3.4.1)
+    date (3.5.1)
     debug (1.10.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
@@ -291,7 +291,7 @@ GEM
     mutex_m (0.3.0)
     net-http (0.6.0)
       uri
-    net-imap (0.5.9)
+    net-imap (0.5.14)
       date
       net-protocol
     net-pop (0.1.2)
@@ -475,7 +475,7 @@ GEM
     tailwindcss-ruby (3.4.17-x86_64-linux)
     thor (1.4.0)
     tilt (2.6.0)
-    timeout (0.4.3)
+    timeout (0.6.1)
     traces (0.15.2)
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
