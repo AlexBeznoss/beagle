@@ -140,8 +140,8 @@ GEM
     brakeman (7.0.0)
       racc
     builder (3.3.0)
-    bundler-audit (0.9.2)
-      bundler (>= 1.2.0, < 3)
+    bundler-audit (0.9.3)
+      bundler (>= 1.2.0)
       thor (~> 1.0)
     cancancan (3.6.1)
     capybara (3.40.0)
@@ -248,7 +248,7 @@ GEM
       reline (>= 0.4.2)
     jmespath (1.6.2)
     json (2.10.2)
-    jwt (2.10.1)
+    jwt (2.10.3)
       base64
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
