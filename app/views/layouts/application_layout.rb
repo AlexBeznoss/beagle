@@ -49,7 +49,7 @@ class ApplicationLayout < ApplicationView
       end
 
       body class: "dark:bg-primary" do
-        render FlashListComponent.new(@_view_context.flash)
+        render FlashListComponent.new(view_context.flash)
 
         main do
           render NavigationComponent.new(@logo)
@@ -57,29 +57,11 @@ class ApplicationLayout < ApplicationView
           render FooterComponent.new
         end
         link href: "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css", rel: "stylesheet"
-        clerk_javascript_tag
       end
     end
   end
 
   def self.with(*args, **kwargs)
-    PhlexLayoutWrapper.new(klass: self, args: args, kwargs: kwargs)
-  end
-
-  private
-
-  def clerk_javascript_tag
-    script_url = "https://#{ENV.fetch("CLERK_FRONTEND_API")}/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
-
-    javascript_include_tag(
-      script_url,
-      {
-        "data-clerk-frontend-api": ENV.fetch("CLERK_FRONTEND_API"),
-        "data-clerk-publishable-key": ENV.fetch("CLERK_PUBLISHABLE_KEY"),
-        crossorigin: "anonymous",
-        onload: "startClerk()",
-        defer: true
-      }
-    )
+    new(*args, **kwargs)
   end
 end

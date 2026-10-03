@@ -17,6 +17,7 @@ module Scrapers
         .get(url, nil, headers)
         .tap { |resp| raise RequestError.new(url, resp) unless resp.status == 200 }
         .body
+        .dup
         .force_encoding("UTF-8")
     end
   end

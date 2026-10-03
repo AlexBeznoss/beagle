@@ -1,80 +1,54 @@
 name: Verify
-on: [push]
+on: [push, pull_request]
 
 env:
   RAILS_ENV: test
 
 jobs:
   linters:
-    name: Linters
+    name: Linters and security
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: false
-
-      - name: Install gems
-        run: bundle install
-
-      - name: Run linters
-        run: bundle exec rubocop
-
-      - name: Run security checks
+          bundler-cache: true
+      - run: bundle exec rubocop
+      - name: Security checks
         run: |
-          bundle exec bundler-audit --update
+          bundle exec bundler-audit check --update
           bundle exec ruby-audit check
           bundle exec brakeman -q -w2
 
-
   tests:
-    name: Tests
+    name: Tests and production assets
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:14
-        env:
-          POSTGRES_DB: beagle_test
-          POSTGRES_PASSWORD: "test"
-        ports: ["5432:5432"]
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Ruby and install gems
-        uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@v7
+      - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-
-      - name: Setup Chrome
-        uses: browser-actions/setup-chrome@latest
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - uses: browser-actions/setup-chrome@v2
+        id: chrome
         with:
           chrome-version: stable
-
-      - name: Setup test database
+      - name: Prepare SQLite database and check eager loading
+        run: |
+          bin/rails db:prepare
+          bin/rails zeitwerk:check
+      - name: Run offline tests
         env:
-          DB_HOST: localhost
-          DB_USER: postgres
-          DB_PASSWORD: test
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-        run: bundle exec rails db:setup
-
-      - name: Run tests
+          BROWSER_PATH: ${{ steps.chrome.outputs.chrome-path }}
+        run: bin/rails test:all
+      - name: Build production assets
         env:
-          DB_HOST: localhost
-          DB_USER: postgres
-          DB_PASSWORD: test
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          CLERK_PUBLISHABLE_KEY: ${{ secrets.CLERK_PUBLISHABLE_KEY }}
-          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
-          CLERK_FRONTEND_API: ${{ secrets.CLERK_FRONTEND_API }}
-        run: bundle exec rails test:all
+          RAILS_ENV: production
+          SECRET_KEY_BASE_DUMMY: "1"
+          AWS_EC2_METADATA_DISABLED: "true"
+        run: bin/rails assets:precompile
+      - run: npm audit

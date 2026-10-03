@@ -14,7 +14,7 @@ class JobPosts::SearchComponent < ApplicationComponent
       plain f.text_field :q,
         placeholder: "Search by job title, company, location...",
         value: @search_query,
-        class: "w-full border border-primary bg-grey-lightest px-5 py-4 font-body font-light text-primary placeholder-primary transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary dark:border-secondary"
+        class: "w-full border border-primary bg-grey-lightest px-5 py-4 font-body font-light text-primary placeholder-primary transition-colors focus:border-secondary focus:outline-hidden focus:ring-2 focus:ring-secondary dark:border-secondary"
       button_tag data: {disable_with: "Loading..."},
         type: "submit",
         class: "mt-0 bg-secondary px-6 py-2 font-body text-2xl font-semibold text-white hover:bg-green" do

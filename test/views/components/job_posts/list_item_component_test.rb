@@ -1,10 +1,8 @@
 require "test_helper"
-require "phlex/testing/rails/view_helper"
-require "phlex/testing/nokogiri"
+require "support/component_helpers"
 
 class JobPosts::ListItemComponentTest < ActiveSupport::TestCase
-  include Phlex::Testing::Rails::ViewHelper
-  include Phlex::Testing::Nokogiri::FragmentHelper
+  include ComponentHelpers
   include ActiveSupport::Testing::TimeHelpers
 
   test "include basic info" do

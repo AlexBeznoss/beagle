@@ -1,0 +1,12 @@
+{
+  "name": "beagle",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "0.5.11",
+    "@tailwindcss/typography": "0.5.20",
+    "tailwindcss": "4.3.3"
+  }
+}
