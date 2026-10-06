@@ -1,6 +1,25 @@
 require "test_helper"
 
 class Scrapers::ProviderIngestionTest < ActiveJob::TestCase
+  test "RubyOnRemote Bright Data acquisition saves complete visible restrictions and stable IDs" do
+    listing = Nokogiri::HTML5.parse(file_fixture("rubyonremote_current_listing.html").read)
+    listing.css("a[href]").to_a.rfind { |node| node.at_css("h2") }.remove
+    stub_request(:post, Scrapers::Brightdata::ENDPOINT).to_return do |request|
+      url = JSON.parse(request.body).fetch("url")
+      html = (url == Scrapers::Rubyonremote::BASE_URL) ? listing.to_html : file_fixture("rubyonremote_current_detail.html").read
+      {body: {status_code: 200, body: html}.to_json}
+    end
+    Rails.application.credentials.stub(:brightdata, "test-key") do
+      ScrapeJob.perform_now("rubyonremote")
+      assert_equal 2, JobPost.where(provider: "rubyonremote").count
+      post = JobPost.find_by!(provider: "rubyonremote", pid: "62908-full-stack-engineer-i-at-better-stack")
+      assert_equal "Better Stack", post.company
+      assert_equal "US, Canada, UK, EU, Europe, North America", post.location
+      assert_equal "https://rubyonremote.com/jobs/62908-full-stack-engineer-i-at-better-stack", post.url
+      assert_no_difference("JobPost.count") { ScrapeJob.perform_now("rubyonremote") }
+    end
+  end
+
   test "GoRails live XML structure survives parsing and database persistence" do
     body = file_fixture("gorails_current.xml").read
     stub_request(:get, Scrapers::Gorails::BASE_URL).to_return(body:)

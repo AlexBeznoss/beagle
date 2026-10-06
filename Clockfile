@@ -4,6 +4,11 @@ cron "*/30 * * * *" do
   EnqueueScrapersJob.perform_now
 end
 
+# Paid full-catalog acquisition: twice daily instead of every 30 minutes.
+cron "0 0,12 * * * UTC" do
+  ScrapeJob.perform_later("rubyonremote")
+end
+
 cron "5 0 * * *" do
   JobPosts::CleanupJob.perform_now
 end

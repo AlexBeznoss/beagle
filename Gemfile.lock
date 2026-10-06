@@ -521,7 +521,6 @@ DEPENDENCIES
   factory_bot_rails
   falcon
   faraday
-  ferrum
   foreman
   health-monitor-rails
   honeybadger (~> 6.0)

@@ -6,9 +6,11 @@ A Ruby job board collecting posts from GoRails, RemoteOK, RubyJobBoard, RubyOnRe
 
 GoRails uses its public XML feed. RemoteOK uses its public JSON API with local Ruby/Rails relevance filtering. WeWorkRemotely combines the all-jobs, full-stack, and back-end RSS feeds; this avoids its incomplete Ruby landing page. StartupJobs uses its official anonymous MCP endpoint with Ruby/Rails remote searches and cursor pagination, requiring no API key or browser service. Its free source window covers the last 14 days; extended outages require a separate backfill arrangement. StartupJobs searches match titles/company names, so this adapter retains explicitly relevant role titles rather than claiming complete description-based coverage.
 
-Valid empty responses are successful no-ops for these structured sources. Unexpected schemas, malformed feeds, and API errors fail explicitly. Scraping preserves existing provider IDs, refreshes changed fields and logos, and saves each batch transactionally. RubyOnRemote's existing HTML adapter remains in place for separate investigation. Keep source attribution and links to canonical provider job pages.
+RubyOnRemote uses Bright Data Web Unlocker, with the API key stored as the string `brightdata` in encrypted Rails credentials and an enabled zone named `rubyonremote`. It crawls all advertised listing pages at **00:00 and 12:00 UTC**, separately from the half-hourly provider batch. Four concurrent page workers bound runtime; a 50-page safety limit fails rather than truncating the catalog. Abbreviated locations are expanded from visible detail-page tags and cached for 24 hours. Browserless is no longer used; Ferrum remains only as a transitive dependency of the Chrome test tooling.
 
-See [the provider verification report](docs/provider-verification.md) for live acquisition, Chrome DevTools comparisons, persistence checks, and source coverage limits.
+Valid empty responses are successful no-ops for the structured sources. Unexpected schemas, malformed feeds, and API errors fail explicitly. Scraping preserves existing provider IDs, refreshes changed fields and logos, and saves each batch transactionally. Bright Data responses must have both a successful outer HTTP status and target status; empty or challenged HTML fails. Keep source attribution and links to canonical provider job pages.
+
+See [the provider verification report](docs/provider-verification.md) and [RubyOnRemote follow-up](docs/rubyonremote-verification.md) for live acquisition, Chrome DevTools comparisons, persistence checks, and source coverage limits.
 
 ## Development
 

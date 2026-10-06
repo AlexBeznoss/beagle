@@ -1,6 +1,6 @@
 # Provider recovery verification — October 6, 2026
 
-Implemented on `fix/provider-feed-recovery`: GoRails XML, RemoteOK public API, StartupJobs anonymous official MCP, and WeWorkRemotely RSS. RubyOnRemote's parser was not changed. No deployment or paid infrastructure was created.
+Implemented on `fix/provider-feed-recovery`: GoRails XML, RemoteOK public API, StartupJobs anonymous official MCP, and WeWorkRemotely RSS. This report describes the initial four-provider change; RubyOnRemote was subsequently recovered in the [follow-up verification](rubyonremote-verification.md). No deployment or paid infrastructure was created during this initial verification.
 
 ## Live acquisition and saving
 

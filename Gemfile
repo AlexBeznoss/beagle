@@ -25,7 +25,6 @@ gem "honeybadger", "~> 6.0"
 gem "health-monitor-rails"
 gem "aws-sdk-s3", require: false
 gem "down"
-gem "ferrum"
 gem "phlex-rails"
 gem "ruby-clock", require: false
 
