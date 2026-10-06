@@ -11,7 +11,7 @@ class FlashComponent < ApplicationComponent
       data_controller: "alert",
       data_alert_dismiss_after_value: "5000",
       data_alert_remove_delay_value: "100",
-      class: "max-w-sm w-full shadow-lg rounded px-4 py-3 mb-3 rounded relative border-l-4 pointer-events-auto #{flash_style}"
+      class: "max-w-sm w-full shadow-lg rounded-sm px-4 py-3 mb-3 rounded-sm relative border-l-4 pointer-events-auto #{flash_style}"
     ) do
       div(class: "p-2") do
         div(class: "flex items-start") do
@@ -20,10 +20,10 @@ class FlashComponent < ApplicationComponent
               plain @message
             end
           end
-          div(class: "ml-4 flex-shrink-0 flex") do
+          div(class: "ml-4 shrink-0 flex") do
             button(
               data_action: "alert#close",
-              class: "inline-flex text-black focus:outline-none focus:text-gray-300 transition ease-in-out duration-150"
+              class: "inline-flex text-black focus:outline-hidden focus:text-gray-300 transition ease-in-out duration-150"
             ) do
               i(class: "bx bx-x text-2xl current-color")
             end

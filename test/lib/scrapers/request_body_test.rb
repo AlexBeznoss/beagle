@@ -19,7 +19,7 @@ class Scrapers::RequestBodyTest < ActiveSupport::TestCase
         url = "https://fake.jobs.com"
         headers = {fake: "header"}
         body_utf = "fake body with Développeur Ruby/Rails API"
-        body = body_utf.force_encoding("ASCII-8BIT")
+        body = body_utf.b.freeze
 
         stub_request(:get, url).with(headers: faraday_headers_with(headers)).to_return(body:)
 

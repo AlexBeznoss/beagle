@@ -1,12 +1,14 @@
 require:
   - standard
+
+plugins:
   - rubocop-rails
   - rubocop-performance
   - rubocop-capybara
   - rubocop-factory_bot
 
 AllCops:
-  TargetRubyVersion: 3.3.0
+  TargetRubyVersion: 4.0
   NewCops: enable
 
 inherit_gem:
@@ -16,3 +18,6 @@ Rails/Output:
   Exclude:
     - 'app/views/**/*.rb'
 
+# Keep the explicit FactoryBot namespace used throughout this suite.
+FactoryBot/SyntaxMethods:
+  Enabled: false

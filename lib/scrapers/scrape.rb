@@ -13,7 +13,7 @@ module Scrapers
 
     def call
       scraper.call.tap do |jobs|
-        raise_no_jobs!(scraper.url) if jobs.empty?
+        raise_no_jobs!(scraper.url) if jobs.empty? && !scraper.empty_results_allowed?
       end
     end
 

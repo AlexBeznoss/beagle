@@ -1,10 +1,8 @@
 require "test_helper"
-require "phlex/testing/rails/view_helper"
-require "phlex/testing/nokogiri"
+require "support/component_helpers"
 
 class JobPosts::HeaderComponentTest < ActiveSupport::TestCase
-  include Phlex::Testing::Rails::ViewHelper
-  include Phlex::Testing::Nokogiri::FragmentHelper
+  include ComponentHelpers
 
   test "include home link" do
     output = render JobPosts::HeaderComponent.new

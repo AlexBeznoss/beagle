@@ -1,6 +1,57 @@
 require "test_helper"
 
 class ScrapeJobTest < ActiveJob::TestCase
+  test "refreshes existing fields without duplicating or unhiding jobs" do
+    post = FactoryBot.create(:job_post, provider: "remoteok", pid: "41", hidden: true, name: "Old title", img_url: nil)
+    data = {pid: 41, name: "Ruby Developer", url: "https://remoteok.com/remote-jobs/ruby-41", company: "New company", location: "Europe", img_url: nil}
+    Scrapers::Scrape.stub(:call, [data, data]) do
+      assert_no_difference("JobPost.count") { ScrapeJob.perform_now("remoteok") }
+    end
+    assert_equal "Ruby Developer", post.reload.name
+    assert_equal "New company", post.company
+    assert_equal "Europe", post.location
+    assert post.hidden?
+  end
+
+  test "invalid batches roll back records and do not enqueue image jobs" do
+    data = {pid: "valid", name: "Ruby Developer", url: "https://example.com/job", img_url: "https://example.com/logo.png"}
+    Scrapers::Scrape.stub(:call, [data, data.merge(pid: "invalid", name: nil)]) do
+      assert_no_difference("JobPost.count") do
+        assert_no_enqueued_jobs(only: JobPosts::UploadImgJob) do
+          assert_raises(ActiveRecord::RecordInvalid) { ScrapeJob.perform_now("gorails") }
+        end
+      end
+    end
+  end
+
+  test "deduplicates repeated records and queues the image once after saving" do
+    data = {pid: "unique", name: "Ruby Developer", url: "https://example.com/job", img_url: "https://example.com/logo.png"}
+    Scrapers::Scrape.stub(:call, [data, data]) do
+      assert_difference("JobPost.count", 1) do
+        assert_enqueued_jobs(1, only: JobPosts::UploadImgJob) { ScrapeJob.perform_now("gorails") }
+      end
+      assert_no_enqueued_jobs(only: JobPosts::UploadImgJob) { ScrapeJob.perform_now("gorails") }
+    end
+  end
+
+  test "a healthy empty result saves nothing" do
+    Scrapers::Scrape.stub(:call, []) do
+      assert_no_difference("JobPost.count") { ScrapeJob.perform_now("remoteok") }
+    end
+  end
+
+  test "changed or cleared logo URLs request attachment refresh" do
+    post = FactoryBot.create(:job_post, provider: "gorails", img_url: "https://example.com/old.png")
+    data = {pid: post.pid, name: post.name, url: post.url, img_url: "https://example.com/new.png"}
+    Scrapers::Scrape.stub(:call, [data]) do
+      assert_enqueued_with(job: JobPosts::UploadImgJob, args: [post.id, {refresh: true}]) { ScrapeJob.perform_now("gorails") }
+    end
+    Scrapers::Scrape.stub(:call, [data.merge(img_url: nil)]) do
+      assert_enqueued_with(job: JobPosts::UploadImgJob, args: [post.id, {refresh: true}]) { ScrapeJob.perform_now("gorails") }
+    end
+    assert_nil post.reload.img_url
+  end
+
   describe "#perform" do
     test "creates job posts from scraped jobs" do
       provider = "gorails"

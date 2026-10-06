@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class JobPosts::ListItemComponent < ApplicationComponent
-  include Phlex::DeferredRender
   include Phlex::Rails::Helpers::ImageTag
   include Phlex::Rails::Helpers::LinkTo
   include Phlex::Rails::Helpers::Routes
@@ -10,7 +9,6 @@ class JobPosts::ListItemComponent < ApplicationComponent
 
   def initialize(job_post)
     @job_post = job_post
-    @actions = []
   end
 
   def view_template
@@ -18,9 +16,6 @@ class JobPosts::ListItemComponent < ApplicationComponent
       @job_post,
       class: "relative mb-12 block flex flex-col md:flex-row items-center justify-between border border-grey dark:border-grey-lighter rounded-md px-4 py-4 sm:px-6 hover:opacity-75"
     ) do
-      if Current.verified?
-        render JobPosts::JobActionsComponent.new(@actions)
-      end
       div(class: "flex flex-row w-full sm:w-max") do
         if logo_present?
           link_to @job_post.url, target: "_blank", rel: "noopener", **test_id("logo_link") do
@@ -68,10 +63,6 @@ class JobPosts::ListItemComponent < ApplicationComponent
         end
       end
     end
-  end
-
-  def actions
-    @actions << yield
   end
 
   private

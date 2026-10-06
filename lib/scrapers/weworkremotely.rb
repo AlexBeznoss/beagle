@@ -1,63 +1,89 @@
 module Scrapers
   class Weworkremotely < BaseScraper
-    BASE_URL = "https://weworkremotely.com/remote-ruby-on-rails-jobs"
-    HEADERS = {}
+    BASE_URL = "https://weworkremotely.com/remote-jobs.rss"
+    FEED_URLS = [
+      BASE_URL,
+      "https://weworkremotely.com/categories/remote-full-stack-programming-jobs.rss",
+      "https://weworkremotely.com/categories/remote-back-end-programming-jobs.rss"
+    ].freeze
+    HEADERS = {Accept: "application/rss+xml, application/xml"}.freeze
 
     def call
-      doc = Nokogiri::HTML5.parse(request_body)
+      FEED_URLS.flat_map { |feed_url| jobs_from(feed_url) }.uniq { |job| job[:pid] }
+    end
 
-      doc.css("body #job_list section.jobs li.new-listing-container").filter_map do |job|
-        next unless name_el(job)
-
-        {
-          pid: pid_from(job),
-          name: name_from(job),
-          url: url_from(job),
-          img_url: image_url_from(job)
-        }
-      end
+    def empty_results_allowed?
+      true
     end
 
     private
 
-    def pid_from(job)
-      url_from(job).split("/").last
+    def jobs_from(feed_url)
+      doc = Nokogiri::XML(RequestBody.call(feed_url, headers)) { |config| config.strict.nonet }
+      channel = doc.at_xpath("/rss/channel")
+      unless doc.internal_subset.nil? && channel && %w[title link description].all? { |field| channel.at_xpath(field)&.text&.strip&.present? }
+        raise InvalidResponse, "Invalid WWR RSS channel at #{feed_url}"
+      end
+
+      channel.xpath("item").filter_map do |item|
+        title = item.at_xpath("title")&.text.to_s.strip
+        link = item.at_xpath("link")&.text.to_s.strip
+        raise InvalidResponse, "WWR RSS item is missing title or link at #{feed_url}" if title.empty? || link.empty?
+
+        canonical_url = canonical_url_from(link)
+        company, separator, name = title.partition(": ")
+        if separator.empty? || company.empty? || name.empty?
+          raise InvalidResponse, "WWR RSS item has invalid company/title at #{feed_url}"
+        end
+        next if expired?(item)
+
+        description = item.at_xpath("description")&.text.to_s
+        next unless RubyRelevance.call(title: name, description: description)
+
+        {
+          pid: URI.parse(canonical_url).path.split("/").last,
+          name: name,
+          company: company,
+          url: canonical_url,
+          img_url: image_url_from(item),
+          location: item.at_xpath("country")&.text&.strip&.presence || item.at_xpath("region")&.text&.strip&.presence
+        }
+      end
+    rescue Nokogiri::XML::SyntaxError => error
+      raise InvalidResponse, "Malformed WWR RSS at #{feed_url}: #{error.message}"
     end
 
-    def url_from(job)
-      URI.parse(BASE_URL)
-        .tap { |url| url.path = find_parent(name_el(job), "a")&.[](:href) }
-        .to_s
+    def expired?(item)
+      expires_at = item.at_xpath("expires_at")&.text&.strip&.presence
+      return false unless expires_at
+
+      Time.rfc2822(expires_at) <= Time.current
+    rescue ArgumentError
+      raise InvalidResponse, "Invalid WWR expiration date: #{expires_at}"
     end
 
-    def company_from(job)
-      job.at_css(".new-listing__company-name").text.strip
+    def image_url_from(item)
+      link = item.at_xpath("media:content", "media" => "http://search.yahoo.com/mrss")&.[]("url").presence
+      return unless link
+
+      uri = URI.parse(link)
+      unless %w[http https].include?(uri.scheme) && uri.host.present? && uri.userinfo.nil?
+        raise InvalidResponse, "Invalid WWR image URL: #{link}"
+      end
+      link
+    rescue URI::InvalidURIError
+      raise InvalidResponse, "Invalid WWR image URL: #{link}"
     end
 
-    def image_url_from(job)
-      img = job.at_css("div.tooltip--flag-logo div")
-      return unless img
-
-      match = img[:style].match(/background-image:url\((.*)\)/)
-      return unless match
-
-      match[1]
-    end
-
-    def name_from(job)
-      name_el(job).text.strip
-    end
-
-    def name_el(job)
-      job.at_css("h4.new-listing__header__title")
-    end
-
-    def find_parent(element, selector, max_depth: 10)
-      return unless element
-      return element if element.name == selector
-      return unless max_depth.positive?
-
-      find_parent(element.parent, selector, max_depth: max_depth - 1)
+    def canonical_url_from(link)
+      uri = URI.parse(link)
+      unless %w[http https].include?(uri.scheme) && uri.host&.downcase == "weworkremotely.com" &&
+          uri.userinfo.nil? && uri.path.match?(%r{\A/remote-jobs/[^/]+/?\z})
+        raise InvalidResponse, "Invalid WWR job URL: #{link}"
+      end
+      "https://weworkremotely.com#{uri.path.delete_suffix("/")}"
+    rescue URI::InvalidURIError
+      raise InvalidResponse, "Invalid WWR job URL: #{link}"
     end
   end
 end

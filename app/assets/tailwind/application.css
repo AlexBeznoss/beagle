@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
+@source "../../views";
+@source "../../helpers";
+@source "../../javascript";
+@source "../../../public/*.html";
+
+@theme {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-primary: #072344;
+  --color-secondary: #00aaa1;
+  --color-green-light: #cceeec;
+  --color-green: #007c85;
+  --color-green-dark: #065a68;
+  --color-blue-light: #b3d6f1;
+  --color-blue: #0074d1;
+  --color-blue-dark: #072344;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-yellow-lighter: #f6e8c6;
+  --color-yellow-light: #f8edd0;
+  --color-yellow: #f4d06f;
+  --color-yellow-dark: #daa512;
+  --color-grey-lightest: #eff0f3;
+  --color-grey-lighter: #eceef1;
+  --color-grey-light: #ccd7e0;
+  --color-grey: #adb6c4;
+  --color-pink-50: oklch(97.1% 0.014 343.198);
+  --color-pink-100: oklch(94.8% 0.028 342.258);
+  --color-pink-200: oklch(89.9% 0.061 343.231);
+  --color-pink-300: oklch(82.3% 0.12 346.018);
+  --color-pink-400: oklch(71.8% 0.202 349.761);
+  --color-pink-500: oklch(65.6% 0.241 354.308);
+  --color-pink-600: oklch(59.2% 0.249 0.584);
+  --color-pink-700: oklch(52.5% 0.223 3.958);
+  --color-pink-800: oklch(45.9% 0.187 3.815);
+  --color-pink-900: oklch(40.8% 0.153 2.432);
+  --color-pink-950: oklch(28.4% 0.109 3.907);
+  --color-purple-50: oklch(97.7% 0.014 308.299);
+  --color-purple-100: oklch(94.6% 0.033 307.174);
+  --color-purple-200: oklch(90.2% 0.063 306.703);
+  --color-purple-300: oklch(82.7% 0.119 306.383);
+  --color-purple-400: oklch(71.4% 0.203 305.504);
+  --color-purple-500: oklch(62.7% 0.265 303.9);
+  --color-purple-600: oklch(55.8% 0.288 302.321);
+  --color-purple-700: oklch(49.6% 0.265 301.924);
+  --color-purple-800: oklch(43.8% 0.218 303.724);
+  --color-purple-900: oklch(38.1% 0.176 304.987);
+  --color-purple-950: oklch(29.1% 0.149 302.717);
+  --color-teal-50: oklch(98.4% 0.014 180.72);
+  --color-teal-100: oklch(95.3% 0.051 180.801);
+  --color-teal-200: oklch(91% 0.096 180.426);
+  --color-teal-300: oklch(85.5% 0.138 181.071);
+  --color-teal-400: oklch(77.7% 0.152 181.912);
+  --color-teal-500: oklch(70.4% 0.14 182.503);
+  --color-teal-600: oklch(60% 0.118 184.704);
+  --color-teal-700: oklch(51.1% 0.096 186.391);
+  --color-teal-800: oklch(43.7% 0.078 188.216);
+  --color-teal-900: oklch(38.6% 0.063 188.416);
+  --color-teal-950: oklch(27.7% 0.046 192.524);
+  --color-current: currentColor;
+  --font-body: "Inter var", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+  --spacing-13: 3.25rem;
+  --spacing-15: 3.75rem;
+  --spacing-17: 4.25rem;
+  --spacing-18: 4.5rem;
+  --spacing-19: 4.75rem;
+  --spacing-76: 19rem;
+  --spacing-84: 21rem;
+  --spacing-88: 22rem;
+  --spacing-92: 23rem;
+  --spacing-100: 25rem;
+  --spacing-104: 26rem;
+  --spacing-108: 27rem;
+  --spacing-112: 28rem;
+  --spacing-116: 29rem;
+  --spacing-120: 30rem;
+  --spacing-124: 31rem;
+  --spacing-128: 32rem;
+  --spacing-132: 33rem;
+  --spacing-136: 34rem;
+  --spacing-140: 35rem;
+  --spacing-144: 36rem;
+  --spacing-148: 37rem;
+  --spacing-152: 38rem;
+  --spacing-156: 39rem;
+  --spacing-160: 40rem;
+  --spacing-164: 41rem;
+  --spacing-168: 42rem;
+  --spacing-172: 43rem;
+  --spacing-176: 44rem;
+  --spacing-180: 45rem;
+  --spacing-184: 46rem;
+  --spacing-188: 47rem;
+  --spacing-190: 48rem;
+  --spacing-194: 49rem;
+  --spacing-200: 50rem;
+  --spacing-204: 51rem;
+}
+
+html {
+  @apply font-body antialiased;
+}
+
+.container {
+  width: 100%;
+  padding-inline: 1rem;
+  max-width: 600px;
+}
+
+@media (width >= 40rem) {
+  .container {
+    max-width: 700px;
+  }
+}
+
+@media (width >= 48rem) {
+  .container {
+    max-width: 850px;
+  }
+}
+
+.turbo-progress-bar {
+  @apply h-1 bg-green-dark dark:bg-green-light;
+}
+
+/*
+
+@layer components {
+  .btn-primary {
+    @apply py-2 px-4 bg-blue-200;
+  }
+}
+
+*/

@@ -1,15 +1,13 @@
 require "test_helper"
-require "phlex/testing/rails/view_helper"
-require "phlex/testing/nokogiri"
+require "support/component_helpers"
 
 class PaginationComponentTest < ActiveSupport::TestCase
-  include Phlex::Testing::Rails::ViewHelper
-  include Phlex::Testing::Nokogiri::FragmentHelper
+  include ComponentHelpers
   include ActiveSupport::Testing::TimeHelpers
 
   describe "when no prev and next" do
     test "returns empty" do
-      pagy = OpenStruct.new(prev: nil, next: nil, page: 1)
+      pagy = OpenStruct.new(previous: nil, next: nil, page: 1)
       output = render PaginationComponent.new(pagy)
 
       assert output.children.blank?

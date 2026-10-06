@@ -15,6 +15,5 @@ class EnqueueScrapersJob < ApplicationJob
     ScrapeJob.perform_later("weworkremotely")
     # NOTE: uncomment when rubyjobboard get up
     # ScrapeJob.perform_later("rubyjobboard")
-    ScrapeJob.perform_later("rubyonremote")
   end
 end

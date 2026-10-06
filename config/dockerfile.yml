@@ -2,8 +2,8 @@
 
 ---
 options:
-  fullstaq: true
-  jemalloc: true
+  fullstaq: false
+  jemalloc: false
   label:
     fly_launch_runtime: rails
   procfile: Procfile.fly

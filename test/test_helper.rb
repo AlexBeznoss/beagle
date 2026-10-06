@@ -3,12 +3,11 @@ require_relative "../config/environment"
 require "rails/test_help"
 require "minitest/rails"
 require "webmock/minitest"
-require "support/user_helpers"
 
-WebMock.disable_net_connect!(
-  allow_localhost: true,
-  allow: ["api.clerk.dev"]
-)
+WebMock.disable_net_connect!(allow_localhost: true)
+
+# Create FTS tables before transactions can roll their creation back.
+JobPost.configure_search_index
 
 module FaradayStubMethods
   def faraday_headers_with(headers = {})
@@ -22,9 +21,13 @@ end
 
 class ActiveSupport::TestCase
   include FaradayStubMethods
-  include UserHelpers
+
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
+
+  parallelize_setup do
+    JobPost.configure_search_index
+  end
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   # fixtures :all
