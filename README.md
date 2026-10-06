@@ -2,6 +2,14 @@
 
 A Ruby job board collecting posts from GoRails, RemoteOK, RubyJobBoard, RubyOnRemote, StartupJobs, and WeWorkRemotely.
 
+## Job sources
+
+GoRails uses its public XML feed. RemoteOK uses its public JSON API with local Ruby/Rails relevance filtering. WeWorkRemotely combines the all-jobs, full-stack, and back-end RSS feeds; this avoids its incomplete Ruby landing page. StartupJobs uses its official anonymous MCP endpoint with Ruby/Rails remote searches and cursor pagination, requiring no API key or browser service. Its free source window covers the last 14 days; extended outages require a separate backfill arrangement. StartupJobs searches match titles/company names, so this adapter retains explicitly relevant role titles rather than claiming complete description-based coverage.
+
+Valid empty responses are successful no-ops for these structured sources. Unexpected schemas, malformed feeds, and API errors fail explicitly. Scraping preserves existing provider IDs, refreshes changed fields and logos, and saves each batch transactionally. RubyOnRemote's existing HTML adapter remains in place for separate investigation. Keep source attribution and links to canonical provider job pages.
+
+See [the provider verification report](docs/provider-verification.md) for live acquisition, Chrome DevTools comparisons, persistence checks, and source coverage limits.
+
 ## Development
 
 Use Ruby **4.0.7**, Bundler **4.0.22**, and Node **24.21.0 LTS**. Versions are recorded in `.ruby-version`, `.node-version`, and `.mise.toml`.

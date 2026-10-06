@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jobs>
+<job>
+  <guid isPermaLink="false">17403057-software-developer-ruby-on-rails-ec231228</guid>
+  <id>17403057</id>
+  <url>https://jobs.gorails.com/jobs/software-developer-ruby-on-rails-ec231228</url>
+  <application_link>https://20231027201434_y5uttqofpapg105p.applytojob.com/apply/3XGZMhah7W/Software-Developer-Ruby-On-Rails?source=GoRails</application_link>
+  <title>Software Developer, Ruby on Rails</title>
+  <arrangement>fulltime</arrangement>
+  <location_type>remote</location_type>
+  <location></location>
+  <location_limits>
+    <location>North America</location>
+  </location_limits>
+  <published_at>2026-10-05T08:14:25-05:00</published_at>
+  <expires_at>2026-11-04T08:14:25-06:00</expires_at>
+  <highlighted>true</highlighted>
+  <sticky>false</sticky>
+  <html_description>
+    <![CDATA[<p><p><span><b>About E-J</b> </span><span>&nbsp;</span></p>
+<br /><p><span>The E-J Group is active in all facets of electrical contracting, bringing experience, expertise, and a national reputation to projects that range in size up to more than $1 billion. With over 4,500 employees across 33 offices nationwide, E-J delivers full-service electrical solutions for mission critical / data centers, rail systems, transit facilities, office buildings, hospitals, power generation, substations, transmission and distribution, renewables, co-generation facilities, roadway and outdoor specialty work, airports, industrial facilities, chip plants, universities, sports stadiums, extra high voltage distribution, utility, and gas infrastructure. At E-J, three generations of family expertise have built an organization that combines practical knowledge with modern technological innovation, providing rapid and efficient solutions for today’s lighting, power, energy, and communication needs. E-J has over a 125-year reputation for integrity, quality, and exceptional service in the electrical field. To learn more, visit </span><a>www.ej1899.com</a><span>.</span><span>&nbsp;</span></p>
+<br /><p><span><b>Position Summary</b></span></p>
+<br /><p><span>We’re looking for a Ruby on Rails Developer to help improve an early-stage Business Process Management (BPM) product. The ideal candidate is a dedicated Ruby developer with strong design skills who enjoys working in an early-stage product environment and understands what that entails. At times, they will be given a fully developed design specification; at other times, they will need to communicate with non-technical users, identify product requirements, and create the design specification themselves. This role requires comfort implementing modern UI/UX experiences using full-stack Rails, including a Rails backend and Stimulus/Turbo front end.</span><span>&nbsp;</span></p>
+<br /><p><span></span><span>&nbsp;</span><b><span>What You’ll Do:</span><span>&nbsp;</span></b></p>
+<br /><ul><li>
+<br /><span>Develop the future of BPM software in a tight knit team that has been developing for 2+ years, has acquired 100~ daily active users, and aims to expand our userbase exponentially.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Implement new features end-to-end in Rails / Stimulus / Turbo.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Communicate with non-technical users to surface product requirements and then create a feature spec.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Iterate on existing features until the product feels both elegant and easy to use.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Implement and support SSO, Active Directory, SAML, OAuth, and dynamic user provisioning.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Develop document-centric features, including PDF generation, editing, and workflow integration.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Integrate AI capabilities into customer-facing products and internal development processes.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><p><b><span>What We're Looking For</span><span>&nbsp;</span></b></p>
+<br /><ul><li>
+<br /><span>4+ years of Full Stack software development experience.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>2+ years or more of Ruby on Rails experience.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Mid-level (or greater) design proficiency.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Someone comfortable working in an early-stage environment with frequently changing product requirements.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Experience building enterprise-scale applications and workflow-driven systems.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Hands-on experience with Active Directory, SSO, identity management, and enterprise security models.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Experience using AI-assisted development tools such as GitHub Copilot, Cursor, Claude Code, or similar.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Has worked within a structured Software Development Life Cycle (SDLC) Policy.</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><p><span><b>Nice to Have</b></span><span>&nbsp;</span></p>
+<br /><ul><li>
+<br /><span>Early-stage startup experience</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Experience with SaaS products that had a large amount of daily active users</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Experience building with Stimulus / Turbo</span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Cyber Security Certifications</span><span>&nbsp;</span><span> </span>
+<br /></li></ul>
+<br /><p><b><span>Advantages of Working at E-J</span><span> </span></b><span>&nbsp;</span></p>
+<br /><ul><li>
+<br /><span>Leading Electrical Contracting Organization Nationwide  </span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Oldest Family-Owned and Operated Electric Contractor since 1899  </span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Job training and mentorship  </span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Competitive compensation packages  </span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Comprehensive benefits, including medical, dental, and 401K plan  </span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Paid holidays and vacation  </span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Merit-Based Bonus  </span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><ul><li>
+<br /><span>Tuition Reimbursement Program </span><span>&nbsp;</span>
+<br /></li></ul>
+<br /><p><i><span>The E-J Group is an Equal Employment Opportunity Employer and ensures equal employment opportunity for all persons without discrimination on the basis of race, color, religion, sex, sexual orientation, national origin, age, disability, marital status, citizenship, or any other characteristic protected by law.</span><span>&nbsp;</span></i></p></p>]]>
+  </html_description>
+  <plain_text_description>About E-J   The E-J Group is active in all facets of electrical contracting, bringing experience, expertise, and a national reputation to projects that range in size up to more than $1 billion. With over 4,500 employees across 33 offices nationwide, E-J delivers full-service electrical solutions for mission critical / data centers, rail systems, transit facilities, office buildings, hospitals, power generation, substations, transmission and distribution, renewables, co-generation facilities, roadway and outdoor specialty work, airports, industrial facilities, chip plants, universities, sports stadiums, extra high voltage distribution, utility, and gas infrastructure. At E-J, three generations of family expertise have built an organization that combines practical knowledge with modern technological innovation, providing rapid and efficient solutions for today’s lighting, power, energy, and communication needs. E-J has over a 125-year reputation for integrity, quality, and exceptional service in the electrical field. To learn more, visit www.ej1899.com.  Position Summary We’re looking for a Ruby on Rails Developer to help improve an early-stage Business Process Management (BPM) product. The ideal candidate is a dedicated Ruby developer with strong design skills who enjoys working in an early-stage product environment and understands what that entails. At times, they will be given a fully developed design specification; at other times, they will need to communicate with non-technical users, identify product requirements, and create the design specification themselves. This role requires comfort implementing modern UI/UX experiences using full-stack Rails, including a Rails backend and Stimulus/Turbo front end.   What You’ll Do:  Develop the future of BPM software in a tight knit team that has been developing for 2+ years, has acquired 100~ daily active users, and aims to expand our userbase exponentially.  Implement new features end-to-end in Rails / Stimulus / Turbo.  Communicate with non-technical users to surface product requirements and then create a feature spec.  Iterate on existing features until the product feels both elegant and easy to use.  Implement and support SSO, Active Directory, SAML, OAuth, and dynamic user provisioning.  Develop document-centric features, including PDF generation, editing, and workflow integration.  Integrate AI capabilities into customer-facing products and internal development processes.  What We're Looking For  4+ years of Full Stack software development experience.  2+ years or more of Ruby on Rails experience.  Mid-level (or greater) design proficiency.  Someone comfortable working in an early-stage environment with frequently changing product requirements.  Experience building enterprise-scale applications and workflow-driven systems.  Hands-on experience with Active Directory, SSO, identity management, and enterprise security models.  Experience using AI-assisted development tools such as GitHub Copilot, Cursor, Claude Code, or similar.  Has worked within a structured Software Development Life Cycle (SDLC) Policy.  Nice to Have  Early-stage startup experience  Experience with SaaS products that had a large amount of daily active users  Experience building with Stimulus / Turbo  Cyber Security Certifications   Advantages of Working at E-J   Leading Electrical Contracting Organization Nationwide    Oldest Family-Owned and Operated Electric Contractor since 1899    Job training and mentorship    Competitive compensation packages    Comprehensive benefits, including medical, dental, and 401K plan    Paid holidays and vacation    Merit-Based Bonus    Tuition Reimbursement Program   The E-J Group is an Equal Employment Opportunity Employer and ensures equal employment opportunity for all persons without discrimination on the basis of race, color, religion, sex, sexual orientation, national origin, age, disability, marital status, citizenship, or any other characteristic protected by law. </plain_text_description>
+  <company_name>E-J Electric Installation Co.</company_name>
+  <company_url>https://www.ej1899.com/</company_url>
+  <company_logo_url>https://cdn.jobboardly.com/8wrk2q3jhyoe1lo1a2xmehqjt8eo</company_logo_url>
+  <salary_minimum>110000.00</salary_minimum>
+  <salary_maximum>140000.00</salary_maximum>
+  <salary_schedule>yearly</salary_schedule>
+  <salary_currency>USD</salary_currency>
+</job>
+</jobs>

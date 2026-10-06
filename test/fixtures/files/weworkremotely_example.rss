@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss"><channel>
+<title>WWR Full-Stack</title><link>https://weworkremotely.com/remote-jobs.rss</link><description>Remote jobs</description>
+<item><title>Edfinity: Senior Software Engineer, remote</title><link>https://weworkremotely.com/remote-jobs/edfinity-senior-software-engineer-remote</link><region>Anywhere in the World</region><country>United States</country><media:content url="https://example.com/logo.png"/><description><![CDATA[<p>Our stack is Ruby on Rails, MongoDB, Redis and React.</p><p>Deep experience with Rails.</p>]]></description></item>
+<item><title>Lemon.io: Senior Angular Full-stack Developer</title><link>https://weworkremotely.com/remote-jobs/lemon-angular</link><description><![CDATA[<p>Requirements: Angular and TypeScript.</p><p>NOT YOUR TECH STACK?</p><p>We also have Ruby, Rails, Python and Go roles.</p>]]></description></item>
+<item><title>Acme: Ruby Developer</title><link>http://weworkremotely.com/remote-jobs/acme-ruby/?utm_source=rss</link><country>Canada</country><description>Develop Ruby applications.</description></item>
+</channel></rss>

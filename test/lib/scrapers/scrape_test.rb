@@ -5,7 +5,8 @@ class Scrapers::ScrapeTest < ActiveSupport::TestCase
     "gorails" => Scrapers::Gorails,
     "remoteok" => Scrapers::Remoteok,
     "rubyonremote" => Scrapers::Rubyonremote,
-    "startupjobs" => Scrapers::Startupjobs
+    "startupjobs" => Scrapers::Startupjobs,
+    "weworkremotely" => Scrapers::Weworkremotely
   }
   describe ".call" do
     describe "when provider is not supported" do
@@ -46,6 +47,7 @@ class Scrapers::ScrapeTest < ActiveSupport::TestCase
           scraper_instance_mock = Minitest::Mock.new
           scraper_instance_mock.expect :url, url
           scraper_instance_mock.expect :call, result, []
+          scraper_instance_mock.expect :empty_results_allowed?, false, []
 
           scraper_mock = Minitest::Mock.new
           scraper_mock.expect :new, scraper_instance_mock, [page]

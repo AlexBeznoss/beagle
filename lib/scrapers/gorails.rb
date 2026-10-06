@@ -1,56 +1,64 @@
+require "time"
+
 module Scrapers
   class Gorails < BaseScraper
-    BASE_URL = "https://jobs.gorails.com/"
-    HEADERS = {}
-    LOCATION_SVG_PATH = "M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM6.262 6.072a8.25 8.25 0 1010.562-.766 4.5 4.5 0 01-1.318 1.357L14.25 7.5l.165.33a.809.809 0 01-1.086 1.085l-.604-.302a1.125 1.125 0 00-1.298.21l-.132.131c-.439.44-.439 1.152 0 1.591l.296.296c.256.257.622.374.98.314l1.17-.195c.323-.054.654.036.905.245l1.33 1.108c.32.267.46.694.358 1.1a8.7 8.7 0 01-2.288 4.04l-.723.724a1.125 1.125 0 01-1.298.21l-.153-.076a1.125 1.125 0 01-.622-1.006v-1.089c0-.298-.119-.585-.33-.796l-1.347-1.347a1.125 1.125 0 01-.21-1.298L9.75 12l-1.64-1.64a6 6 0 01-1.676-3.257l-.172-1.03z"
+    BASE_URL = "https://jobs.gorails.com/jobs.xml"
+    HEADERS = {"Accept" => "application/xml"}.freeze
+
+    def empty_results_allowed?
+      true
+    end
 
     def call
-      doc = Nokogiri::HTML5.parse(request_body)
-
-      doc.css('body header ~ div ul[role="list"] li').map do |job|
-        {
-          pid: pid_from(job),
-          name: name_from(job),
-          url: url_from(job),
-          company: company_from(job),
-          img_url: image_url_from(job),
-          location: location_from(job)
-        }
+      doc = Nokogiri::XML(request_body) { |config| config.strict.nonet }
+      unless doc.root&.name == "jobs" && doc.root.namespace.nil? && doc.internal_subset.nil? &&
+          doc.root.element_children.all? { |node| node.name == "job" && node.namespace.nil? }
+        raise InvalidResponse, "Unrecognized GoRails XML feed"
       end
+
+      doc.root.element_children.filter_map do |job|
+        parsed = parse_job(job)
+        expiry = text(job, "expires_at")
+        next if expiry.present? && Time.iso8601(expiry) <= Time.current
+
+        parsed
+      end
+    rescue Nokogiri::XML::SyntaxError, ArgumentError, URI::InvalidURIError => error
+      raise InvalidResponse, "Invalid GoRails feed: #{error.message}"
     end
 
     private
 
-    def pid_from(job)
-      url_from(job).split("/").last
+    def parse_job(job)
+      title = required_text(job, "title")
+      company = required_text(job, "company_name")
+      url = required_text(job, "url")
+      uri = URI.parse(url)
+      unless uri.scheme == "https" && uri.host == "jobs.gorails.com" &&
+          uri.userinfo.nil? && uri.query.nil? && uri.fragment.nil? && uri.path.match?(%r{\A/jobs/[^/]+\z})
+        raise InvalidResponse, "Invalid GoRails job URL"
+      end
+
+      limits = job.xpath("location_limits/location").map { |node| node.text.strip }.reject(&:empty?)
+      {
+        pid: uri.path.split("/").last,
+        name: title,
+        url: url,
+        company: company,
+        img_url: text(job, "company_logo_url").presence,
+        location: limits.presence&.join(", ") || text(job, "location").presence || text(job, "location_type").presence
+      }
     end
 
-    def name_from(job)
-      job.at_css("h3").text.strip
+    def text(job, field)
+      job.at_xpath(field)&.text.to_s.strip
     end
 
-    def url_from(job)
-      URI.parse(BASE_URL)
-        .tap { |url| url.path = job.at_css("a")[:href] }
-        .to_s
-    end
+    def required_text(job, field)
+      value = text(job, field)
+      raise InvalidResponse, "GoRails job missing #{field}" if value.blank?
 
-    def company_from(job)
-      job.at_css("h3").parent.at_css("p").text.strip
-    end
-
-    def image_url_from(job)
-      img = job.at_css("img")
-      return unless img
-
-      img[:src]
-    end
-
-    def location_from(job)
-      icon = job.css("svg").find { |el| el.at_css("path")[:d] == LOCATION_SVG_PATH }.presence
-      return unless icon
-
-      icon.next_element.text.strip
+      value
     end
   end
 end

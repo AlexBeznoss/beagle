@@ -1,5 +1,7 @@
 module Scrapers
   class BaseScraper
+    class InvalidResponse < StandardError; end
+
     def initialize(page = nil)
       @page = page
     end
@@ -13,6 +15,10 @@ module Scrapers
 
     def headers
       self.class::HEADERS
+    end
+
+    def empty_results_allowed?
+      false
     end
 
     private
