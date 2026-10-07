@@ -13,3 +13,5 @@ cloudflare:
   endpoint: <%= Rails.application.credentials.dig(:cloudflare, :endpoint) || "https://r2.cloudflarestorage.com" %>
   bucket: <%= Rails.application.credentials.dig(:cloudflare, :bucket) || "bucket" %>
   region: auto
+  # Rails supplies Content-MD5; R2 rejects an additional SDK-generated checksum.
+  request_checksum_calculation: when_required
