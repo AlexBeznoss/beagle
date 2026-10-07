@@ -12,6 +12,8 @@ Valid empty responses are successful no-ops for the structured sources. Unexpect
 
 See [the provider verification report](docs/provider-verification.md) and [RubyOnRemote follow-up](docs/rubyonremote-verification.md) for live acquisition, Chrome DevTools comparisons, persistence checks, and source coverage limits.
 
+R2 uploads use `request_checksum_calculation: when_required` because Rails already supplies Content-MD5. Uploads complete before the logo is attached, and repeated image jobs re-download attachments whose objects are missing. After deploying the logo repair, run `RAILS_ENV=production bin/rails logos:repair` on the app machine to queue checks for all visible jobs with a source logo URL. Existing stored logos are retained; missing files are re-downloaded. The checks run in background jobs rather than during public page rendering.
+
 ## Development
 
 Use Ruby **4.0.7**, Bundler **4.0.22**, and Node **24.21.0 LTS**. Versions are recorded in `.ruby-version`, `.node-version`, and `.mise.toml`.
