@@ -88,7 +88,7 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
-    addressable (2.9.0)
+    addressable (2.9.1)
       public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.3)
     async (2.46.0)
@@ -169,9 +169,9 @@ GEM
       bigdecimal
       rexml
     crass (1.0.8)
-    cuprite (0.18)
+    cuprite (0.20)
       capybara (~> 3.0)
-      ferrum (~> 0.18.0)
+      ferrum (~> 0.20.1)
     date (3.6.0)
     debug (1.11.1)
       irb (~> 1.10)
@@ -214,7 +214,7 @@ GEM
       logger
     faraday-net_http (3.5.0)
       net-http (~> 0.5)
-    ferrum (0.18.0)
+    ferrum (0.20.1)
       addressable (~> 2.5)
       base64 (~> 0.2)
       concurrent-ruby (~> 1.1)
